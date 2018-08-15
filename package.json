@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "enzyme": "^3.4.1",
+    "enzyme-adapter-react-16": "^1.2.0",
+    "enzyme-to-json": "^3.3.4",
+    "prop-types": "^15.6.2",
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-redux": "^5.0.7",
@@ -10,7 +14,6 @@
     "react-router-redux": "^4.0.8",
     "react-scripts": "1.1.4",
     "redux": "^4.0.0",
-    "semantic-ui-react": "^0.82.2",
     "styled-components": "^3.4.2"
   },
   "scripts": {
