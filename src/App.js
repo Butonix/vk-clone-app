@@ -1,10 +1,6 @@
 import React, { Component } from 'react';
-import styled            from 'styled-components';
 import PageHeader           from './components/PageHeader/PageHeader';
 import './App.css';
-
-
-
 
 
 

@@ -1,5 +1,4 @@
 import  React       from 'react';
-import  PropTypes   from 'prop-types';
 import  styled      from 'styled-components';
 
 import PageHeaderLogo from './PageHeaderLogo';
@@ -7,10 +6,12 @@ import PageHeaderSearch from './PageHeaderSearch';
 
 
 
+
+
+
 const Header = styled.div`
     background: #4a76a8;
     min-height: 42px;
-    padding: 10px 0;
 `;
 
 const Container = styled.div`
