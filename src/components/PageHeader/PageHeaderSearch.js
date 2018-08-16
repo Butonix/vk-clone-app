@@ -42,7 +42,6 @@ const SearchInput = styled.input`
      opacity: .5;
      font-weight: normal;
     }
-    
 `;
 
 export default class PageHeaderSearch extends React.Component {
@@ -55,6 +54,6 @@ export default class PageHeaderSearch extends React.Component {
                     type="text"
                 / >
             </SearchContainer>
-        )
+        );
     }
 }

@@ -1,12 +1,7 @@
-import  React       from 'react';
-import  styled      from 'styled-components';
-
-import PageHeaderLogo from './PageHeaderLogo';
+import React           from 'react';
+import styled          from 'styled-components';
+import PageHeaderLogo   from './PageHeaderLogo';
 import PageHeaderSearch from './PageHeaderSearch';
-
-
-
-
 
 
 const Header = styled.div`
