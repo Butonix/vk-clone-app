@@ -31,7 +31,7 @@ const ProfileIcon = styled.div`
     background: #333;
     border-radius: 50%;
     margin: 10px 0;
-`
+`;
 
 export default class PageHeaderProfile extends Component {
 
