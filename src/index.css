@@ -113,3 +113,8 @@ input[type=button] {width: auto; overflow: visible;}
 body {
 	background: #edeef0;
 }
+
+@keyframes opacity {
+	0% { opacity: 0; }
+	100% { opacity: 100% ;}
+}

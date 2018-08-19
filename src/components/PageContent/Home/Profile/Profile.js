@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled               from 'styled-components';
-import { withBaseIcon }     from 'react-icons-kit';
-import { barChart }         from 'react-icons-kit/fa/barChart';  
-
+import React, { Component }     from 'react';
+import styled                   from 'styled-components';
+import { withBaseIcon }         from 'react-icons-kit';
+import { barChart }             from 'react-icons-kit/fa/barChart';  
+import { ProfileContainer }     from './../HomeStyled';
 
 
 const SideIconContainer =  withBaseIcon({ size: 17  , style: {
@@ -11,19 +11,6 @@ const SideIconContainer =  withBaseIcon({ size: 17  , style: {
     width: '30px',
     height: '30px'
   }});
-
-
-
-const HomeProfileContainer = styled.div`
-    background: #fff;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 3px;
-    img {
-        width: 100%;
-        
-    }
-`;
 
 const ImageContainer = styled.div`
     width: 200px;
@@ -47,31 +34,29 @@ const ChangeButton = styled.button`
 const StaticButton = styled.div`
     background: #e5ebf1;
     border-radius: 3px;
+`;
 
-`
-
-const Info = styled.div`
+const ChangeInfoContainer = styled.div`
     margin-top: 20px;
     display: flex;
     justify-content: space-between;
 `;
 
 
-export default class HomeProfile extends Component {
+export default class Profile extends Component {
   render() {
     return (
-      <HomeProfileContainer>
+      <ProfileContainer>
         <ImageContainer>
-            <img src="" />
+            <img src="" alt="" />
         </ImageContainer>
-        <Info>
+        <ChangeInfoContainer>
             <ChangeButton>Редактировать</ChangeButton>
             <StaticButton>
                 <SideIconContainer icon={barChart}/>
             </StaticButton>
-        </Info>
-        
-      </HomeProfileContainer>
+        </ChangeInfoContainer>
+      </ProfileContainer>
     )
   }
 }
