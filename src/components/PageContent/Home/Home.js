@@ -1,15 +1,29 @@
 import React, { Component } from 'react';
-import { HomeContainer }    from './HomeStyled';
 import Profile              from './Profile/Profile';
 import ProfileInfo          from './ProfileInfo/ProfileInfo';
+import ProfilePhotos        from './ProfilePhotos/ProfilesPhotos';
+
+// Styled components 
+import { HomeContainer, 
+        LeftColum, 
+        RightColumn }       from './HomeStyled';
 
 
 export default class Home extends Component {
   render() {
     return (
       <HomeContainer>
-        <Profile />
-        <ProfileInfo />
+        <LeftColum>
+
+          <Profile />
+
+        </LeftColum>
+        <RightColumn>
+
+          <ProfileInfo />
+          <ProfilePhotos />
+
+        </RightColumn>
       </HomeContainer>
     )
   }

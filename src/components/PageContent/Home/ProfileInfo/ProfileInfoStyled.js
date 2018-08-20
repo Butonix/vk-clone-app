@@ -7,9 +7,10 @@ import styled from 'styled-components';
 export const ProfileInfoContainer = styled.div`
   background: #fff;
   padding: 10px 20px;
-  width: 80%;
   margin: 10px 0 10px 10px;
+  border-radius: 3px;
   text-align: left;
+  box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 `;
 
 export const NameTitle = styled.h3`

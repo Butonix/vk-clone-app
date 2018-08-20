@@ -5,7 +5,6 @@ import PageMenu             from './components/PageMenu/PageMenu';
 import { Container }        from './components/StyledComponents';
 import Home                 from './components/PageContent/Home/Home';
 
-
 import './App.css';
 
 const AppContent = styled.div`
