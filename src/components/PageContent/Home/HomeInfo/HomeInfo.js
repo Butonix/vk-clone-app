@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-import ProfileInfoNumbers from './ProfileInfoNumbers';
+import HomeInfoNumbers from './HomeInfoNumbers';
 
 // Styled components
 import  {
-  ProfileInfoContainer,
+  HomeInfoContainer,
   NameTitle,
   ProfileStatus,
   CheckOnline,
@@ -15,9 +15,9 @@ import  {
   MoreInfo,
   MoreInfoBlock,
   InfoTitle
-} from './ProfileInfoStyled';
+} from './HomeInfoStyled';
 
-export default class ProfileInfo extends Component {
+export default class HomeInfo extends Component {
 
   constructor(props) {
     super(props);
@@ -47,7 +47,7 @@ export default class ProfileInfo extends Component {
 
   render() {
     return (
-      <ProfileInfoContainer>
+      <HomeInfoContainer>
         <NameTitle>Иван Звонков <CheckOnline>Online</CheckOnline> </NameTitle>
         <ProfileStatus>Undefined is not a function</ProfileStatus>
         <InformationContainer>
@@ -97,9 +97,9 @@ export default class ProfileInfo extends Component {
                 </RightColumn>
             </Information>
           </MoreInfoBlock>
-          <ProfileInfoNumbers />
+          <HomeInfoNumbers />
         </InformationContainer>
-      </ProfileInfoContainer>
+      </HomeInfoContainer>
     )
   }
 }

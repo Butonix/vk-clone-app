@@ -43,7 +43,7 @@ const ChangeInfoContainer = styled.div`
 `;
 
 
-export default class Profile extends Component {
+export default class HomeProfile extends Component {
   render() {
     return (
       <ProfileContainer>

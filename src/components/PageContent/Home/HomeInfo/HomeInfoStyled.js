@@ -2,9 +2,9 @@ import styled from 'styled-components';
 
 
 
-// ProfileInfo styled 
+// HomeInfo styled 
 
-export const ProfileInfoContainer = styled.div`
+export const HomeInfoContainer = styled.div`
   background: #fff;
   padding: 10px 20px;
   margin: 10px 0 10px 10px;
@@ -121,7 +121,7 @@ export const InfoTitle = styled.div`
 `;
 
 
-// ProfileInfoNumber styled 
+// HomeInfoNumber styled 
 
 export const Numbers = styled.div`
     padding-top: 10px;
@@ -157,7 +157,7 @@ export const ItemDescription = styled.div`
 
 
 export default {
-    ProfileInfoContainer,
+    HomeInfoContainer,
     NameTitle,
     ProfileStatus,
     CheckOnline,

@@ -7,6 +7,26 @@ export const HomeContainer = styled.div`
     width: 83%;
 `;
 
+
+export const BlockTitle = styled.div`
+    display: flex;
+    justify-content: space-between;
+    span {
+        font-size: 12px;
+        color: #555;
+    }
+`;
+
+export const GrayLink = styled.a`
+    font-size: 12px;
+    color: #939393;
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+`;
+
+
 export const ProfileContainer = styled.div`
     background: #fff;
     padding: 15px;
@@ -28,5 +48,7 @@ export const RightColumn = styled.div`
 
 export default {
     HomeContainer,
-    ProfileContainer
+    ProfileContainer,
+    GrayLink,
+    BlockTitle
 }

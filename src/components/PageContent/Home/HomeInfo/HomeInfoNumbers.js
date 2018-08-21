@@ -2,18 +2,19 @@ import React, { Component } from 'react';
 
 // styled components
 import {
+
     Numbers,
     NumberItem,
     Number,
     ItemDescription
 
-} from './ProfileInfoStyled';
+} from './HomeInfoStyled';
 
-
-export class ProfileInfoNumbers extends Component {
+export class HomeInfoNumbers extends Component {
   render() {
     return (
       <Numbers>
+          
         <NumberItem href="">
             <Number>3238</Number>
             <ItemDescription>Друзей</ItemDescription>
@@ -43,4 +44,4 @@ export class ProfileInfoNumbers extends Component {
   }
 }
 
-export default ProfileInfoNumbers
+export default HomeInfoNumbers

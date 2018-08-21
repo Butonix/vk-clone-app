@@ -1,5 +1,5 @@
 import React from 'react';
-import { PhotoItem } from './ProfilePhotosStyled';
+import { PhotoItem } from './HomePhotosStyled';
 
 
 

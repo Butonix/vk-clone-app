@@ -9,7 +9,7 @@ import {
   PhotosTitle,
   MapLink,
   MyPhots
-}  from './ProfilePhotosStyled';
+}  from './HomePhotosStyled';
 
 // React Custom Components
 

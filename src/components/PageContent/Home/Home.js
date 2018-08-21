@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
-import Profile              from './Profile/Profile';
-import ProfileInfo          from './ProfileInfo/ProfileInfo';
-import ProfilePhotos        from './ProfilePhotos/ProfilesPhotos';
+
+
+import HomeProfile          from './HomeProfile/HomeProfile';
+import HomeInfo             from './HomeInfo/HomeInfo';
+import HomePhotos           from './HomePhotos/HomePhotos';
+import HomeFriends          from './HomeFriends/HomeFriends';
 
 // Styled components 
+
 import { HomeContainer, 
         LeftColum, 
         RightColumn }       from './HomeStyled';
@@ -15,13 +19,14 @@ export default class Home extends Component {
       <HomeContainer>
         <LeftColum>
 
-          <Profile />
+          <HomeProfile />
+          <HomeFriends />
 
         </LeftColum>
         <RightColumn>
 
-          <ProfileInfo />
-          <ProfilePhotos />
+          <HomeInfo />
+          <HomePhotos />
 
         </RightColumn>
       </HomeContainer>
