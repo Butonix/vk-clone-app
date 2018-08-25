@@ -6,7 +6,7 @@ export const ListContainer = styled.ul``;
 
 export const PageMenuContainer = styled.div`
     width: 17%;
-`;
+`
 
 
 export const LinkTo = styled.a`
@@ -21,7 +21,6 @@ export const LinkTo = styled.a`
 `;
 
 export const List = styled.li`
-  padding: 5px 0;
   display: flex;
   align-items: center;
   &:first-child {

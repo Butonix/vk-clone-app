@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 
+// React Components
 
 import HomeProfile          from './HomeProfile/HomeProfile';
 import HomeInfo             from './HomeInfo/HomeInfo';
 import HomePhotos           from './HomePhotos/HomePhotos';
 import HomeFriends          from './HomeFriends/HomeFriends';
+
+import AddHomeWall          from './HomeWall/AddHomeWall';
+import SearchWall           from './HomeWall/SearchWall';
+import HomeWall             from './HomeWall/HomeWall';
+
 
 // Styled components 
 
@@ -27,6 +33,9 @@ export default class Home extends Component {
 
           <HomeInfo />
           <HomePhotos />
+          <AddHomeWall  />
+          <SearchWall />
+          <HomeWall />
 
         </RightColumn>
       </HomeContainer>

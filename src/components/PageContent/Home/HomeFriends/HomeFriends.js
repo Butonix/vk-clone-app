@@ -1,10 +1,13 @@
-import React, { Component }     from 'react';
+import React, { Component,Fragment  }     from 'react';
 import { GrayLink, BlockTitle } from './../HomeStyled';
 
+import Friend from './Friend';
 
 import {
     HomePreindsContainer,
-    MyFreinds
+    MyFreinds,
+    FreindsNumber,
+    FreindsTitle
 } from './HomeFriendsStyled';
 
 
@@ -12,16 +15,36 @@ import {
 export default class HomeFriends extends Component {
   render() {
     return (
+    <Fragment>
       <HomePreindsContainer>
          <BlockTitle>
-          <span>Мои друзья</span>
+          <FreindsTitle>Мои друзья <FreindsNumber>3328</FreindsNumber></FreindsTitle>
           <GrayLink href="#">Обновления</GrayLink>
           
         </BlockTitle>
         <MyFreinds>
-            
+            <Friend name="Анастасия"/>  
+            <Friend name="Иван"/>  
+            <Friend name="Света"/>  
+            <Friend name="Андрей"/>  
+            <Friend name="Дима"/>  
+            <Friend name="Катя"/>
         </MyFreinds>
       </HomePreindsContainer>
-    )
+       <HomePreindsContainer>
+        <BlockTitle>
+          <FreindsTitle>Друзья Онлайн <FreindsNumber>1236</FreindsNumber></FreindsTitle>
+          </BlockTitle>
+        <MyFreinds>
+            <Friend name="Анастасия"/>  
+            <Friend name="Иван"/>  
+            <Friend name="Света"/>  
+            <Friend name="Андрей"/>  
+            <Friend name="Дима"/>  
+            <Friend name="Катя"/>
+        </MyFreinds>
+    </HomePreindsContainer>
+  </Fragment>
+    );
   }
 }

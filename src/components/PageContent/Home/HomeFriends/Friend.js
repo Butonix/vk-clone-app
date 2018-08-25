@@ -7,9 +7,10 @@ import { FreindItem } from './HomeFriendsStyled';
 const Friend = (props) => {
   return (
     <FreindItem>
-      <img src={props.imgUrl} />
+      <div className="avatar"/>
+      <p>{props.name}</p>
     </FreindItem>
   );
 }
 
-export default Freind;
+export default Friend;

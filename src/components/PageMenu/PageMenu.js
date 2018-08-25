@@ -18,11 +18,12 @@ import {
 } from './PageMenuStyled';
 
 
-const SideIconContainer =  withBaseIcon({ size: 17  , style: {
+const SideIconContainer =  withBaseIcon({ size: 16  , style: {
     color: '#4a76a8',
     cursor: 'pointer',
     width: '30px',
-    height: '30px'
+    height: '30px',
+    opacity: '.7'
   }});
 
 export default class PageMenu extends Component {
