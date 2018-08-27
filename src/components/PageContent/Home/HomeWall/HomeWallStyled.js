@@ -36,29 +36,53 @@ export const ChoiceWallLinks = styled.div`
 
 export const PositionSearch = styled.div`
     position: relative;
-    
     width: 100%;
 `;
 
 export const WallSearch = styled.div`
     display: flex;
-    background: #fff;
-    width: 100%;
-    right: 0;
-    position: absolute;
-    top: 20px;
-    padding: 15px 15px 5px 15px;  
+    align-items: center;
     justify-content: space-between;
-    margin: 10px 0px 10px 10px;
+    animation: top 0.4s ease-in-out;
+    background: #fff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    padding: 15px 15px 16px 15px; 
+    margin: 10px 0px 0 10px;
+    height: 52px;
+        
 `;
 
-export const WallSearchInput = styled.input`
+export const SearchWallContainer = styled.div`
+    
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    animation: top 0.4s ease-in-out;
+    background: #fff;
+    border-top-right-radius: 3px;
+    border-top-left-radius: 3px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    padding: 15px 15px 6px 15px; 
+    margin: 10px 0px 0 10px;
+    height: 52px;
+`;  
 
+export const WallSearchInput = styled.input`
+    border: none;
+    outline: none;
+    width: 80%;
+    color: #888;
+    &::placeholder {
+        color: #888;
+        transition: all 0.3s;
+    }
 `;
 
 export const ChoiceWallLink = styled.a`
     border-bottom: ${props => props.lineShow ? '2px solid #5181b8' : ''};
-    padding-bottom: 20px;
+    padding-bottom: 18px;
     margin-left: 20px;
     font-size: 14px;
     color: #656565;
@@ -72,18 +96,7 @@ export const SearchWallIcon = styled.div`
     box-sizing: border-box;
 `;
 
-export const SearchWallContainer = styled.div`
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    animation: top 0.4s ease-in-out;
-    background: #fff;
-    border-top-right-radius: 3px;
-    border-top-left-radius: 3px;
-    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-    padding: 15px 15px 5px 15px; 
-    margin: 10px 0px 10px 10px;
-`;  
+
 ;
 export const PostProfile = styled.div`
     display: flex;

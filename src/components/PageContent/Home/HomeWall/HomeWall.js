@@ -42,7 +42,6 @@ const SideIconContainer =  withBaseIcon({ size: 18  , style: {
 
 
 export class HomeWall extends Component {
-  
   render() {
     return (
       <WallContainer>
@@ -80,7 +79,7 @@ export class HomeWall extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  vall: state.WallAddPost,
+  vall: state.WallAddPost
 })
 
 const mapDispatchToProps = {

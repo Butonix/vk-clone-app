@@ -72,7 +72,10 @@ export class AddHomeWall extends PureComponent {
   handleAddClick(e) {
     const text = this.state.postText;
     if(text.length) {
-      this.props.addPost({ text });
+      this.props.addPost({ 
+        id: Date.now().toString(),
+        text 
+      });
     } 
    
   }

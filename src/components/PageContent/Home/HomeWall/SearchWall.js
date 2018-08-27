@@ -33,6 +33,14 @@ export class SearchWall extends Component {
           searchShow: true
       }
   }
+  handleClick(e) {
+      if(!this.state.searchShow) {
+          this.setState({searchShow: true})
+      }  else {
+          this.setState({searchShow: false})
+      }
+      
+  }
   render() {
     if (this.state.searchShow) {
         return (
@@ -43,7 +51,9 @@ export class SearchWall extends Component {
                 <ChoiceWallLink lineShow={true}>Мои записи</ChoiceWallLink>
             </ChoiceWallLinks>
             <SearchWallIcon>
-                <SideIconContainer  icon={search }/>
+                <SideIconContainer  
+                onClick={this.handleClick.bind(this)}
+                icon={search }/>
             </SearchWallIcon>
         </SearchWallContainer>
        </PositionSearch>
@@ -52,13 +62,20 @@ export class SearchWall extends Component {
         return (
             <PositionSearch>
                 <WallSearch>
-                    <SideIconContainer  icon={ search }/>
-                    <WallSearchInput />
-                    <SideIconContainer  icon={ ic_close }/>
+                    <SideIconContainer  
+                        icon={ search }
+                    />
+                    <WallSearchInput
+                        autoFocus={true}
+                        placeholder="Введите ваш запрос"
+                    />
+                    <SideIconContainer  
+                        onClick={this.handleClick.bind(this)}
+                        icon={ ic_close }
+                    />
                 </WallSearch>
            </PositionSearch>
         )
-    
     }
     return (
        <div />
