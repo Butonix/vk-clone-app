@@ -244,6 +244,23 @@ export const AddSmileContainer = styled.div`
     width: 20%;
 `; 
 
+
+// Компонент, который выводится, если ничего не найдено на стене 
+
+export const NoResults = styled.div`
+    animation: top 0.4s ease-in-out;
+    background: #fff;
+    border-radius: 3px;
+    box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+    padding: 15px 20px; 
+    margin: 10px 0 10px 10px;
+    p {
+        font-size: 14px;
+        color: #555;
+        line-height: 1.5em;
+    }
+`; 
+
 export default {
     HomeWallContainer,
     WallProfile,
@@ -268,5 +285,6 @@ export default {
     SearchWallIcon,
     WallSearch,
     WallSearchInput,
-    PositionSearch
+    PositionSearch,
+    NoResults
 }

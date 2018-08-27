@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react'
 import { connect }          from 'react-redux';
-import onClickOutside       from 'react-onclickoutside';
 
 // Styled components
 
@@ -45,7 +44,7 @@ export class AddHomeWall extends PureComponent {
     super(props);
     this.state = {
       addIconsShow: true,
-      addPanelShow: false,
+      addPanelShow: true,
       postText: ''
     }
   }
@@ -53,12 +52,6 @@ export class AddHomeWall extends PureComponent {
     this.setState({
       postText: e.target.value,
     })
-  }
-  handleClickOutside () {
-      this.setState({
-        addIconsShow: true,
-        addPanelShow: false
-       });
   }
   
   handleClick(e) {
@@ -74,7 +67,7 @@ export class AddHomeWall extends PureComponent {
     if(text.length) {
       this.props.addPost({ 
         id: Date.now().toString(),
-        text 
+        text
       });
     } 
    
@@ -121,4 +114,4 @@ const mapDispatchToProps = (dispacth, props) => ({
   }
 })
 
-export default connect(mapStateToProps, mapDispatchToProps)(onClickOutside(AddHomeWall));
+export default connect(mapStateToProps, mapDispatchToProps)(AddHomeWall);

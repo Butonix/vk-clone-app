@@ -18,15 +18,19 @@ import {
 
 
 
+
+// Icons 
+
 import { arrows_down } from 'react-icons-kit/linea/arrows_down'
-
-
 import { heart }        from 'react-icons-kit/fa/heart';
 import { comment}       from 'react-icons-kit/fa/comment';
 import { share }        from 'react-icons-kit/fa/share';
 import { withBaseIcon } from 'react-icons-kit';
 
+// React compoents
+
 import PostChangeContentTemplate from './PostChangeContent';
+import NoResultsSearch           from './NoResultsSearch';
 
 
 
@@ -45,8 +49,9 @@ export class HomeWall extends Component {
   render() {
     return (
       <WallContainer>
+        {!this.props.vall.length ? (<NoResultsSearch />) : ''}
         {
-          this.props.vall.posts.map((item, index) => {
+          this.props.vall.map((item, index) => {
             return (
               <Post key={index}>
                   <PostTitle>
@@ -79,7 +84,7 @@ export class HomeWall extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  vall: state.WallAddPost
+  vall: state.WallAddPost.posts.filter(item => item.text.includes(state.WallAddPost.searchText))
 })
 
 const mapDispatchToProps = {

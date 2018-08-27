@@ -16,7 +16,11 @@ import {
 // Icons 
 import { withBaseIcon } from 'react-icons-kit';
 import { search }          from 'react-icons-kit/fa/search';
-import { ic_close } from 'react-icons-kit/md/ic_close'
+import { ic_close } from 'react-icons-kit/md/ic_close';
+
+// Actions
+
+import SearchWallPost from './../../../../actions/SearhWall';
 
 const SideIconContainer =  withBaseIcon({ size: 18  , style: {
     color: '#4a76a8',
@@ -39,8 +43,11 @@ export class SearchWall extends Component {
       }  else {
           this.setState({searchShow: false})
       }
-      
   }
+  handleChange (e) {
+      this.props.searchPost(e.target.value);
+  }
+  
   render() {
     if (this.state.searchShow) {
         return (
@@ -56,7 +63,9 @@ export class SearchWall extends Component {
                 icon={search }/>
             </SearchWallIcon>
         </SearchWallContainer>
+        
        </PositionSearch>
+       
         )
     } else {
         return (
@@ -68,6 +77,7 @@ export class SearchWall extends Component {
                     <WallSearchInput
                         autoFocus={true}
                         placeholder="Введите ваш запрос"
+                        onChange={this.handleChange.bind(this)}
                     />
                     <SideIconContainer  
                         onClick={this.handleClick.bind(this)}
@@ -75,6 +85,7 @@ export class SearchWall extends Component {
                     />
                 </WallSearch>
            </PositionSearch>
+           
         )
     }
     return (
@@ -85,10 +96,12 @@ export class SearchWall extends Component {
 
 const mapStateToProps = (state) => ({
   
-})
+});
 
-const mapDispatchToProps = {
-  
-}
+const mapDispatchToProps = (dispath, props) => ({
+  searchPost: (postText) => {
+      dispath(SearchWallPost(postText));
+  }
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(SearchWall)

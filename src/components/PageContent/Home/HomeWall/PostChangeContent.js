@@ -23,7 +23,7 @@ export class PostChangeContentTemplate extends Component {
   }
   handleCLick(e) {
     console.log(e);
-    this.props.deletePost()
+    this.props.deletePost();
   }
   handleMouseOver(e) {
     this.setState({
@@ -51,6 +51,7 @@ export class PostChangeContentTemplate extends Component {
 }
 
 const mapStateToProps = (state) => ({
+  
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
