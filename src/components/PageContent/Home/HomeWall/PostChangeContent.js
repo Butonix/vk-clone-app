@@ -23,6 +23,7 @@ export class PostChangeContentTemplate extends Component {
     return (
        <PostChangeContent
         show={this.props.show}
+        onMouseLeave={this.props.onMouseLeave}
         >
         <PostChangeLink>Редактировать</PostChangeLink>
         <PostChangeLink onClick={this.props.deletePost}>Удалить</PostChangeLink>

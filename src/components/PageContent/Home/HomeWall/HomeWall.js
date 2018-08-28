@@ -21,7 +21,6 @@ import {
 
 // Icons 
 
-import { arrows_down } from 'react-icons-kit/linea/arrows_down'
 import { heart }        from 'react-icons-kit/fa/heart';
 import { comment}       from 'react-icons-kit/fa/comment';
 import { share }        from 'react-icons-kit/fa/share';
@@ -29,8 +28,8 @@ import { withBaseIcon } from 'react-icons-kit';
 
 // React compoents
 
-import PostChangeContentTemplate from './PostChangeContent';
-import NoResultsSearch           from './NoResultsSearch';
+import NoResultsSearch     from './NoResultsSearch';
+import PostChangeTemplate  from './PostChange'; 
 
 
 
@@ -44,7 +43,9 @@ const SideIconContainer =  withBaseIcon({ size: 18  , style: {
 
 
 export class HomeWall extends Component {
-  
+  deletePost(id) {
+    console.log(id)
+  }
   render() {
     return (
       <WallContainer>
@@ -52,20 +53,13 @@ export class HomeWall extends Component {
         {
           this.props.vall.map((item, index) => {
             return (
-              <Post key={index}>
+              <Post key={index} deletPost={this.deletePost(item.id)}>
                   <PostTitle>
                     <PostProfile>
                       <WallProfile back="./images/profile.jpg"/>
                       <span>Иван Звонков</span>
                     </PostProfile>
-                    <PostChange>
-                      <SideIconContainer 
-                        icon={arrows_down}
-                      />
-                      <PostChangeContentTemplate 
-                        
-                      />
-                    </PostChange>
+                    <PostChangeTemplate />
                   </PostTitle>
                   <PostContent>
                     <p>{item.text}</p> 
