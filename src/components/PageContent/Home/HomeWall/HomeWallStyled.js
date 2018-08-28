@@ -150,7 +150,7 @@ export const PostContent = styled.div`
 `;
 
 export const PostChangeContent = styled.div`
-    opacity: ${(props => props.show ? '0' : '0')};
+    opacity: ${(props => props.show ? '1' : '0')};
     position: absolute;
     min-width: 180px;
     max-width: 250px;
