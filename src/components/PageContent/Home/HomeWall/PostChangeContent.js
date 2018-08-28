@@ -17,15 +17,12 @@ import DeleteWallPost from './../../../../actions/DeleteWallPost';
 export class PostChangeContentTemplate extends Component {
   
   handleCLick(e) {
-    console.log(e);
-    this.props.deletePost();
+   
   }
   render() {
     return (
        <PostChangeContent
         show={this.props.show}
-        onMouseOver={this.props.handleMouseOver}
-        onMouseLeave={this.props.handleMouseLeave}
         >
         <PostChangeLink>Редактировать</PostChangeLink>
         <PostChangeLink onClick={this.props.deletePost}>Удалить</PostChangeLink>

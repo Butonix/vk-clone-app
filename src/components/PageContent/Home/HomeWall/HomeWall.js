@@ -44,27 +44,7 @@ const SideIconContainer =  withBaseIcon({ size: 18  , style: {
 
 
 export class HomeWall extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      changePostShow: false,
-      changePanelOver: false,
-    }
-  }
-    changePanelLeave() {
-      if(this.state.changePanelOver) {
-        this.setState({ changePanelOver: false})
-      }
-    }
-  handleMouseOver (e) {
-    this.setState({changePostShow: true});
-    if(this.state.changePostShow) {
-      this.setState({changePanelOver: true})
-    } 
-  }
-  handleMouseLeave(e) {
-    this.setState({changePostShow: false});
-  }
+  
   render() {
     return (
       <WallContainer>
@@ -81,12 +61,9 @@ export class HomeWall extends Component {
                     <PostChange>
                       <SideIconContainer 
                         icon={arrows_down}
-                        onMouseOver={this.handleMouseOver.bind(this)}
-                        onMouseLeave={this.handleMouseLeave.bind(this)}
                       />
                       <PostChangeContentTemplate 
-                        show={this.state.changePanelOver}
-                        handleMouseLeave={this.changePanelLeave.bind(this)}
+                        
                       />
                     </PostChange>
                   </PostTitle>
