@@ -7,18 +7,13 @@ import {
     PostChangeLink
 } from './HomeWallStyled';
 
-// Actions 
 
-import DeleteWallPost from './../../../../actions/DeleteWallPost';
 
 
 
 
 export class PostChangeContentTemplate extends Component {
   
-  handleCLick(e) {
-   
-  }
   render() {
     return (
        <PostChangeContent
@@ -38,9 +33,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch, props) => ({
-  deletePost: () => {
-    dispatch(DeleteWallPost());
-  }
+  
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(PostChangeContentTemplate);

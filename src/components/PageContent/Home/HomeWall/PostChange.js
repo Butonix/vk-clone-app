@@ -35,6 +35,7 @@ export class PostChangeTemplate extends Component {
       this.setState({show: false})
   }
   render() {
+    
     return (
         <PostChange >
             <SideIconContainer 
@@ -44,7 +45,8 @@ export class PostChangeTemplate extends Component {
             <PostChangeContentTemplate   
                 show={this.state.show}
                 onMouseLeave={this.handleMouseLeave.bind(this)}
-                deletePost={this.props.deletPost}
+                deletePost={this.props.deletePost}
+                postId={this.props.postID}
             />
         </PostChange>
     )

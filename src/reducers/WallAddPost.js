@@ -3,10 +3,12 @@
 import { 
         ADD_WALL_POST,
         DELETE_WALL_POST,
-        SEARCH_WALL_POST
+        SEARCH_WALL_POST,
+        NO_RESULT_SEARCH_WALL_POSTS
 } from './../constants/ActionTypes';
 
 const initialState = {
+    resultSearch: true,
     searchText: '',
     posts: [
         {
@@ -30,6 +32,7 @@ export default function WallAddPost(state = initialState, action)  {
         }
     }  
     if (action.type === DELETE_WALL_POST) {
+        
         return {
             ...state,
             text: state.posts.shift(action.data)
@@ -37,11 +40,18 @@ export default function WallAddPost(state = initialState, action)  {
     }
 
     if (action.type === SEARCH_WALL_POST) {
-        
         return {
             ...state,
-            searchText: action.data 
+            searchText: action.data
         }
     }
+
+    if (action.type === NO_RESULT_SEARCH_WALL_POSTS) {
+        return {
+            ...state,
+            resultSearch: action.data,
+        }
+    }
+    
     return state;
 } 
