@@ -1,9 +1,9 @@
-import { NO_RESULT_SEARCH_WALL_POSTS } from './../constants/ActionTypes';
+import {  NO_RESULT_SEARCH_WALL_POSTS } from './../constants/ActionTypes';
 
 
-export default function ResultSearchWall (result) {
+export default function resultSearchWall(post) {
     return {
         type: NO_RESULT_SEARCH_WALL_POSTS,
-        data: result
+        data: post
     }
 }

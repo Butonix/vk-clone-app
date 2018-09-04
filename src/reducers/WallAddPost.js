@@ -8,7 +8,6 @@ import {
 } from './../constants/ActionTypes';
 
 const initialState = {
-    resultSearch: true,
     searchText: '',
     posts: [
         {

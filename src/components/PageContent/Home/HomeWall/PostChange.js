@@ -25,26 +25,28 @@ export class PostChangeTemplate extends Component {
   constructor(props) {
       super(props);
       this.state = {
-          show: false
+          show: false,
+          hovArror: true
       }
   }
   handleMouseOver(e) {
       this.setState({show: true});
   }
   handleMouseLeave(e) {
-      this.setState({show: false})
+    this.setState({show: false});
   }
-  render() {
-    
+ 
+  render() { 
     return (
         <PostChange >
             <SideIconContainer 
                 icon={arrows_down}
                 onMouseOver={this.handleMouseOver.bind(this)}
+
             />
             <PostChangeContentTemplate   
-                show={this.state.show}
                 onMouseLeave={this.handleMouseLeave.bind(this)}
+                show={this.state.show}
                 deletePost={this.props.deletePost}
                 postId={this.props.postID}
             />

@@ -6,7 +6,7 @@ import { connect }          from 'react-redux';
 
 import DeleteWallPost   from './../../../../actions/DeleteWallPost';
 import SearchWallPost   from './../../../../actions/SearhWall';
-import ResultSearchWall from './../../../../actions/ResultSearchWall';
+import resultSearchWall from './../../../../actions/ResultSearchWall';
 
 // Styled Components
 
@@ -54,25 +54,22 @@ const SideIconContainer =  withBaseIcon({ size: 18  , style: {
 }});
 
 
-export class HomeWall extends Component {
+export class HomeWall extends PureComponent {
 
   constructor(props) {
     super(props);
     this.state = {
       postId: '',
-      searchShow: true
+      searchShow: true,
+      vallLength: true,
+     
     }
   }
-  // upDatePostID = (postid) => {
-  //   this.setState({postId: postid})
-  // }
-  searchPost() {
-    if (!this.props.vall.length) {
-      this.props.resultSearch(false);
+  static getDerivedStateFromProps(nextProps, prevState) {
+    return {
+    
+      vallLength: nextProps.vall.length
     }
-  }
-  deletPost(e) {
-     this.props.deletePost(this.state.postid);
   }
   handleClick(e) {
     if(!this.state.searchShow) {
@@ -81,13 +78,9 @@ export class HomeWall extends Component {
         this.setState({searchShow: false})
     }
   }
-  handleChange (e) {
-      this.props.searchPost(e.target.value);
-      if (!this.props.vall.length) {
-        this.props.resultSearch(false)
-      } else {
-        this.props.resultSearch(true)
-      }
+  
+  handleChangSearch(e) {
+    this.props.searchPost(e.target.value);
   }
   render() {
       return(
@@ -115,7 +108,7 @@ export class HomeWall extends Component {
               <WallSearchInput
                 autoFocus={true}
                 placeholder="Введите ваш запрос"
-                onChange={this.handleChange.bind(this)}
+                onChange={this.handleChangSearch.bind(this)}
               />
               <SideIconContainer  
                 onClick={this.handleClick.bind(this)}
@@ -127,7 +120,7 @@ export class HomeWall extends Component {
       }
     
       <WallContainer>
-        {!this.props.resultWallSearch ? (<NoResultsSearch />) :  ''}
+         {!this.state.vallLength ? (<NoResultsSearch />) :  ''}
           {this.props.vall.map((item, index) => {
             return (
               <Post key={index} >
@@ -138,7 +131,7 @@ export class HomeWall extends Component {
                     </PostProfile>
                     <PostChangeTemplate
                     //  postid={this.upDatePostID(item.id)}
-                     deletePost={this.deletPost.bind(this)}
+                    //  deletePost={this.deletPost.bind(this)}
                     />
                   </PostTitle>
                   <PostContent>
@@ -161,19 +154,19 @@ export class HomeWall extends Component {
 
 const mapStateToProps = (state) => ({
   vall: state.WallAddPost.posts.filter(item => item.text.includes(state.WallAddPost.searchText)),
-  resultWallSearch: state.WallAddPost.resultSearch,
+  resultSearchWall: state.WallAddPost.resultSearch
 })
 
 const mapDispatchToProps = (dispatch) => ({
+  resultSearch: (result) => {
+    dispatch(resultSearchWall(result))
+  },
   deletePost: (post) => {
     dispatch(DeleteWallPost(post));
   },
-  resultSearch: (result) => {
-    dispatch(ResultSearchWall(result));
-  },
   searchPost: (postText) => {
     dispatch(SearchWallPost(postText));
-},
-})
+  },
+});
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeWall);

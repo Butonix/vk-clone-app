@@ -9,9 +9,9 @@ import { createStore, combineReducers, applyMiddleware  } from 'redux';
 import { Provider }   from 'react-redux';
 import  WallAddPost   from './reducers/WallAddPost';
 
+import logger from 'redux-logger';
 
-
-const store = createStore(combineReducers({ WallAddPost}), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+const store = createStore(combineReducers({ WallAddPost}),applyMiddleware(logger))
    
    
 

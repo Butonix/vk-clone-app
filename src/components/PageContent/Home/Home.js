@@ -10,6 +10,8 @@ import HomeFriends          from './HomeFriends/HomeFriends';
 import AddHomeWall          from './HomeWall/AddHomeWall';
 import HomeWall             from './HomeWall/HomeWall';
 
+import HomeGroups           from  './HomeGroups/HomeGroups';
+
 
 // Styled components 
 
@@ -26,6 +28,7 @@ export default class Home extends Component {
 
           <HomeProfile />
           <HomeFriends />
+          <HomeGroups />
 
         </LeftColum>
         <RightColumn>

@@ -20,7 +20,6 @@ export default class HomeFriends extends Component {
          <BlockTitle>
           <FreindsTitle>Мои друзья <FreindsNumber>3328</FreindsNumber></FreindsTitle>
           <GrayLink href="#">Обновления</GrayLink>
-          
         </BlockTitle>
         <MyFreinds>
             <Friend name="Анастасия"/>  
@@ -34,7 +33,7 @@ export default class HomeFriends extends Component {
        <HomePreindsContainer>
         <BlockTitle>
           <FreindsTitle>Друзья Онлайн <FreindsNumber>1236</FreindsNumber></FreindsTitle>
-          </BlockTitle>
+        </BlockTitle>
         <MyFreinds>
             <Friend name="Анастасия"/>  
             <Friend name="Иван"/>  
