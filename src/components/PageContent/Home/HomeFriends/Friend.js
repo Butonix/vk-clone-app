@@ -14,7 +14,7 @@ const Friend = (props) => {
     );
   }
   return (
-    <div></div>
+    <FreindItem />
   )
   
   

@@ -4,7 +4,6 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 
 import {connect} from 'react-redux';
 
-
 // React Compoenents
 
 import Friend from './Friend';
@@ -21,9 +20,6 @@ import {
 //Actions 
 
 import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
-
-
-
 
  class HomeFriends extends Component {
   componentDidMount () {
@@ -58,7 +54,7 @@ import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
         </BlockTitle>
         <MyFreinds>
         {
-              freinds ? freinds.map((item, index) =>{
+              freinds ? freinds.reverse().map((item, index) =>{
                   return  ( 
                   <Friend 
                     key={index} 
