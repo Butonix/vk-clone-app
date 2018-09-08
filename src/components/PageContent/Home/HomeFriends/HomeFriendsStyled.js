@@ -33,13 +33,15 @@ export const FreindItem = styled.div`
         height: 50px;
         border-radius: 50%;
         width: 50px;
-        background: #555;
-
+        background: url(${props => props.freindPhoto});
+        background-position: center;
+        background-size: cover;
     }
     p {
         font-size: 12px;
         color: #444;
         margin-top: 5px;
+        text-transform: capitalize;
     }
 `;
 

@@ -6,7 +6,6 @@ import { connect }          from 'react-redux';
 
 import DeleteWallPost   from './../../../../actions/DeleteWallPost';
 import SearchWallPost   from './../../../../actions/SearhWall';
-import resultSearchWall from './../../../../actions/ResultSearchWall';
 
 // Styled Components
 
@@ -99,7 +98,6 @@ export class HomeWall extends PureComponent {
               </SearchWallIcon>
           </SearchWallContainer>
         </PositionSearch> ) : 
-      
         ( <PositionSearch>
             <WallSearch>
               <SideIconContainer  
@@ -158,9 +156,6 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = (dispatch) => ({
-  resultSearch: (result) => {
-    dispatch(resultSearchWall(result))
-  },
   deletePost: (post) => {
     dispatch(DeleteWallPost(post));
   },

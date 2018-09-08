@@ -1,8 +1,16 @@
 import React, { Component,Fragment  }     from 'react';
 import { GrayLink, BlockTitle } from './../HomeStyled';
 
+
+import {connect} from 'react-redux';
+
+
+// React Compoenents
+
 import Friend from './Friend';
 
+
+// Styled Compoenents
 import {
     HomePreindsContainer,
     MyFreinds,
@@ -10,10 +18,19 @@ import {
     FreindsTitle
 } from './HomeFriendsStyled';
 
+//Actions 
+
+import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
 
 
-export default class HomeFriends extends Component {
+
+
+ class HomeFriends extends Component {
+  componentDidMount () {
+    this.props.dataFreinds()
+  }
   render() {
+    const freinds = this.props.freinds;
     return (
     <Fragment>
       <HomePreindsContainer>
@@ -21,13 +38,18 @@ export default class HomeFriends extends Component {
           <FreindsTitle>Мои друзья <FreindsNumber>3328</FreindsNumber></FreindsTitle>
           <GrayLink href="#">Обновления</GrayLink>
         </BlockTitle>
-        <MyFreinds>
-            <Friend name="Анастасия"/>  
-            <Friend name="Иван"/>  
-            <Friend name="Света"/>  
-            <Friend name="Андрей"/>  
-            <Friend name="Дима"/>  
-            <Friend name="Катя"/>
+        <MyFreinds> 
+            {
+              freinds ? freinds.map((item, index) =>{
+                  return  ( 
+                  <Friend 
+                    key={index} 
+                    name={item.name.first}
+                    freindPhoto={item.picture.medium}
+                  /> 
+                )
+              }) : ''
+            }
         </MyFreinds>
       </HomePreindsContainer>
        <HomePreindsContainer>
@@ -35,15 +57,33 @@ export default class HomeFriends extends Component {
           <FreindsTitle>Друзья Онлайн <FreindsNumber>1236</FreindsNumber></FreindsTitle>
         </BlockTitle>
         <MyFreinds>
-            <Friend name="Анастасия"/>  
-            <Friend name="Иван"/>  
-            <Friend name="Света"/>  
-            <Friend name="Андрей"/>  
-            <Friend name="Дима"/>  
-            <Friend name="Катя"/>
+        {
+              freinds ? freinds.map((item, index) =>{
+                  return  ( 
+                  <Friend 
+                    key={index} 
+                    name={item.name.first}
+                    freindPhoto={item.picture.medium}
+                  /> 
+                )
+              }) : ''
+            }
         </MyFreinds>
     </HomePreindsContainer>
   </Fragment>
     );
   }
 }
+
+const mapStateToProps = (state) => ({
+  freinds: state.Freinds.data
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  dataFreinds() {
+    dispatch(fetchFreinds())
+  }
+});
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomeFriends);

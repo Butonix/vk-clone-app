@@ -4,7 +4,6 @@ import {
         ADD_WALL_POST,
         DELETE_WALL_POST,
         SEARCH_WALL_POST,
-        NO_RESULT_SEARCH_WALL_POSTS
 } from './../constants/ActionTypes';
 
 const initialState = {
@@ -20,7 +19,6 @@ const initialState = {
         }
     ]
 }
-
 
 export default function WallAddPost(state = initialState, action)  {
     
@@ -45,12 +43,7 @@ export default function WallAddPost(state = initialState, action)  {
         }
     }
 
-    if (action.type === NO_RESULT_SEARCH_WALL_POSTS) {
-        return {
-            ...state,
-            resultSearch: action.data,
-        }
-    }
+    
     
     return state;
 } 
