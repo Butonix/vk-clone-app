@@ -11,7 +11,8 @@ import Home                 from './components/PageContent/Home/Home';
 import './App.css';
 
 const AppContent = styled.div`
-  padding: 20px 0;
+  padding: 60px 0;
+ 
 `;
 
 class App extends Component {

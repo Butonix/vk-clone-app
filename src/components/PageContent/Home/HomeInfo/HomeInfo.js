@@ -34,13 +34,13 @@ export default class HomeInfo extends Component {
     if (this.state.display === 'none') {
       this.setState({
         display: 'block',
-        text: 'Скрыть подробную информацию'
+        text: 'Show full information'
       });
       
     } else {
       this.setState({
         display: 'none',
-        text: 'Показать подробную информацию'
+        text: 'Hide full information'
       });
     }
   }
@@ -48,20 +48,20 @@ export default class HomeInfo extends Component {
   render() {
     return (
       <HomeInfoContainer>
-        <NameTitle>Иван Звонков <CheckOnline>Online</CheckOnline> </NameTitle>
+        <NameTitle>Ivan Zvonkov<CheckOnline>Online</CheckOnline> </NameTitle>
         <ProfileStatus>Undefined is not a function</ProfileStatus>
         <InformationContainer>
 
           <Information>
-            <LeftColumn>День рождения </LeftColumn>
+            <LeftColumn>Birthday:</LeftColumn>
             <RightColumn >
-             <a href="">2 июня</a>
+             <a href="">June 2</a>
               </RightColumn>
           </Information>
 
           <Information>
-            <LeftColumn>Семейное положение </LeftColumn>
-              <RightColumn ><a href="">в активном поиске</a></RightColumn>
+            <LeftColumn>Relationship status:</LeftColumn>
+              <RightColumn ><a href="">Actively searching</a></RightColumn>
           </Information>
           <MoreInfo onClick={this.handleClick.bind(this)}>
             <Information>
@@ -72,23 +72,23 @@ export default class HomeInfo extends Component {
           <MoreInfoBlock style={{display: `${this.state.display}`}}>
             <InfoTitle><b>Основная информация</b> </InfoTitle>
             <Information>
-                <LeftColumn>Родной город </LeftColumn>
-                <RightColumn >Санкт-Петербург</RightColumn>
+                <LeftColumn>Hometown:</LeftColumn>
+                <RightColumn >Saint-Petersburg</RightColumn>
             </Information>
 
              <Information>
-                <LeftColumn>Языки </LeftColumn>
+                <LeftColumn>Languages</LeftColumn>
                 <RightColumn >Русский</RightColumn>
             </Information>
 
-             <InfoTitle><b>Личная информация</b> </InfoTitle>
+             <InfoTitle><b>Personal information</b> </InfoTitle>
             <Information>
-                <LeftColumn>Любимые цитаты </LeftColumn>
-                <RightColumn>Секрет успеха состоит в постоянстве цели</RightColumn>
+                <LeftColumn>Favorite quotes </LeftColumn>
+                <RightColumn>The secret of success is consistency of purpose.</RightColumn>
             </Information>
 
              <Information>
-                <LeftColumn>Группы </LeftColumn>
+                <LeftColumn>Groups: </LeftColumn>
                 <RightColumn >
                   <a href="">PiterJS</a>, 
                   <a href="">Flickr</a>, 

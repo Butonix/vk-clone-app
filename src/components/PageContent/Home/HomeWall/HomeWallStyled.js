@@ -35,7 +35,6 @@ export const ChoiceWallLinks = styled.div`
 `;
 
 export const PositionSearch = styled.div`
-    position: relative;
     width: 100%;
 `;
 
@@ -141,7 +140,7 @@ export const PostContent = styled.div`
     text-align: left;
     padding: 10px 10px 10px;
     margin-bottom: 10px;
-    position: relative;
+  
     p{
         font-size: 14px;
         line-height: 1.5em;

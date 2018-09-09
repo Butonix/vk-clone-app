@@ -17,29 +17,35 @@ export class HomeInfoNumbers extends Component {
           
         <NumberItem href="">
             <Number>3238</Number>
-            <ItemDescription>Друзей</ItemDescription>
+            <ItemDescription>friends</ItemDescription>
         </NumberItem>
 
         <NumberItem href="">
             <Number>5М</Number>
-            <ItemDescription>Подписчиков</ItemDescription>
+            <ItemDescription>followers</ItemDescription>
         </NumberItem>
 
         <NumberItem href="">
             <Number>1200</Number>
-            <ItemDescription>Фотографий</ItemDescription>
+            <ItemDescription>photos</ItemDescription>
         </NumberItem>
 
         <NumberItem href="">
             <Number>10</Number>
-            <ItemDescription>Отметок</ItemDescription>
+            <ItemDescription>tags</ItemDescription>
         </NumberItem>
 
         <NumberItem href="">
             <Number>129</Number>
-            <ItemDescription>Видеозаписей</ItemDescription>
+            <ItemDescription>videos</ItemDescription>
+        </NumberItem>
+
+         <NumberItem href="">
+            <Number>2159</Number>
+            <ItemDescription>audio files</ItemDescription>
         </NumberItem>
       </Numbers>
+      
     )
   }
 }

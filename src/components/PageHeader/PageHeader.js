@@ -8,7 +8,10 @@ import PageHeaderProfile from './PageHeaderProfile';
 import { Container } from './../StyledComponents';
 
 const Header = styled.div`
-    background: #4a76a8;w
+    background: #4a76a8;
+    position: fixed;
+    z-index: 0;
+    width: 100%;
 `;
 
 export default class PageHeader extends Component {

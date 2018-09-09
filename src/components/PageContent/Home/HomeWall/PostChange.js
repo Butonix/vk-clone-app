@@ -46,7 +46,7 @@ export class PostChangeTemplate extends Component {
             />
             <PostChangeContentTemplate   
                 onMouseLeave={this.handleMouseLeave.bind(this)}
-                show={this.state.show}
+                show={false}
                 deletePost={this.props.deletePost}
                 postId={this.props.postID}
             />
