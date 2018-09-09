@@ -88,8 +88,8 @@ export class HomeWall extends PureComponent {
           ( <PositionSearch>
               <SearchWallContainer>
               <ChoiceWallLinks>
-                  <ChoiceWallLink>Все записи</ChoiceWallLink>
-                  <ChoiceWallLink lineShow={true}>Мои записи</ChoiceWallLink>
+                  <ChoiceWallLink>All posts</ChoiceWallLink>
+                  <ChoiceWallLink lineShow={true}>My posts</ChoiceWallLink>
               </ChoiceWallLinks>
               <SearchWallIcon>
                   <SideIconContainer  
@@ -105,7 +105,7 @@ export class HomeWall extends PureComponent {
               />
               <WallSearchInput
                 autoFocus={true}
-                placeholder="Введите ваш запрос"
+                placeholder="Enter a word or phrase here..."
                 onChange={this.handleChangSearch.bind(this)}
               />
               <SideIconContainer  
@@ -125,7 +125,7 @@ export class HomeWall extends PureComponent {
                   <PostTitle>
                     <PostProfile>
                       <WallProfile back="./images/profile.jpg"/>
-                      <span>Иван Звонков</span>
+                      <span>Ivan Zvonkov</span>
                     </PostProfile>
                     <PostChangeTemplate
                     //  postid={this.upDatePostID(item.id)}

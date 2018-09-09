@@ -25,7 +25,6 @@ function* fetchFreindsAsync () {
           );
         
         yield put(requestedFreindsSuccess(data))
-        console.log(data)
     } catch (error) {
         yield put(requestedFreindsError())   
     }

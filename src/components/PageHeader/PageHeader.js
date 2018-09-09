@@ -10,7 +10,7 @@ import { Container } from './../StyledComponents';
 const Header = styled.div`
     background: #4a76a8;
     position: fixed;
-    z-index: 0;
+    z-index: 5;
     width: 100%;
 `;
 

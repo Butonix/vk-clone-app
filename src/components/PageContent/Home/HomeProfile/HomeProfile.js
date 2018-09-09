@@ -27,7 +27,7 @@ const ChangeButton = styled.button`
     color: #55677d;
     font-size: 13px;
     font-weight: normal;
-    padding: 6px 35px;
+    padding: 6px 70px;
     border-radius: 4px;
 `;
 
@@ -51,7 +51,7 @@ export default class HomeProfile extends Component {
             <img src="" alt="" />
         </ImageContainer>
         <ChangeInfoContainer>
-            <ChangeButton>Редактировать</ChangeButton>
+            <ChangeButton>Edit</ChangeButton>
             <StaticButton>
                 <SideIconContainer icon={barChart}/>
             </StaticButton>

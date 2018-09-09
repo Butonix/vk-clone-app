@@ -23,7 +23,7 @@ export default class HomeInfo extends Component {
     super(props);
     this.state = {
       display: 'none',
-      text: 'Показать подробную информацию'
+      text: 'Show full information'
     }
   }
 
@@ -34,13 +34,13 @@ export default class HomeInfo extends Component {
     if (this.state.display === 'none') {
       this.setState({
         display: 'block',
-        text: 'Show full information'
+        text: 'Hide full information'
       });
       
     } else {
       this.setState({
         display: 'none',
-        text: 'Hide full information'
+        text: 'Show full information'
       });
     }
   }
@@ -70,7 +70,7 @@ export default class HomeInfo extends Component {
             </Information>
           </MoreInfo>
           <MoreInfoBlock style={{display: `${this.state.display}`}}>
-            <InfoTitle><b>Основная информация</b> </InfoTitle>
+            <InfoTitle><b>Main information</b> </InfoTitle>
             <Information>
                 <LeftColumn>Hometown:</LeftColumn>
                 <RightColumn >Saint-Petersburg</RightColumn>

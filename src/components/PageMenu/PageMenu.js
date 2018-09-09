@@ -31,14 +31,14 @@ export default class PageMenu extends Component {
     return (
       <PageMenuContainer>
            <ListContainer>
-                <List><span><SideIconContainer icon={home}/></span><LinkTo href="">Моя страница</LinkTo></List>
-                <List><span><SideIconContainer icon={listAlt}/></span><LinkTo href="">Новости</LinkTo></List>
-                <List><span><SideIconContainer icon={paperPlane}/></span><LinkTo href="">Сообщения</LinkTo></List>
-                <List><span><SideIconContainer icon={user}/></span><LinkTo href="">Друзья</LinkTo></List>
-                <List><span><SideIconContainer icon={users}/></span><LinkTo href="">Группы</LinkTo></List>
-                <List><span><SideIconContainer icon={filePhotoO}/></span><LinkTo href="">Фотографии</LinkTo></List>
-                <List><span><SideIconContainer icon={music}/></span><LinkTo href="">Музыка</LinkTo></List>
-                <List><span><SideIconContainer icon={videoCamera}/></span><LinkTo href="">Видео</LinkTo></List>
+                <List><span><SideIconContainer icon={home}/></span><LinkTo href="">My profile</LinkTo></List>
+                <List><span><SideIconContainer icon={listAlt}/></span><LinkTo href="">News</LinkTo></List>
+                <List><span><SideIconContainer icon={paperPlane}/></span><LinkTo href="">Messages</LinkTo></List>
+                <List><span><SideIconContainer icon={user}/></span><LinkTo href="">Friends</LinkTo></List>
+                <List><span><SideIconContainer icon={users}/></span><LinkTo href="">Communities</LinkTo></List>
+                <List><span><SideIconContainer icon={filePhotoO}/></span><LinkTo href="">Photos</LinkTo></List>
+                <List><span><SideIconContainer icon={music}/></span><LinkTo href="">Music</LinkTo></List>
+                <List><span><SideIconContainer icon={videoCamera}/></span><LinkTo href="">Videos</LinkTo></List>
            </ListContainer>
       </PageMenuContainer>
     )

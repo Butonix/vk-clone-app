@@ -21,8 +21,8 @@ export default class ProfilesPhotos extends Component {
     return (
       <PhotosContainer>
         <BlockTitle>
-          <span>Мои фотографии</span>
-          <GrayLink href="#">Показать на карте</GrayLink>
+          <span>My Photos</span>
+          <GrayLink href="#">Show on the map</GrayLink>
         </BlockTitle>
         <MyPhots>
           <Photo imgUrl="/images/1.jpg"/>

@@ -80,7 +80,7 @@ export class AddHomeWall extends PureComponent {
           <WallAddText
               name="text"
               autocomplete="none"
-              placeholder="Что у вас нового?"
+              placeholder="Whats`s new?"
               value={this.state.postText}
               onClick={this.handleClick.bind(this)}
               onChange={this.handleChange.bind(this)}

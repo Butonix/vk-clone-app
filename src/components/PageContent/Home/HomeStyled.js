@@ -11,6 +11,7 @@ export const HomeContainer = styled.div`
 export const BlockTitle = styled.div`
     display: flex;
     justify-content: space-between;
+    padding-bottom: 10px;
     span {
         font-size: 12px;
         color: #555;

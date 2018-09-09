@@ -31,8 +31,8 @@ import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
     <Fragment>
       <HomePreindsContainer>
          <BlockTitle>
-          <FreindsTitle>Мои друзья <FreindsNumber>3328</FreindsNumber></FreindsTitle>
-          <GrayLink href="#">Обновления</GrayLink>
+          <FreindsTitle>Friends <FreindsNumber>3328</FreindsNumber></FreindsTitle>
+          <GrayLink href="#">updates </GrayLink>
         </BlockTitle>
         <MyFreinds> 
             {
@@ -50,7 +50,7 @@ import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
       </HomePreindsContainer>
        <HomePreindsContainer>
         <BlockTitle>
-          <FreindsTitle>Друзья Онлайн <FreindsNumber>1236</FreindsNumber></FreindsTitle>
+          <FreindsTitle>Friends Online <FreindsNumber>1236</FreindsNumber></FreindsTitle>
         </BlockTitle>
         <MyFreinds>
         {

@@ -6,7 +6,7 @@ import { connect }          from 'react-redux';
   render() {
     return (
       <NoResults>
-        <p>По запросу {this.props.searchText} ничего не найдено</p>
+        <p>Nothing was found on the request of {this.props.searchText} </p>
       </NoResults>
     )
   }
