@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PureComponent } from 'react';
 import styled               from 'styled-components';
 
 
@@ -15,9 +15,23 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 
 import Photo from './Photo';
 
+//Actions 
 
-export default class ProfilesPhotos extends Component {
+import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import { connect } from 'react-redux';
+
+
+
+class ProfilesPhotos extends PureComponent {
+  componentDidMount() {
+    this.props.dataPhotos()
+  }
   render() {
+    if(this.props.photos) {
+      this.props.photos.map((item, index) => {
+
+      })
+    }
     return (
       <PhotosContainer>
         <BlockTitle>
@@ -25,12 +39,31 @@ export default class ProfilesPhotos extends Component {
           <GrayLink href="#">Show on the map</GrayLink>
         </BlockTitle>
         <MyPhots>
-          <Photo imgUrl="/images/1.jpg"/>
-          <Photo imgUrl="/images/2.jpg"/>
-          <Photo imgUrl="/images/3.jpg"/>
-          <Photo imgUrl="/images/4.jpg"/>
+          { this.props.photos ? this.props.photos.slice(0,4).map((item, index) => {
+            return (
+              <Photo 
+                imgUrl={item.urls.regular}
+                key={index}
+              />
+            )
+          }) : ''}
         </MyPhots>
       </PhotosContainer>
     )
   }
 }
+
+
+const mapStateToProps = (state) => ({
+  photos: state.Photos.data
+})
+
+const mapDispatchToProps = (dispatch) => ({
+  
+  dataPhotos() {
+    dispatch(fetchPhotos())
+  }
+});
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProfilesPhotos);

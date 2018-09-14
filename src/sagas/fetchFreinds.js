@@ -9,6 +9,8 @@ import requestedFreinds        from './../actions/Freinds/RequestedFreinds';
 import requestedFreindsError   from './../actions/Freinds/RequestedFreindsError';
 import requestedFreindsSuccess from './../actions/Freinds/RequestedFreindsSucces';
 
+import { FETCH_FREINDS } from './../constants/Links';
+
 
 
  function* watchFetchFreinds () {
@@ -19,7 +21,7 @@ function* fetchFreindsAsync () {
     try {
         yield put(requestedFreinds());
         const data = yield call(() => {
-            return axios.get('https://randomuser.me/api/?results=6')
+            return axios.get(FETCH_FREINDS)
                 .then(res => res.data)
             }
           );

@@ -23,7 +23,7 @@ import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
 
  class HomeFriends extends Component {
   componentDidMount () {
-    this.props.dataFreinds()
+    this.props.dataFreinds();
   }
   render() {
     const freinds = this.props.freinds;
@@ -78,7 +78,8 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   dataFreinds() {
     dispatch(fetchFreinds())
-  }
+  },
+ 
 });
 
 
