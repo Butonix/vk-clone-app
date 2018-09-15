@@ -1,12 +1,74 @@
 import styled from 'styled-components';
 
 
+
 export const HomePhotoAlbumsContainer = styled.div`
     background: #fff;
     padding: 20px 15px 15px 15px;
     margin: 10px 10px 0px 0px;
     border-radius: 3px;
     box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+`;
+
+export const ViewAlbumContainer = styled.div`
+    background: rgba(0,0,0,.9);
+    position: fixed;
+    overflow: auto;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    z-index: 6;
+`;
+
+export const ViewAlbumContent = styled.div`
+    width: 70%;
+    min-height: 600px;
+    background: #fff;
+    margin: 5% auto;
+    border-radius: 4px;
+    position: relative;
+`;
+
+export const ViewAlbumTitle = styled.div`
+    text-align: left;
+    padding: 10px 30px;
+    font-size: 14px;
+    color: #fff;
+    height: 54px;
+    line-height: 54px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    position: relative;
+    white-space: nowrap;
+    background-color: #f2f4f7;
+    border-bottom: 1px solid #e7eaf0;
+    border-radius: 4px 4px 0 0;
+`;
+export const ViewAlbumImages = styled.div`
+    padding: 20px 30px;
+    display: flex;
+    
+`;
+export const AlbumImage = styled.div`
+    margin: 10px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+`;
+export const ViewAlbumYears = styled.span`
+    color: #333;
+    font-size: 14px;
+    margin-left: 20px;
+`;
+export const ViewAlbumAuthor = styled.a`
+    color: #656565;
+    font-size: 14px;
+    font-weight: 400;
+    &:hover{
+        text-decoration: underline;
+
+    }
 `;
 
 export const PhotosNumber = styled.p`
@@ -90,5 +152,10 @@ export default {
     AlbumDescription,
     AlbumPreviewInfoTitle,
     AlbumPreviewInfoNumber,
-    AlbumPreviewOverlay
+    AlbumPreviewOverlay,
+    ViewAlbumContainer,
+    ViewAlbumTitle,
+    ViewAlbumYears,
+    ViewAlbumImages,
+    AlbumImage
 }

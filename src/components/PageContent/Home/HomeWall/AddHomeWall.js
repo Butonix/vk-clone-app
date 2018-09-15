@@ -79,7 +79,7 @@ export class AddHomeWall extends PureComponent {
           <WallProfile back="./images/profile.jpg"/>
           <WallAddText
               name="text"
-              autocomplete="none"
+              autoComplete="none"
               placeholder="Whats`s new?"
               value={this.state.postText}
               onClick={this.handleClick.bind(this)}

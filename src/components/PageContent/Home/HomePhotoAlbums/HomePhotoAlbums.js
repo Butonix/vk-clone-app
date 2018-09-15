@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { connect }          from 'react-redux';
+import { connect }              from 'react-redux';
 
 // Styled Components
 
@@ -18,6 +18,7 @@ import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
 // React Components
 
 import AlbumPreviewTemplate from './AlbumPreview';
+import ViewAlbum            from './ViewAlbum';
 
 
 class HomePhotoAlbums extends PureComponent {
@@ -39,6 +40,7 @@ class HomePhotoAlbums extends PureComponent {
             )
           }) : ''
         }
+        <ViewAlbum />
       </HomePhotoAlbumsContainer>
     )
   }

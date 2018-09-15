@@ -63,6 +63,10 @@ export default class HomeInfo extends Component {
             <LeftColumn>Relationship status:</LeftColumn>
               <RightColumn ><a href="">Actively searching</a></RightColumn>
           </Information>
+          <Information>
+            <LeftColumn>Current city:</LeftColumn>
+              <RightColumn ><a href="">Saint Petersburg</a></RightColumn>
+          </Information>
           <MoreInfo onClick={this.handleClick.bind(this)}>
             <Information>
               <LeftColumn></LeftColumn>

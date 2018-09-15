@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import styled               from 'styled-components';
 
 
+// React Components
 
 import PageHeader           from './components/PageHeader/PageHeader';
 import PageMenu             from './components/PageMenu/PageMenu';
@@ -10,15 +11,16 @@ import Home                 from './components/PageContent/Home/Home';
 
 import './App.css';
 
-const AppContent = styled.div`
-  padding: 60px 0;
- 
-`;
+import {
+  AppContent,
+  GlobalStyle
+} from './AppStyled';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
+         <GlobalStyle />
           <PageHeader />
           <AppContent>
             <Container>
