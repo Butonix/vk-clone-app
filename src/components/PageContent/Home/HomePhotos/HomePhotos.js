@@ -1,5 +1,6 @@
-import React, { Component, PureComponent } from 'react';
-import styled               from 'styled-components';
+import React, { PureComponent } from 'react';
+import { connect }              from 'react-redux';
+
 
 
 
@@ -11,14 +12,11 @@ import {
 
 import { GrayLink, BlockTitle } from './../HomeStyled';
 
-// React Custom Components
-
+// React Components
 import Photo from './Photo';
 
 //Actions 
-
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
-import { connect } from 'react-redux';
 
 
 

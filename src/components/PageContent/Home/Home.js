@@ -6,11 +6,12 @@ import HomeProfile          from './HomeProfile/HomeProfile';
 import HomeInfo             from './HomeInfo/HomeInfo';
 import HomePhotos           from './HomePhotos/HomePhotos';
 import HomeFriends          from './HomeFriends/HomeFriends';
-
 import AddHomeWall          from './HomeWall/AddHomeWall';
 import HomeWall             from './HomeWall/HomeWall';
-
 import HomeGroups           from  './HomeGroups/HomeGroups';
+import HomePhotoAlbums      from './HomePhotoAlbums/HomePhotoAlbums';
+
+
 
 
 // Styled components 
@@ -29,6 +30,7 @@ export default class Home extends Component {
           <HomeProfile />
           <HomeFriends />
           <HomeGroups />
+          <HomePhotoAlbums />
 
         </LeftColum>
         <RightColumn>
