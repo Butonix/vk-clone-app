@@ -25,9 +25,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write \"src/**/*.js\""
+
   },
   "devDependencies": {
+    "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5"
   }
 }
