@@ -115,7 +115,7 @@ export const AlbumPreviewInfo = styled.div`
 	bottom: 5px;
 	display: flex;
 	justify-content: space-between;
-	width: 100%;
+	width: 85%;
 	transition: all 0.3s;
 	transform: ${props => (props.show ? 'translateY(-15px)' : 'translateY(0px)')};
 `;
