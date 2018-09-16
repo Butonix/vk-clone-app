@@ -28,7 +28,7 @@ export const FreindItem = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-bottom: 10px;
+    margin: 5px;
     .avatar {
         height: 50px;
         border-radius: 50%;

@@ -7,8 +7,11 @@ import { withBaseIcon }     from 'react-icons-kit';
 import { ic_close }         from 'react-icons-kit/md/ic_close';
 
 
+
 // Actions
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import HideModal   from './../../../../actions/HideModal';
+
 
 
 // Styled Components
@@ -37,28 +40,35 @@ const SideIconContainer =  withBaseIcon({ size: 20  , style: {
 
 class ViewAlbum extends Component {
   componentDidMount() {
-    this.props.dataPhotos()
+    this.props.dataPhotos();
+  }
+  handleClick(e) {
+    this.props.hideModal();
   }
   render() {
-    console.log(this.props)
     return (
-      <ViewAlbumContainer>
+      <ViewAlbumContainer  show={this.props.show}  >
         <ViewAlbumContent >
             <ViewAlbumTitle>
               <ViewAlbumAuthor href="#">Ivan Zvonkov</ViewAlbumAuthor>
               <ViewAlbumYears>2018-2019</ViewAlbumYears>
-              <SideIconContainer icon={ic_close}/>
+              <SideIconContainer 
+                icon={ic_close}
+                onClick={this.handleClick.bind(this)}
+              />
             </ViewAlbumTitle>
             <ViewAlbumImages>
                 {
                   this.props.photos ? this.props.photos.map((item, index) => {
-                    <AlbumImage 
-                      style={{backgroundImage: `url(${item.urls.regular})`}}
+                    return(
+                      <AlbumImage 
+                        key={index}
+                        style={{backgroundImage: `url(${item.urls.regular})`}}
                     />
+                    )
                   }) : ''
                 }
             </ViewAlbumImages>
-
         </ViewAlbumContent>
       </ViewAlbumContainer>
     )
@@ -72,6 +82,9 @@ const mapStateToProps = (state) => ({
 const mapDispatchToProps = (dispatch) => ({
   dataPhotos() {
     dispatch(fetchPhotos());
+  },
+  hideModal() {
+    dispatch(HideModal())
   }
 });
 

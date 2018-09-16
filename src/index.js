@@ -20,6 +20,7 @@ import { Provider }             from 'react-redux';
 import  WallAddPost             from './reducers/WallAddPost';
 import Freinds                  from './reducers/Freinds';
 import Photos                   from './reducers/Photos';
+import rootReducer              from './reducers/rootReducer'
 
 
 import  watchFetchFreinds from './sagas/fetchFreinds';
@@ -30,6 +31,7 @@ const sagaMiddleWare = createSagaMiddleware();
 
 const store = createStore( 
     combineReducers({ 
+        rootReducer,
         WallAddPost,
         Freinds,
         Photos

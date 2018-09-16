@@ -16,24 +16,25 @@ export default class AlbumPreviewTemplate extends Component {
     constructor(props) {
         super(props);
         this.state = {
-             AlbumPreviewShow: false,
+          AlbumPreviewShow: false,
         }
     }
     showDesciption() {
-    this.setState({AlbumPreviewShow: true});
+      this.setState({AlbumPreviewShow: true});
     }
     showDesciptionLeave() {
-    this.setState({AlbumPreviewShow: false});
+      this.setState({AlbumPreviewShow: false});
     }
   render() {
     return (
         <AlbumPreview 
-        style={{ backgroundImage: `url(${this.props.imageUrl})`,}}
-        onMouseOver={this.showDesciption.bind(this)}
-        onMouseLeave={this.showDesciptionLeave.bind(this)}
+          style={{ backgroundImage: `url(${this.props.imageUrl})`,}}
+          onMouseOver={this.showDesciption.bind(this)}
+          onMouseLeave={this.showDesciptionLeave.bind(this)}
+          onClick={this.props.onClick}
         >
         <AlbumPreviewInfo 
-         show={this.state.AlbumPreviewShow}
+          show={this.state.AlbumPreviewShow}
           onMouseOver={this.showDesciption.bind(this)}
           onMouseLeave={this.showDesciptionLeave.bind(this)}
         >

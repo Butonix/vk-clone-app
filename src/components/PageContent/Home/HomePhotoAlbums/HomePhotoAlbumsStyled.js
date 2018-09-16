@@ -11,7 +11,8 @@ export const HomePhotoAlbumsContainer = styled.div`
 `;
 
 export const ViewAlbumContainer = styled.div`
-    background: rgba(0,0,0,.9);
+    background: rgba(0,0,0,.7);
+    display: ${props => props.show ? 'block' : 'none'};
     position: fixed;
     overflow: auto;
     width: 100%;
@@ -22,6 +23,7 @@ export const ViewAlbumContainer = styled.div`
 `;
 
 export const ViewAlbumContent = styled.div`
+    animation:  top 0.3s  ease;
     width: 70%;
     min-height: 600px;
     background: #fff;
@@ -46,12 +48,16 @@ export const ViewAlbumTitle = styled.div`
     border-radius: 4px 4px 0 0;
 `;
 export const ViewAlbumImages = styled.div`
-    padding: 20px 30px;
+    padding: 20px 20px;
     display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     
 `;
 export const AlbumImage = styled.div`
-    margin: 10px;
+    margin: 5px;
+    width: 48%;
+    height: 300px;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;

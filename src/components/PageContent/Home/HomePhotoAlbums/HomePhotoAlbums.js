@@ -14,6 +14,7 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 //Actions
 
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import ShowModal   from './../../../../actions/ShowModal';
 
 // React Components
 
@@ -25,6 +26,10 @@ class HomePhotoAlbums extends PureComponent {
   componentDidMount() {
     this.props.dataPhotos();
   }
+  handleClick(e) {
+    this.props.showModal();
+    console.log(e)
+  }
   render() {
     return (
       <HomePhotoAlbumsContainer>
@@ -35,25 +40,34 @@ class HomePhotoAlbums extends PureComponent {
           this.props.photos ? this.props.photos.slice(8).map((item, index) =>{
             return (
               <AlbumPreviewTemplate 
+                key={index}
                 imageUrl={item.urls.regular}
+                onClick={this.handleClick.bind(this)}
               />
             )
           }) : ''
         }
-        <ViewAlbum />
+        <ViewAlbum 
+          show={this.props.modalShow}
+        />
       </HomePhotoAlbumsContainer>
     )
   }
 }
 
 const mapStateToProps = (state) => ({
-  photos: state.Photos.data
+  photos: state.Photos.data,
+  modalShow: state.rootReducer.modalShow
 })
 
 const mapDispatchToProps = (dispatch) => ({
   dataPhotos() {
     dispatch(fetchPhotos());
+  },
+  showModal() {
+    dispatch(ShowModal())
   }
+
 });
 
 

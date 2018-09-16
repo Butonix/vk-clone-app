@@ -1,13 +1,19 @@
 import React, { Component } from 'react';
 import styled               from 'styled-components';
+import { connect }          from 'react-redux';
+
 
 
 // React Components
 
 import PageHeader           from './components/PageHeader/PageHeader';
 import PageMenu             from './components/PageMenu/PageMenu';
-import { Container }        from './components/StyledComponents';
 import Home                 from './components/PageContent/Home/Home';
+
+// StyledComponents
+
+import { Container }        from './components/StyledComponents';
+
 
 import './App.css';
 
@@ -20,7 +26,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-         <GlobalStyle />
+         <GlobalStyle 
+            modalShow={this.props.modalShow}
+         />
           <PageHeader />
           <AppContent>
             <Container>
@@ -33,4 +41,11 @@ class App extends Component {
   }
 }
 
-export default App;
+
+const mapStateToProps = (state) => ({
+  modalShow: state.rootReducer.modalShow
+})
+
+
+export default connect(mapStateToProps)(App);
+
