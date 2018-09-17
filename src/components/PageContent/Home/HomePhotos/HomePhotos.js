@@ -8,18 +8,30 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 
 // React Components
 import Photo from './Photo';
+import HomePhotosCarousel from './HomePhotosCarousel';
 
 //Actions
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import ShowAlbumCarousel from './../../../../actions/ShowAlbumCarousel';
 
 class ProfilesPhotos extends PureComponent {
+	constructor(props) {
+		super(props);
+		this.state = {
+			currentImage: '',
+		};
+	}
 	componentDidMount() {
 		this.props.dataPhotos();
 	}
+
+	handleClick = e => {
+		this.setState({
+			currentImage: e.target.style.backgroundImage,
+		});
+		this.props.showCarousel();
+	};
 	render() {
-		if (this.props.photos) {
-			this.props.photos.map((item, index) => {});
-		}
 		return (
 			<PhotosContainer>
 				<BlockTitle>
@@ -29,10 +41,20 @@ class ProfilesPhotos extends PureComponent {
 				<MyPhots>
 					{this.props.photos
 						? this.props.photos.slice(0, 4).map((item, index) => {
-								return <Photo imgUrl={item.urls.regular} key={index} />;
+								return (
+									<Photo
+										onClick={this.handleClick.bind(this)}
+										imgUrl={item.urls.regular}
+										key={index}
+									/>
+								);
 						  })
 						: ''}
 				</MyPhots>
+				<HomePhotosCarousel
+					show={this.props.carouselShow}
+					currentImage={this.state.currentImage}
+				/>
 			</PhotosContainer>
 		);
 	}
@@ -40,11 +62,15 @@ class ProfilesPhotos extends PureComponent {
 
 const mapStateToProps = state => ({
 	photos: state.Photos.data,
+	carouselShow: state.rootReducer.albumCarouselShow,
 });
 
 const mapDispatchToProps = dispatch => ({
 	dataPhotos() {
 		dispatch(fetchPhotos());
+	},
+	showCarousel() {
+		dispatch(ShowAlbumCarousel());
 	},
 });
 

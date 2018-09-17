@@ -46,13 +46,13 @@ export const ViewAlbumTitle = styled.div`
 	border-radius: 4px 4px 0 0;
 `;
 export const ViewAlbumImages = styled.div`
-	padding: 20px 20px;
+	padding: 20px 40px;
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
 `;
 export const AlbumImage = styled.div`
-	margin: 5px;
+	margin-bottom: 30px;
 	width: 48%;
 	height: 300px;
 	background-size: cover;

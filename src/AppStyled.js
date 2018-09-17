@@ -7,7 +7,7 @@ export const AppContent = styled.div`
 
 export const GlobalStyle = createGlobalStyle`
   body {
-      overflow: ${props => (props.modalShow ? 'hidden' : 'auto')};
+      overflow: auto;
   }
 `;
 

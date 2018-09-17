@@ -45,9 +45,9 @@ export const WallSearch = styled.div`
 	border-top-right-radius: 3px;
 	border-top-left-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-	padding: 15px 15px 16px 15px;
+	padding: 15px 15px 10px 15px;
 	margin: 10px 0px 0 10px;
-	height: 52px;
+	height: 32px;
 `;
 
 export const SearchWallContainer = styled.div`
@@ -59,9 +59,9 @@ export const SearchWallContainer = styled.div`
 	border-top-right-radius: 3px;
 	border-top-left-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-	padding: 15px 15px 6px 15px;
+	padding: 15px 15px 10px 15px;
 	margin: 10px 0px 0 10px;
-	height: 52px;
+	height: 32px;
 `;
 
 export const WallSearchInput = styled.input`
@@ -77,7 +77,8 @@ export const WallSearchInput = styled.input`
 
 export const ChoiceWallLink = styled.a`
 	border-bottom: ${props => (props.lineShow ? '2px solid #5181b8' : '')};
-	padding-bottom: 18px;
+	padding-bottom: 22px;
+	padding-top: 10px;
 	margin-left: 20px;
 	font-size: 14px;
 	color: #656565;

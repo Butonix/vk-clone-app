@@ -42,6 +42,7 @@ class ViewAlbum extends Component {
 	handleClick(e) {
 		this.props.hideModal();
 	}
+
 	render() {
 		return (
 			<ViewAlbumContainer show={this.props.show}>

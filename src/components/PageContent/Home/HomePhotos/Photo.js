@@ -6,6 +6,8 @@ const Photo = props => {
 		<PhotoItem
 			href="#"
 			style={{ backgroundImage: 'url(' + props.imgUrl + ')' }}
+			onClick={props.onClick}
+			{...props}
 		/>
 	);
 };
