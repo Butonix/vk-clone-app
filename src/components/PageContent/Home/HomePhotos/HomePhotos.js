@@ -53,6 +53,7 @@ class ProfilesPhotos extends PureComponent {
 				</MyPhots>
 				<HomePhotosCarousel
 					show={this.props.carouselShow}
+					// show={true}
 					currentImage={this.state.currentImage}
 				/>
 			</PhotosContainer>
