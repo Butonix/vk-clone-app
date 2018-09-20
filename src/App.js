@@ -20,7 +20,7 @@ class App extends Component {
 	render() {
 		return (
 			<div className="App">
-				<GlobalStyle modalShow={this.props.modalShow} />
+				<GlobalStyle overflow={this.props.overflow} />
 				<PageHeader />
 				<AppContent>
 					<Container>
@@ -34,7 +34,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-	modalShow: state.rootReducer.modalShow,
+	overflow: state.rootReducer.overflow,
 });
 
 export default connect(mapStateToProps)(App);

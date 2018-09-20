@@ -104,7 +104,6 @@ class HomePhotosCarousel extends Component {
 			let currentIndex = regularArray.indexOf(this.state.currentImage);
 			let nowCount = currentIndex - 1;
 			let lastIndex = regularArray.length - 1;
-			console.log(currentIndex);
 			if (currentIndex === 0) {
 				this.setState({ currentImage: regularArray[lastIndex] });
 			} else {
@@ -117,7 +116,6 @@ class HomePhotosCarousel extends Component {
 		}
 	};
 	render() {
-		console.log(this.state);
 		return (
 			<CarouselContainer show={this.props.show}>
 				<CarouselContent>
