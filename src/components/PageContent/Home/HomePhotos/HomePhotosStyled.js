@@ -43,7 +43,7 @@ export const CarouselContent = styled.div`
 	width: 80%;
 	min-height: 600px;
 	background: #fff;
-	margin: 5% auto;
+	margin: 20px auto;
 	border-radius: 4px;
 	position: relative;
 	display: flex;
@@ -53,7 +53,50 @@ export const CarouselContent = styled.div`
 export const LeftPhoto = styled.div`
 	width: 70%;
 	min-height: 100%;
-	background: rgba(0, 0, 0, 0.9);
+	background: #333;
+	position: relative;
+`;
+
+export const BottomPanel = styled.div`
+	box-sizing: border-box;
+	width: 100%;
+	min-height: 50px;
+	background: #333;
+	position: absolute;
+	bottom: 0;
+	display: flex;
+	justify-content: space-between;
+	padding: 0 20px;
+	align-items: center;
+`;
+
+export const BottomPanelYear = styled.span`
+	color: #fff;
+	opacity: 0.7;
+	font-size: 14px;
+	line-height: 1.5em;
+	margin-right: 10px;
+`;
+
+export const BottomPanelCount = styled.span`
+	color: #fff;
+	opacity: 0.7;
+	font-size: 14px;
+	line-height: 1.5em;
+	margin-right: 10px;
+`;
+
+export const BottomPanelLinks = styled.span``;
+
+export const PanelLink = styled.a`
+	color: #fff;
+	opacity: 0.7;
+	font-size: 14px;
+	line-height: 1.5em;
+	padding-left: 10px;
+	&:first-child {
+		padding-left: 0;
+	}
 `;
 
 export const RightContent = styled.div`
@@ -78,4 +121,9 @@ export default {
 	LeftPhoto,
 	RightContent,
 	CurrentImage,
+	BottomPanel,
+	BottomPanelYear,
+	BottomPanelCount,
+	BottomPanelLinks,
+	PanelLink,
 };

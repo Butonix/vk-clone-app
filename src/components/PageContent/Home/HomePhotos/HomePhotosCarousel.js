@@ -6,10 +6,13 @@ import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
 import HideAlbumCarousel from './../../../../actions/HideAlbumCarousel';
 
 //Icons
-import { withBaseIcon } from 'react-icons-kit';
 import { ic_close } from 'react-icons-kit/md/ic_close';
 import { ic_navigate_before } from 'react-icons-kit/md/ic_navigate_before';
 import { ic_navigate_next } from 'react-icons-kit/md/ic_navigate_next';
+
+// React Components
+
+import RenderIcon from './.././../../RenderIcon';
 
 // Styled Components
 import {
@@ -18,6 +21,11 @@ import {
 	LeftPhoto,
 	RightContent,
 	CurrentImage,
+	BottomPanel,
+	BottomPanelYear,
+	BottomPanelCount,
+	BottomPanelLinks,
+	PanelLink,
 } from './HomePhotosStyled';
 
 const closeStyles = {
@@ -53,31 +61,23 @@ const previousArrowStyles = {
 	opacity: '.7',
 };
 
-const RenderIcon = props => {
-	const SideIconContainer = withBaseIcon({
-		size: props.size,
-		style: props.style,
-	});
-	return (
-		<SideIconContainer
-			icon={props.icon}
-			onClick={props.onClick}
-			className={props.className}
-		/>
-	);
-};
-
 class HomePhotosCarousel extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentImage: '',
+			currentImageIndex: '',
 		};
 	}
 	componentWillReceiveProps(nextProps) {
+		const arr = [];
 		const link = nextProps.currentImage.split('"')[1];
+		if (nextProps.photos)
+			nextProps.photos.forEach(item => arr.push(item.urls.regular));
+		let photoNumber = arr.indexOf(link) + 1;
 		this.setState({
 			currentImage: link,
+			currentImageIndex: photoNumber,
 		});
 	}
 	handleClick = e => {
@@ -87,27 +87,35 @@ class HomePhotosCarousel extends Component {
 				regularArray.push(item.urls.regular);
 			});
 		}
+		let lastIndex = regularArray.length - 1;
+		let currentIndex = regularArray.indexOf(this.state.currentImage);
+
 		if (e.currentTarget.className === 'next') {
-			let currentIndex = regularArray.indexOf(this.state.currentImage);
-			let endIndex = regularArray.length - 1;
-			if (currentIndex !== endIndex) {
-				currentIndex++;
-			}
-			if (currentIndex === endIndex) {
-				this.setState({ currentImage: regularArray[0] });
-			} else {
-				this.setState({ currentImage: regularArray[currentIndex] });
-			}
+			if (currentIndex !== lastIndex) currentIndex++;
+			this.setState(prevState => {
+				if (prevState.currentImageIndex === lastIndex + 1) {
+					return {
+						currentImage: regularArray[0],
+						currentImageIndex: 1,
+					};
+				} else {
+					return {
+						currentImage: regularArray[currentIndex],
+						currentImageIndex: currentIndex + 1,
+					};
+				}
+			});
 		}
 
 		if (e.currentTarget.className === 'previous') {
-			let currentIndex = regularArray.indexOf(this.state.currentImage);
 			let nowCount = currentIndex - 1;
-			let lastIndex = regularArray.length - 1;
 			if (currentIndex === 0) {
 				this.setState({ currentImage: regularArray[lastIndex] });
 			} else {
-				this.setState({ currentImage: regularArray[nowCount] });
+				this.setState({
+					currentImage: regularArray[nowCount],
+					currentImageIndex: currentIndex + 1 - 1,
+				});
 			}
 		}
 
@@ -116,39 +124,59 @@ class HomePhotosCarousel extends Component {
 		}
 	};
 	render() {
-		return (
-			<CarouselContainer show={this.props.show}>
-				<CarouselContent>
-					<LeftPhoto>
-						<CurrentImage
-							style={{ backgroundImage: `url(${this.state.currentImage})` }}
-						/>
-					</LeftPhoto>
-					<RightContent />
-				</CarouselContent>
-				<RenderIcon
-					icon={ic_close}
-					size="30"
-					className="close"
-					style={closeStyles}
-					onClick={this.handleClick.bind(this)}
-				/>
-				<RenderIcon
-					className="next"
-					icon={ic_navigate_next}
-					size="40"
-					style={nextArrowStyles}
-					onClick={this.handleClick.bind(this)}
-				/>
-				<RenderIcon
-					icon={ic_navigate_before}
-					size="40"
-					className="previous"
-					style={previousArrowStyles}
-					onClick={this.handleClick.bind(this)}
-				/>
-			</CarouselContainer>
-		);
+		const ImageNumber = this.state.currentImageIndex;
+
+		if (this.props.photos) {
+			const PhotosCount = this.props.photos.length;
+
+			return (
+				<CarouselContainer show={this.props.show}>
+					<CarouselContent>
+						<LeftPhoto>
+							<CurrentImage
+								style={{ backgroundImage: `url(${this.state.currentImage})` }}
+							/>
+							<BottomPanel>
+								<BottomPanelYear> 2017-2018 </BottomPanelYear>
+								<BottomPanelCount>
+									{ImageNumber} of {PhotosCount}
+								</BottomPanelCount>
+								<BottomPanelLinks>
+									<PanelLink>Share</PanelLink>
+									<PanelLink>Tag Photo</PanelLink>
+									<PanelLink>Remove</PanelLink>
+									<PanelLink>More</PanelLink>
+								</BottomPanelLinks>
+							</BottomPanel>
+						</LeftPhoto>
+
+						<RightContent />
+					</CarouselContent>
+					<RenderIcon
+						icon={ic_close}
+						size="30"
+						className="close"
+						style={closeStyles}
+						onClick={this.handleClick.bind(this)}
+					/>
+					<RenderIcon
+						className="next"
+						icon={ic_navigate_next}
+						size="40"
+						style={nextArrowStyles}
+						onClick={this.handleClick.bind(this)}
+					/>
+					<RenderIcon
+						icon={ic_navigate_before}
+						size="40"
+						className="previous"
+						style={previousArrowStyles}
+						onClick={this.handleClick.bind(this)}
+					/>
+				</CarouselContainer>
+			);
+		}
+		return <div />;
 	}
 }
 
