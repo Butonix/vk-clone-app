@@ -57,8 +57,8 @@ const closeStyle = {
 	cursor: 'pointer',
 	width: '25px',
 	height: '25px',
-	opacity: '.8 '
-}
+	opacity: '.8 ',
+};
 
 export class HomeWall extends PureComponent {
 	constructor(props) {
@@ -115,9 +115,9 @@ export class HomeWall extends PureComponent {
 								autoFocus={true}
 								placeholder="Enter a word or phrase here..."
 								onChange={this.handleChangSearch.bind(this)}
-								ref={(node) => this.searhInput = node}
+								ref={node => (this.searhInput = node)}
 							/>
-							<RenderIcon 
+							<RenderIcon
 								onClick={this.handleClick.bind(this)}
 								icon={ic_close}
 								size="30"

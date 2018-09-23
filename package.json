@@ -11,7 +11,6 @@
     "react": "^16.4.2",
     "react-dom": "^16.4.2",
     "react-icons-kit": "^1.1.7",
-    "react-onclickoutside": "^6.7.1",
     "react-redux": "^5.0.7",
     "react-router": "^4.3.1",
     "react-router-redux": "^4.0.8",
@@ -27,7 +26,6 @@
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject",
     "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write \"src/**/*.js\""
-
   },
   "devDependencies": {
     "prettier": "^1.14.2",

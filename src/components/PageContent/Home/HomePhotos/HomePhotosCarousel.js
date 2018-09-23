@@ -13,6 +13,7 @@ import { ic_navigate_next } from 'react-icons-kit/md/ic_navigate_next';
 // React Components
 
 import RenderIcon from './.././../../RenderIcon';
+import PhotoCarouselInfo from './PhotoCarouselInfo';
 
 // Styled Components
 import {
@@ -47,7 +48,6 @@ const nextArrowStyles = {
 	top: '50%',
 	width: '50px',
 	height: '50px',
-	opacity: '.7',
 };
 
 const previousArrowStyles = {
@@ -58,9 +58,9 @@ const previousArrowStyles = {
 	top: '50%',
 	width: '50px',
 	height: '50px',
-	opacity: '.7',
 };
 
+// TODO: Пофиксить выделение ссылок при перелистывании фотографий
 class HomePhotosCarousel extends Component {
 	constructor(props) {
 		super(props);
@@ -69,6 +69,7 @@ class HomePhotosCarousel extends Component {
 			currentImageIndex: '',
 		};
 	}
+
 	componentWillReceiveProps(nextProps) {
 		const arr = [];
 		const link = nextProps.currentImage.split('"')[1];
@@ -80,6 +81,7 @@ class HomePhotosCarousel extends Component {
 			currentImageIndex: photoNumber,
 		});
 	}
+
 	handleClick = e => {
 		let regularArray = [];
 		if (this.props.photos) {
@@ -96,36 +98,41 @@ class HomePhotosCarousel extends Component {
 				if (prevState.currentImageIndex === lastIndex + 1) {
 					return {
 						currentImage: regularArray[0],
-						currentImageIndex: 1
+						currentImageIndex: 1,
 					};
 				} else {
 					return {
 						currentImage: regularArray[currentIndex],
-						currentImageIndex: prevState.currentImageIndex + 1
+						currentImageIndex: prevState.currentImageIndex + 1,
 					};
 				}
 			});
 		}
-		
+
 		if (e.currentTarget.className === 'previous') {
 			if (currentIndex !== 0) currentIndex--;
 			this.setState(prevState => {
-				console.log(prevState.currentImageIndex)
-				if (prevState.currentImageIndex === 1){
+				if (prevState.currentImageIndex === 1) {
 					return {
 						currentImage: regularArray[lastIndex],
-						currentImageIndex: lastIndex + 1
-					}
+						currentImageIndex: lastIndex + 1,
+					};
 				} else {
 					return {
 						currentImage: regularArray[currentIndex],
-						currentImageIndex: prevState.currentImageIndex - 1
+						currentImageIndex: prevState.currentImageIndex - 1,
 					};
 				}
-			});			
+			});
 		}
 
 		if (e.currentTarget.className === 'close') {
+			this.props.hideCarousel();
+		}
+	};
+	outSideClick = e => {
+		// FIXME:
+		if (e.target.attributes[0].value === 'modal-close') {
 			this.props.hideCarousel();
 		}
 	};
@@ -135,7 +142,11 @@ class HomePhotosCarousel extends Component {
 			const PhotosCount = this.props.photos.length;
 
 			return (
-				<CarouselContainer show={this.props.show}>
+				<CarouselContainer
+					name="modal-close"
+					show={this.props.show}
+					onClick={this.outSideClick.bind(this)}
+				>
 					<CarouselContent>
 						<LeftPhoto>
 							<CurrentImage
@@ -168,7 +179,9 @@ class HomePhotosCarousel extends Component {
 								onClick={this.handleClick.bind(this)}
 							/>
 						</LeftPhoto>
-						<RightContent />
+						<RightContent>
+							<PhotoCarouselInfo />
+						</RightContent>
 					</CarouselContent>
 					<RenderIcon
 						icon={ic_close}
@@ -177,7 +190,6 @@ class HomePhotosCarousel extends Component {
 						style={closeStyles}
 						onClick={this.handleClick.bind(this)}
 					/>
-					
 				</CarouselContainer>
 			);
 		}
