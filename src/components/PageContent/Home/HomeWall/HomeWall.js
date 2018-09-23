@@ -39,6 +39,7 @@ import { ic_close } from 'react-icons-kit/md/ic_close';
 
 import NoResultsSearch from './NoResultsSearch';
 import PostChangeTemplate from './PostChange';
+import RenderIcon from './.././../../RenderIcon';
 
 const SideIconContainer = withBaseIcon({
 	size: 18,
@@ -50,6 +51,14 @@ const SideIconContainer = withBaseIcon({
 		opacity: '.8 ',
 	},
 });
+
+const closeStyle = {
+	color: '#4a76a8',
+	cursor: 'pointer',
+	width: '25px',
+	height: '25px',
+	opacity: '.8 '
+}
 
 export class HomeWall extends PureComponent {
 	constructor(props) {
@@ -66,6 +75,10 @@ export class HomeWall extends PureComponent {
 		};
 	}
 	handleClick(e) {
+		if (e.currentTarget.className === 'close') {
+			this.searhInput.value = '';
+			this.props.searchPost(this.searhInput.value);
+		}
 		if (!this.state.searchShow) {
 			this.setState({ searchShow: true });
 		} else {
@@ -102,10 +115,14 @@ export class HomeWall extends PureComponent {
 								autoFocus={true}
 								placeholder="Enter a word or phrase here..."
 								onChange={this.handleChangSearch.bind(this)}
+								ref={(node) => this.searhInput = node}
 							/>
-							<SideIconContainer
+							<RenderIcon 
 								onClick={this.handleClick.bind(this)}
 								icon={ic_close}
+								size="30"
+								style={closeStyle}
+								className="close"
 							/>
 						</WallSearch>
 					</PositionSearch>
