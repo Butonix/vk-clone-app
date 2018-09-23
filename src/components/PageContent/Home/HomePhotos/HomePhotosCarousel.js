@@ -96,27 +96,33 @@ class HomePhotosCarousel extends Component {
 				if (prevState.currentImageIndex === lastIndex + 1) {
 					return {
 						currentImage: regularArray[0],
-						currentImageIndex: 1,
+						currentImageIndex: 1
 					};
 				} else {
 					return {
 						currentImage: regularArray[currentIndex],
-						currentImageIndex: currentIndex + 1,
+						currentImageIndex: prevState.currentImageIndex + 1
 					};
 				}
 			});
 		}
-
+		
 		if (e.currentTarget.className === 'previous') {
-			let nowCount = currentIndex - 1;
-			if (currentIndex === 0) {
-				this.setState({ currentImage: regularArray[lastIndex] });
-			} else {
-				this.setState({
-					currentImage: regularArray[nowCount],
-					currentImageIndex: currentIndex + 1 - 1,
-				});
-			}
+			if (currentIndex !== 0) currentIndex--;
+			this.setState(prevState => {
+				console.log(prevState.currentImageIndex)
+				if (prevState.currentImageIndex === 1){
+					return {
+						currentImage: regularArray[lastIndex],
+						currentImageIndex: lastIndex + 1
+					}
+				} else {
+					return {
+						currentImage: regularArray[currentIndex],
+						currentImageIndex: prevState.currentImageIndex - 1
+					};
+				}
+			});			
 		}
 
 		if (e.currentTarget.className === 'close') {
@@ -125,7 +131,6 @@ class HomePhotosCarousel extends Component {
 	};
 	render() {
 		const ImageNumber = this.state.currentImageIndex;
-
 		if (this.props.photos) {
 			const PhotosCount = this.props.photos.length;
 
@@ -148,8 +153,21 @@ class HomePhotosCarousel extends Component {
 									<PanelLink>More</PanelLink>
 								</BottomPanelLinks>
 							</BottomPanel>
+							<RenderIcon
+								className="next"
+								icon={ic_navigate_next}
+								size="40"
+								style={nextArrowStyles}
+								onClick={this.handleClick.bind(this)}
+							/>
+							<RenderIcon
+								icon={ic_navigate_before}
+								size="40"
+								className="previous"
+								style={previousArrowStyles}
+								onClick={this.handleClick.bind(this)}
+							/>
 						</LeftPhoto>
-
 						<RightContent />
 					</CarouselContent>
 					<RenderIcon
@@ -159,20 +177,7 @@ class HomePhotosCarousel extends Component {
 						style={closeStyles}
 						onClick={this.handleClick.bind(this)}
 					/>
-					<RenderIcon
-						className="next"
-						icon={ic_navigate_next}
-						size="40"
-						style={nextArrowStyles}
-						onClick={this.handleClick.bind(this)}
-					/>
-					<RenderIcon
-						icon={ic_navigate_before}
-						size="40"
-						className="previous"
-						style={previousArrowStyles}
-						onClick={this.handleClick.bind(this)}
-					/>
+					
 				</CarouselContainer>
 			);
 		}

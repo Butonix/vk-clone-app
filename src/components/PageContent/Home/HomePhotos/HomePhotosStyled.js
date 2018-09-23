@@ -34,6 +34,7 @@ export const CarouselContainer = styled.div`
 	left: 0;
 	top: 0;
 	z-index: 6;
+	
 `;
 
 export const CarouselContent = styled.div`
@@ -41,7 +42,7 @@ export const CarouselContent = styled.div`
 	background: #fff;
 	animation: top 0.3s ease;
 	width: 80%;
-	min-height: 600px;
+	min-height: 90vh;
 	background: #fff;
 	margin: 20px auto;
 	border-radius: 4px;
