@@ -20,9 +20,9 @@ export const Button = styled.div`
 export const LightButton = styled(Button)`
 	background-color: #e5ebf1;
 	color: #55677d;
-`
+`;
 
 export default {
 	Button,
-	LightButton
-} 
+	LightButton,
+};

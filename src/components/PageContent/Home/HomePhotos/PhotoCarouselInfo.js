@@ -16,7 +16,7 @@ import {
 	PhotoComments,
 	PhotoCommentField,
 	PhotoCommentHidden,
-	AddComment
+	AddComment,
 } from './HomePhotosStyled';
 
 // React Components
@@ -25,8 +25,7 @@ import RenderIcon from './../../../RenderIcon';
 
 // UI
 
-import { Button,LightButton } from './../../../UI/Button';
-
+import { Button, LightButton } from './../../../UI/Button';
 
 const hurtStyle = {
 	color: '#4a76a8',
@@ -39,21 +38,20 @@ export default class PhotoCarouselInfo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			commentsHidden: false
-		}
+			commentsHidden: false,
+		};
 	}
 	handleClick = e => {
 		if (!this.state.commentsHidden) {
 			this.setState({
-				commentsHidden: true
-			})
+				commentsHidden: true,
+			});
 		} else {
 			this.setState({
-				commentsHidden: false
-			})
+				commentsHidden: false,
+			});
 		}
-		
-	}
+	};
 	render() {
 		return (
 			<PhotoInfo>
@@ -76,21 +74,23 @@ export default class PhotoCarouselInfo extends Component {
 							2. Создать заранее массив размером равным количествам фотографий
 							3. При добавлении комменатрия добавлять его в объект с числовым индексом
 							равным номеру индекса(фотографии)
-							4. При выводе коменатриев сравнивать идекс фотографии и числовой индекс 
+							4. При выводе комменатариев сравнивать индекс фотографии и числовой индекс 
 							в объекте с комментариями
-							5. Давать уникальный id каждому коменатрию для дальнейшего удаления
+							5. Давать уникальный id каждому комменатарию для дальнейшего удаления
 							6. По возможности выводить дату создания комментария					
 						*/}
 						<ProfileIcon size="25" />
-						<PhotoCommentField 
+						<PhotoCommentField
 							placeholder="Leave a comment..."
 							onClick={this.handleClick.bind(this)}
 						/>
 					</AddComment>
 					<PhotoCommentHidden show={this.state.commentsHidden}>
-						<LightButton onClick={this.handleClick.bind(this)}>Cancel</LightButton>
+						<LightButton onClick={this.handleClick.bind(this)}>
+							Cancel
+						</LightButton>
 						<Button>Post</Button>
-					</PhotoCommentHidden> 
+					</PhotoCommentHidden>
 				</PhotoComments>
 			</PhotoInfo>
 		);

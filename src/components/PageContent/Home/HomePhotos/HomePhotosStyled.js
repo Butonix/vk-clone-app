@@ -158,7 +158,7 @@ export const PhotoComments = styled.div`
 	bottom: 0;
 	width: 100%;
 	box-sizing: border-box;
-`; 
+`;
 
 export const AddComment = styled.div`
 	display: flex;
@@ -181,13 +181,12 @@ export const PhotoCommentField = styled.input`
 `;
 
 export const PhotoCommentHidden = styled.div`
-	display: ${props => props.show ? 'block' : 'none' };
+	display: ${props => (props.show ? 'block' : 'none')};
 	box-sizing: border-box;
 	padding: 35px 10px 0 10px;
 	text-align: right;
 	animation: opacity 0.4s ease-in;
 `;
-
 
 export default {
 	CarouselContent,
@@ -212,5 +211,5 @@ export default {
 	PhotoComments,
 	PhotoCommentField,
 	PhotoCommentHidden,
-	AddComment
+	AddComment,
 };
