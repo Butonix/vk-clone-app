@@ -1,7 +1,7 @@
 import React from 'react';
 import { PhotoItem } from './HomePhotosStyled';
 
-const Photo = props => {
+const HomePhoto = props => {
 	return (
 		<PhotoItem
 			href="#"
@@ -12,4 +12,4 @@ const Photo = props => {
 	);
 };
 
-export default Photo;
+export default HomePhoto;

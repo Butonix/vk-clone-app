@@ -7,7 +7,7 @@ import { PhotosContainer, MyPhots } from './HomePhotosStyled';
 import { GrayLink, BlockTitle } from './../HomeStyled';
 
 // React Components
-import Photo from './Photo';
+import HomePhoto from './HomePhoto';
 import HomePhotosCarousel from './HomePhotosCarousel';
 
 //Actions
@@ -42,7 +42,7 @@ class ProfilesPhotos extends PureComponent {
 					{this.props.photos
 						? this.props.photos.slice(0, 4).map((item, index) => {
 								return (
-									<Photo
+									<HomePhoto
 										onClick={this.handleClick.bind(this)}
 										imgUrl={item.urls.regular}
 										key={index}
@@ -53,7 +53,6 @@ class ProfilesPhotos extends PureComponent {
 				</MyPhots>
 				<HomePhotosCarousel
 					show={this.props.carouselShow}
-					// show={true}
 					currentImage={this.state.currentImage}
 				/>
 			</PhotosContainer>

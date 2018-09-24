@@ -18,7 +18,7 @@ import AddSmile from './AddSmile';
 
 // UI Compoentns
 
-import Button from './../../../UI/Button';
+import { Button } from './../../../UI/Button';
 
 // Icons
 

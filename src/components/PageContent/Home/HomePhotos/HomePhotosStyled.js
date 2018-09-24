@@ -152,13 +152,19 @@ export const SocialIcons = styled.div`
 `;
 
 export const PhotoComments = styled.div`
-	padding: 10px 20px;
+	padding-bottom: 10px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	position: absolute;
 	bottom: 0;
+	width: 100%;
+	box-sizing: border-box;
+`; 
+
+export const AddComment = styled.div`
 	display: flex;
-	justify-content: space-between;
+	justify-content: start;
 	align-items: center;
+	padding: 0 10px;
 `;
 
 export const PhotoCommentField = styled.input`
@@ -173,6 +179,15 @@ export const PhotoCommentField = styled.input`
 		opacity: 0.7;
 	}
 `;
+
+export const PhotoCommentHidden = styled.div`
+	display: ${props => props.show ? 'block' : 'none' };
+	box-sizing: border-box;
+	padding: 35px 10px 0 10px;
+	text-align: right;
+	animation: opacity 0.4s ease-in;
+`;
+
 
 export default {
 	CarouselContent,
@@ -196,4 +211,6 @@ export default {
 	SocialIcons,
 	PhotoComments,
 	PhotoCommentField,
+	PhotoCommentHidden,
+	AddComment
 };

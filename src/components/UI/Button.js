@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
-export const Button = styled.button`
-	padding: 7px 16px 8px;
+export const Button = styled.div`
+	padding: 7px 15px;
 	margin: 0;
-	font-size: 12.5px;
+	font-size: 14px;
 	display: inline-block;
 	zoom: 1;
 	cursor: pointer;
 	white-space: nowrap;
-	outline: none;
-	vertical-align: top;
-	line-height: 15px;
 	text-align: center;
-	text-decoration: none;
-	background: none;
-	background-color: #5181b8;
+	background-color: #5b88bd;
 	color: #fff;
 	border: 0;
 	border-radius: 4px;
-	box-sizing: border-box;
+	margin: 0 7px;
 `;
 
-export default Button;
+export const LightButton = styled(Button)`
+	background-color: #e5ebf1;
+	color: #55677d;
+`
+
+export default {
+	Button,
+	LightButton
+} 
