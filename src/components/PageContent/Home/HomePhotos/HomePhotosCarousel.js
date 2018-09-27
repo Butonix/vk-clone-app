@@ -60,13 +60,20 @@ const previousArrowStyles = {
 	height: '50px',
 };
 
-// TODO: Пофиксить выделение ссылок при перелистывании фотографий
+
+{/* 
+	TODO:
+	1. Пофиксить выделение ссылок при перелистывании фотографий
+	2. Сделать нормальный outSideClick
+	
+*/}
 class HomePhotosCarousel extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentImage: '',
 			currentImageIndex: '',
+			currentComment: true
 		};
 	}
 
@@ -83,6 +90,9 @@ class HomePhotosCarousel extends Component {
 	}
 
 	handleClick = e => {
+		this.setState({
+			currentComment: false
+		})
 		let regularArray = [];
 		if (this.props.photos) {
 			this.props.photos.forEach(item => {
@@ -125,17 +135,17 @@ class HomePhotosCarousel extends Component {
 				}
 			});
 		}
-
+		
 		if (e.currentTarget.className === 'close') {
 			this.props.hideCarousel();
 		}
 	};
-	outSideClick = e => {
-		// FIXME:
-		if (e.target.attributes[0].value === 'modal-close') {
-			this.props.hideCarousel();
-		}
-	};
+	// outSideClick = e => {
+	// 	// FIXME:
+	// 	if (e.target.attributes[0].value === 'modal-close') {
+	// 		this.props.hideCarousel();
+	// 	}
+	// };
 	render() {
 		const ImageNumber = this.state.currentImageIndex;
 		if (this.props.photos) {
@@ -145,7 +155,7 @@ class HomePhotosCarousel extends Component {
 				<CarouselContainer
 					name="modal-close"
 					show={this.props.show}
-					onClick={this.outSideClick.bind(this)}
+					// onClick={this.outSideClick.bind(this)}
 				>
 					<CarouselContent>
 						<LeftPhoto>
@@ -180,7 +190,10 @@ class HomePhotosCarousel extends Component {
 							/>
 						</LeftPhoto>
 						<RightContent>
-							<PhotoCarouselInfo />
+							<PhotoCarouselInfo 
+								imageIndex={this.state.currentImageIndex}
+								comment={this.state.currentComment}
+							/>
 						</RightContent>
 					</CarouselContent>
 					<RenderIcon

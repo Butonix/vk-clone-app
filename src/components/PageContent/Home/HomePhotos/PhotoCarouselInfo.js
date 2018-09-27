@@ -1,8 +1,12 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 
 // Icons
 import { heart } from 'react-icons-kit/fa/heart';
 import { share } from 'react-icons-kit/fa/share';
+
+//Actions
+import addPhotoComment from './../../../../actions/AddPhotoComment';
 
 // Styled Components
 import { ProfileIcon } from './../../../StyledComponents';
@@ -22,6 +26,7 @@ import {
 // React Components
 
 import RenderIcon from './../../../RenderIcon';
+import PhotoComment from './PhotoComment';
 
 // UI
 
@@ -34,13 +39,21 @@ const hurtStyle = {
 	paddingRight: '20px',
 };
 
-export default class PhotoCarouselInfo extends Component {
+class PhotoCarouselInfo extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			commentsHidden: false,
 		};
 	}
+	componentWillReceiveProps(nextProps) {
+		if (!this.props.comment) {
+		 this.commentField.value = "";
+		  this.setState({
+			commentsHidden: false
+		  });
+		}
+	  }
 	handleClick = e => {
 		if (!this.state.commentsHidden) {
 			this.setState({
@@ -52,7 +65,22 @@ export default class PhotoCarouselInfo extends Component {
 			});
 		}
 	};
+	addComment = e => {
+		if (this.commentField.value.trim()) {
+			this.props.addPhotoComment({
+				timestamp: Date.now().toString(),
+				comment: this.commentField.value,
+				index: this.props.imageIndex,
+			});
+		}
+		
+		this.commentField.value = "";
+		this.setState({
+			commentsHidden: false,
+		});
+	}
 	render() {
+		
 		return (
 			<PhotoInfo>
 				<PhotoInfoTop>
@@ -63,36 +91,69 @@ export default class PhotoCarouselInfo extends Component {
 					</AuthorInfo>
 				</PhotoInfoTop>
 				<SocialIcons>
-					<RenderIcon icon={heart} size="20" style={hurtStyle} />
-					<RenderIcon icon={share} size="20" style={hurtStyle} />
+					<RenderIcon 
+						icon={heart} 
+						size="20" 
+						style={hurtStyle} 
+					/>
+					<RenderIcon 
+						icon={share} 
+						size="20" 
+						style={hurtStyle} 
+					/>
 				</SocialIcons>
+				<div>{
+					this.props.comments
+						.filter((item) => item.index === this.props.imageIndex)
+						.map((item, index) => (
+							<PhotoComment 
+								profileName="Ivan Zvonkov"
+								readText={item.comment}
+								key={index}
+							/>
+						))
+				}</div>
 				<PhotoComments>
 					<AddComment>
 						{/* 
 							TODO:
 							1. Скрывать панель при клике на перелистывание фотографий ~ 5 мин
-							2. Создать заранее массив размером равным количествам фотографий
-							3. При добавлении комменатрия добавлять его в объект с числовым индексом
-							равным номеру индекса(фотографии)
-							4. При выводе комменатариев сравнивать индекс фотографии и числовой индекс 
-							в объекте с комментариями
-							5. Давать уникальный id каждому комменатарию для дальнейшего удаления
-							6. По возможности выводить дату создания комментария					
+							2. Добавлять в массив объекты с id комментария, текстом
+							3. По возможности выводить дату создания комментария	
+							4. Делать проверку на пустоту поля				
+							5. Чистить содержимое поля при отправке и перелистывании фото
+							
 						*/}
 						<ProfileIcon size="25" />
 						<PhotoCommentField
 							placeholder="Leave a comment..."
 							onClick={this.handleClick.bind(this)}
+							ref={(node) => this.commentField = node}
 						/>
 					</AddComment>
 					<PhotoCommentHidden show={this.state.commentsHidden}>
 						<LightButton onClick={this.handleClick.bind(this)}>
 							Cancel
 						</LightButton>
-						<Button>Post</Button>
+						<Button onClick={this.addComment.bind(this)}>Post</Button>
 					</PhotoCommentHidden>
 				</PhotoComments>
 			</PhotoInfo>
 		);
 	}
 }
+
+const mapStateToProps = state => ({
+	comments: state.PhotoComments.photoComments
+});
+
+const mapDispatchToProps = dispatch => ({
+	addPhotoComment: (comment) => {
+		dispatch(addPhotoComment(comment))
+	}
+});
+
+export default connect(
+	mapStateToProps,
+	mapDispatchToProps
+)(PhotoCarouselInfo);

@@ -16,9 +16,12 @@ import WallAddPost from './reducers/WallAddPost';
 import Freinds from './reducers/Freinds';
 import Photos from './reducers/Photos';
 import rootReducer from './reducers/rootReducer';
+import PhotoComments from './reducers/PhotoComments'
 
 import watchFetchFreinds from './sagas/fetchFreinds';
 import watchFetchPhotos from './sagas/fetchPhotos';
+
+import { registerObserver } from 'react-perf-devtool';
 
 const sagaMiddleWare = createSagaMiddleware();
 
@@ -28,15 +31,18 @@ const store = createStore(
 		WallAddPost,
 		Freinds,
 		Photos,
+		PhotoComments
 	}),
 	composeWithDevTools(applyMiddleware(logger, sagaMiddleWare))
 );
+
 
 function* rootSaga() {
 	yield all([watchFetchPhotos(), watchFetchFreinds()]);
 }
 
 sagaMiddleWare.run(rootSaga);
+registerObserver()
 
 ReactDOM.render(
 	<Provider store={store}>

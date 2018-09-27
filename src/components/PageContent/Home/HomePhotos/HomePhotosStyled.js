@@ -152,7 +152,6 @@ export const SocialIcons = styled.div`
 `;
 
 export const PhotoComments = styled.div`
-	padding-bottom: 10px;
 	border-top: 1px solid rgba(0, 0, 0, 0.2);
 	position: absolute;
 	bottom: 0;
@@ -183,9 +182,35 @@ export const PhotoCommentField = styled.input`
 export const PhotoCommentHidden = styled.div`
 	display: ${props => (props.show ? 'block' : 'none')};
 	box-sizing: border-box;
-	padding: 35px 10px 0 10px;
+	padding: 35px 10px 10px 10px;
 	text-align: right;
 	animation: opacity 0.4s ease-in;
+	background: #fafbfc;
+    border-top: 1px solid #e7e8ec;
+`;
+
+export const PhotoCommentContainer = styled.div`
+	display: flex;
+	animation: top 0.4s ease;
+	align-items: center;
+	padding: 5px 15px;
+`;
+
+export const PhotoCommentRead = styled.span`
+	margin-left: 10px;
+	text-align: left;
+`;
+
+export const PhotoCommentReadText = styled.span`
+	font-size: 12px;
+	color: #333;
+`;
+
+export const PhotoCommentProfileName = styled.div`
+	font-size: 14px;
+	font-weight: 400;
+	color: #2a5885;
+	padding-bottom: 2px;
 `;
 
 export default {
@@ -212,4 +237,9 @@ export default {
 	PhotoCommentField,
 	PhotoCommentHidden,
 	AddComment,
+	PhotoCommentProfileName,
+	PhotoCommentContainer,
+	PhotoCommentReadText,
+	PhotoCommentRead,
+	
 };
