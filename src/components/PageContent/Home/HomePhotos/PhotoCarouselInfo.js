@@ -21,6 +21,7 @@ import {
 	PhotoCommentField,
 	PhotoCommentHidden,
 	AddComment,
+	PhotoCommentsContainer,
 } from './HomePhotosStyled';
 
 // React Components
@@ -48,12 +49,12 @@ class PhotoCarouselInfo extends Component {
 	}
 	componentWillReceiveProps(nextProps) {
 		if (!this.props.comment) {
-		 this.commentField.value = "";
-		  this.setState({
-			commentsHidden: false
-		  });
+			this.commentField.value = '';
+			this.setState({
+				commentsHidden: false,
+			});
 		}
-	  }
+	}
 	handleClick = e => {
 		if (!this.state.commentsHidden) {
 			this.setState({
@@ -73,14 +74,14 @@ class PhotoCarouselInfo extends Component {
 				index: this.props.imageIndex,
 			});
 		}
-		
-		this.commentField.value = "";
+
+		this.commentField.value = '';
 		this.setState({
 			commentsHidden: false,
 		});
-	}
+	};
 	render() {
-		
+		console.log(this.props);
 		return (
 			<PhotoInfo>
 				<PhotoInfoTop>
@@ -91,30 +92,23 @@ class PhotoCarouselInfo extends Component {
 					</AuthorInfo>
 				</PhotoInfoTop>
 				<SocialIcons>
-					<RenderIcon 
-						icon={heart} 
-						size="20" 
-						style={hurtStyle} 
-					/>
-					<RenderIcon 
-						icon={share} 
-						size="20" 
-						style={hurtStyle} 
-					/>
+					<RenderIcon icon={heart} size="20" style={hurtStyle} />
+					<RenderIcon icon={share} size="20" style={hurtStyle} />
 				</SocialIcons>
-				<div>{
-					this.props.comments
-						.filter((item) => item.index === this.props.imageIndex)
+				<PhotoCommentsContainer>
+					{this.props.comments
+						.filter(item => item.index === this.props.imageIndex)
 						.map((item, index) => (
-							<PhotoComment 
+							<PhotoComment
 								profileName="Ivan Zvonkov"
 								readText={item.comment}
 								key={index}
+								timestamp={item.timestamp}
 							/>
-						))
-				}</div>
+						))}
+				</PhotoCommentsContainer>
 				<PhotoComments>
-					<AddComment>
+					<AddComment onClick={this.handleClick.bind(this)}>
 						{/* 
 							TODO:
 							1. Скрывать панель при клике на перелистывание фотографий ~ 5 мин
@@ -127,8 +121,7 @@ class PhotoCarouselInfo extends Component {
 						<ProfileIcon size="25" />
 						<PhotoCommentField
 							placeholder="Leave a comment..."
-							onClick={this.handleClick.bind(this)}
-							ref={(node) => this.commentField = node}
+							ref={node => (this.commentField = node)}
 						/>
 					</AddComment>
 					<PhotoCommentHidden show={this.state.commentsHidden}>
@@ -144,13 +137,20 @@ class PhotoCarouselInfo extends Component {
 }
 
 const mapStateToProps = state => ({
-	comments: state.PhotoComments.photoComments
+	comments: state.PhotoComments.photoComments.filter(e => {
+		const arrStamps = state.PhotoComments.timestamps;
+		if (arrStamps) {
+			return arrStamps.every(element => element !== e.timestamp);
+		} else {
+			return e;
+		}
+	}),
 });
 
 const mapDispatchToProps = dispatch => ({
-	addPhotoComment: (comment) => {
-		dispatch(addPhotoComment(comment))
-	}
+	addPhotoComment: comment => {
+		dispatch(addPhotoComment(comment));
+	},
 });
 
 export default connect(

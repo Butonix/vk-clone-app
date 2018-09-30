@@ -60,20 +60,21 @@ const previousArrowStyles = {
 	height: '50px',
 };
 
-
-{/* 
+{
+	/* 
 	TODO:
 	1. Пофиксить выделение ссылок при перелистывании фотографий
 	2. Сделать нормальный outSideClick
 	
-*/}
+*/
+}
 class HomePhotosCarousel extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			currentImage: '',
 			currentImageIndex: '',
-			currentComment: true
+			currentComment: true,
 		};
 	}
 
@@ -91,8 +92,8 @@ class HomePhotosCarousel extends Component {
 
 	handleClick = e => {
 		this.setState({
-			currentComment: false
-		})
+			currentComment: false,
+		});
 		let regularArray = [];
 		if (this.props.photos) {
 			this.props.photos.forEach(item => {
@@ -135,7 +136,7 @@ class HomePhotosCarousel extends Component {
 				}
 			});
 		}
-		
+
 		if (e.currentTarget.className === 'close') {
 			this.props.hideCarousel();
 		}
@@ -190,10 +191,7 @@ class HomePhotosCarousel extends Component {
 							/>
 						</LeftPhoto>
 						<RightContent>
-							<PhotoCarouselInfo 
-								imageIndex={this.state.currentImageIndex}
-								comment={this.state.currentComment}
-							/>
+							<PhotoCarouselInfo imageIndex={this.state.currentImageIndex} />
 						</RightContent>
 					</CarouselContent>
 					<RenderIcon

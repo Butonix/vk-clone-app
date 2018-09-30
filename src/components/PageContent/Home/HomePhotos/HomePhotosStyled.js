@@ -186,7 +186,7 @@ export const PhotoCommentHidden = styled.div`
 	text-align: right;
 	animation: opacity 0.4s ease-in;
 	background: #fafbfc;
-    border-top: 1px solid #e7e8ec;
+	border-top: 1px solid #e7e8ec;
 `;
 
 export const PhotoCommentContainer = styled.div`
@@ -194,6 +194,7 @@ export const PhotoCommentContainer = styled.div`
 	animation: top 0.4s ease;
 	align-items: center;
 	padding: 5px 15px;
+	position: relative;
 `;
 
 export const PhotoCommentRead = styled.span`
@@ -211,6 +212,44 @@ export const PhotoCommentProfileName = styled.div`
 	font-weight: 400;
 	color: #2a5885;
 	padding-bottom: 2px;
+`;
+
+export const PhotoCommentsContainer = styled.div`
+	height: 50vh;
+	overflow: auto;
+	&::-webkit-scrollbar-button {
+		background-image: url('');
+		background-repeat: no-repeat;
+		width: 5px;
+		height: 0px;
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: transparent;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		border-radius: 3px;
+		background-color: #5b88bd;
+	}
+
+	&::-webkit-scrollbar-thumb:hover {
+		opacity: 0.5;
+		transition: all 0.3s;
+	}
+
+	&::-webkit-resizer {
+		background-image: url('');
+		background-repeat: no-repeat;
+		width: 4px;
+		height: 0px;
+	}
+
+	&::-webkit-scrollbar {
+		width: 7px;
+		border-radius: 3px;
+		margin-right: 5px;
+	}
 `;
 
 export default {
@@ -236,10 +275,10 @@ export default {
 	PhotoComments,
 	PhotoCommentField,
 	PhotoCommentHidden,
+	PhotoCommentsContainer,
 	AddComment,
 	PhotoCommentProfileName,
 	PhotoCommentContainer,
 	PhotoCommentReadText,
 	PhotoCommentRead,
-	
 };
