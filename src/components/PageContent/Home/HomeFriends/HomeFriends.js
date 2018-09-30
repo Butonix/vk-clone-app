@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { GrayLink, BlockTitle } from './../HomeStyled';
-
 import { connect } from 'react-redux';
 
 // React Compoenents
-
 import Friend from './Friend';
 
 // Styled Compoenents
@@ -24,7 +22,8 @@ class HomeFriends extends Component {
 		this.props.dataFreinds();
 	}
 	render() {
-		const freinds = this.props.freinds;
+		const friends = this.props.freinds;
+		friends ? console.log(this.props) : ''
 		return (
 			<Fragment>
 				<HomePreindsContainer>
@@ -35,8 +34,8 @@ class HomeFriends extends Component {
 						<GrayLink href="#">updates </GrayLink>
 					</BlockTitle>
 					<MyFreinds>
-						{freinds
-							? freinds.map((item, index) => {
+						{friends
+							? friends.map((item, index) => {
 									return (
 										<Friend
 											key={index}
@@ -55,8 +54,8 @@ class HomeFriends extends Component {
 						</FreindsTitle>
 					</BlockTitle>
 					<MyFreinds>
-						{freinds
-							? freinds.reverse().map((item, index) => {
+						{friends
+							? friends.reverse().map((item, index) => {
 									return (
 										<Friend
 											key={index}
@@ -82,6 +81,9 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(fetchFreinds());
 	},
 });
+
+
+
 
 export default connect(
 	mapStateToProps,

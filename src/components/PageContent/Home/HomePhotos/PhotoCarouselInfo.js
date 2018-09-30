@@ -25,12 +25,10 @@ import {
 } from './HomePhotosStyled';
 
 // React Components
-
 import RenderIcon from './../../../RenderIcon';
 import PhotoComment from './PhotoComment';
 
 // UI
-
 import { Button, LightButton } from './../../../UI/Button';
 
 const hurtStyle = {
