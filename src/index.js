@@ -13,12 +13,12 @@ import { Provider } from 'react-redux';
 
 // Reducers
 import WallAddPost from './reducers/WallAddPost';
-import Freinds from './reducers/Freinds';
+import Friends from './reducers/Friends';
 import Photos from './reducers/Photos';
 import rootReducer from './reducers/rootReducer';
 import PhotoComments from './reducers/PhotoComments';
 
-import watchFetchFreinds from './sagas/fetchFreinds';
+import watchFetchFriends from './sagas/fetchFriends';
 import watchFetchPhotos from './sagas/fetchPhotos';
 
 import { registerObserver } from 'react-perf-devtool';
@@ -29,7 +29,7 @@ const store = createStore(
 	combineReducers({
 		rootReducer,
 		WallAddPost,
-		Freinds,
+		Friends,
 		Photos,
 		PhotoComments,
 	}),
@@ -37,7 +37,7 @@ const store = createStore(
 );
 
 function* rootSaga() {
-	yield all([watchFetchPhotos(), watchFetchFreinds()]);
+	yield all([watchFetchPhotos(), watchFetchFriends()]);
 }
 
 sagaMiddleWare.run(rootSaga);

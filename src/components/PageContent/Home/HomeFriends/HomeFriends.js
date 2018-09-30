@@ -7,33 +7,33 @@ import Friend from './Friend';
 
 // Styled Compoenents
 import {
-	HomePreindsContainer,
-	MyFreinds,
-	FreindsNumber,
-	FreindsTitle,
+	HomeFriendsContainer,
+	MyFriends,
+	FriendsNumber,
+	FriendsTitle,
 } from './HomeFriendsStyled';
 
 //Actions
 
-import fetchFreinds from './../../../../actions/Freinds/FetchFreinds';
+import fetchFriends from './../../../../actions/Friends/FetchFriends';
 
 class HomeFriends extends Component {
 	componentDidMount() {
-		this.props.dataFreinds();
+		this.props.dataFriends();
 	}
 	render() {
 		const friends = this.props.freinds;
 		friends ? console.log(this.props) : ''
 		return (
 			<Fragment>
-				<HomePreindsContainer>
+				<HomeFriendsContainer>
 					<BlockTitle>
-						<FreindsTitle>
-							Friends <FreindsNumber>3328</FreindsNumber>
-						</FreindsTitle>
+						<FriendsTitle>
+							Friends <FriendsNumber>3328</FriendsNumber>
+						</FriendsTitle>
 						<GrayLink href="#">updates </GrayLink>
 					</BlockTitle>
-					<MyFreinds>
+					<MyFriends>
 						{friends
 							? friends.map((item, index) => {
 									return (
@@ -45,15 +45,15 @@ class HomeFriends extends Component {
 									);
 							  })
 							: ''}
-					</MyFreinds>
-				</HomePreindsContainer>
-				<HomePreindsContainer>
+					</MyFriends>
+				</HomeFriendsContainer>
+				<HomeFriendsContainer>
 					<BlockTitle>
-						<FreindsTitle>
-							Friends Online <FreindsNumber>1236</FreindsNumber>
-						</FreindsTitle>
+						<FriendsTitle>
+							Friends Online <FriendsNumber>1236</FriendsNumber>
+						</FriendsTitle>
 					</BlockTitle>
-					<MyFreinds>
+					<MyFriends>
 						{friends
 							? friends.reverse().map((item, index) => {
 									return (
@@ -65,20 +65,20 @@ class HomeFriends extends Component {
 									);
 							  })
 							: ''}
-					</MyFreinds>
-				</HomePreindsContainer>
+					</MyFriends>
+				</HomeFriendsContainer>
 			</Fragment>
 		);
 	}
 }
 
 const mapStateToProps = state => ({
-	freinds: state.Freinds.data,
+	freinds: state.Friends.data,
 });
 
 const mapDispatchToProps = dispatch => ({
-	dataFreinds() {
-		dispatch(fetchFreinds());
+	dataFriends() {
+		dispatch(fetchFriends());
 	},
 });
 

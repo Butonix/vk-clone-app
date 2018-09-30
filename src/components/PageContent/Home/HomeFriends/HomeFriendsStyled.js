@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const FreindsTitle = styled.div`
+export const FriendsTitle = styled.div`
 	font-size: 12px;
 	display: flex;
 	flex-direction: row;
@@ -8,7 +8,7 @@ export const FreindsTitle = styled.div`
 	color: #000;
 `;
 
-export const HomePreindsContainer = styled.div`
+export const HomeFriendsContainer = styled.div`
 	background: #fff;
 	padding: 20px 15px 15px 15px;
 	margin: 0px 10px 0px 0px;
@@ -16,7 +16,7 @@ export const HomePreindsContainer = styled.div`
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 `;
 
-export const FreindsNumber = styled.p`
+export const FriendsNumber = styled.p`
 	font-size: 12px;
 	padding-left: 10px;
 	color: #777;
@@ -43,7 +43,7 @@ export const FreindItem = styled.div`
 	}
 `;
 
-export const MyFreinds = styled.div`
+export const MyFriends = styled.div`
 	display: flex;
 	justify-content: space-between;
 	padding: 15px 0 0 0;
@@ -51,9 +51,9 @@ export const MyFreinds = styled.div`
 `;
 
 export default {
-	HomePreindsContainer,
-	MyFreinds,
+	HomeFriendsContainer,
+	MyFriends,
 	FreindItem,
-	FreindsNumber,
-	FreindsTitle,
+	FriendsNumber,
+	FriendsTitle,
 };

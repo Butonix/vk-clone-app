@@ -1,27 +1,27 @@
 import {
-	FETCH_FREINDS,
-	REQUESTED_FREINDS_FAILED,
-	REQUESTED_FREINDS_SUCCEEDED,
+	FETCH_FRIENDS,
+	REQUESTED_FRIENDS_FAILED,
+	REQUESTED_FRIENDS_SUCCEEDED,
 } from './../constants/ActionTypes';
 
 const initialState = {};
 
-export default function Freinds(state = initialState, action) {
-	if (action.type === FETCH_FREINDS) {
+export default function Friends(state = initialState, action) {
+	if (action.type === FETCH_FRIENDS) {
 		return {
 			data: '',
 			loading: true,
 			error: false,
 		};
 	}
-	if (action.type === REQUESTED_FREINDS_SUCCEEDED) {
+	if (action.type === REQUESTED_FRIENDS_SUCCEEDED) {
 		return {
 			data: action.data,
 			loading: true,
 			error: false,
 		};
 	}
-	if (action.type === REQUESTED_FREINDS_FAILED) {
+	if (action.type === REQUESTED_FRIENDS_FAILED) {
 		return {
 			data: '',
 			loading: false,
