@@ -30,6 +30,7 @@
     "prettier": "prettier --single-quote --use-tabs --trailing-comma es5 --write \"src/**/*.js\""
   },
   "devDependencies": {
+    "jest-styled-components": "^6.2.1",
     "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5"
   }

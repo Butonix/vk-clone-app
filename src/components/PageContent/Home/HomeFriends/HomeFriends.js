@@ -17,16 +17,16 @@ import {
 
 import fetchFriends from './../../../../actions/Friends/FetchFriends';
 
-class HomeFriends extends Component {
+export class HomeFriends extends Component {
 	componentDidMount() {
 		this.props.dataFriends();
 	}
 	render() {
 		const friends = this.props.freinds;
-		friends ? console.log(this.props) : ''
 		return (
 			<Fragment>
 				<HomeFriendsContainer>
+					
 					<BlockTitle>
 						<FriendsTitle>
 							Friends <FriendsNumber>3328</FriendsNumber>
@@ -77,7 +77,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-	dataFriends() {
+	dataFriends: () => {
 		dispatch(fetchFriends());
 	},
 });

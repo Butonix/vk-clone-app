@@ -14,7 +14,7 @@ import HomePhotosCarousel from './HomePhotosCarousel';
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
 import ShowAlbumCarousel from './../../../../actions/ShowAlbumCarousel';
 
-class ProfilesPhotos extends PureComponent {
+class ProfilePhotos extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -77,4 +77,4 @@ const mapDispatchToProps = dispatch => ({
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(ProfilesPhotos);
+)(ProfilePhotos);

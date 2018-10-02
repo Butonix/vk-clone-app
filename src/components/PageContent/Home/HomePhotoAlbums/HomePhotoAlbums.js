@@ -27,7 +27,6 @@ class HomePhotoAlbums extends PureComponent {
 	}
 	handleClick(e) {
 		this.props.showModal();
-		console.log(e);
 	}
 	render() {
 		return (
