@@ -9,6 +9,9 @@ import { filePhotoO } from 'react-icons-kit/fa/filePhotoO';
 import { music } from 'react-icons-kit/fa/music';
 import { videoCamera } from 'react-icons-kit/fa/videoCamera';
 
+import { Link } from "react-router-dom";
+
+
 import {
 	ListContainer,
 	PageMenuContainer,
@@ -36,7 +39,7 @@ export default class PageMenu extends Component {
 						<span>
 							<SideIconContainer icon={home} />
 						</span>
-						<LinkTo href="">My profile</LinkTo>
+						<Link to="/">My profile</Link>
 					</List>
 					<List>
 						<span>

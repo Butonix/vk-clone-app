@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import { withBaseIcon } from 'react-icons-kit';
 import { barChart } from 'react-icons-kit/fa/barChart';
 import { ProfileContainer } from './../HomeStyled';
+import { Link } from "react-router-dom";
+
+
 
 const SideIconContainer = withBaseIcon({
 	size: 17,
@@ -54,7 +57,9 @@ export default class HomeProfile extends Component {
 				<ChangeInfoContainer>
 					<ChangeButton>Edit</ChangeButton>
 					<StaticButton>
-						<SideIconContainer icon={barChart} />
+						<Link to="/static">
+							<SideIconContainer icon={barChart} />
+						</Link>
 					</StaticButton>
 				</ChangeInfoContainer>
 			</ProfileContainer>

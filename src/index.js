@@ -10,6 +10,7 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, all } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
+import { BrowserRouter } from 'react-router-dom'
 
 // Reducers
 import WallAddPost from './reducers/WallAddPost';
@@ -44,9 +45,11 @@ sagaMiddleWare.run(rootSaga);
 registerObserver();
 
 ReactDOM.render(
-	<Provider store={store}>
-		<App />
-	</Provider>,
+	<BrowserRouter>
+		<Provider store={store}>
+			<App />
+		</Provider>
+	</BrowserRouter>,
 	document.getElementById('root')
 );
 registerServiceWorker();

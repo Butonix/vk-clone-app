@@ -20,6 +20,16 @@ export const LinkTo = styled.a`
 export const List = styled.li`
 	display: flex;
 	align-items: center;
+	a {
+		color: #4a76a8;
+		text-decoration: none;
+		padding-left: 10px;
+		font-size: 14px;
+		opacity: 0.8;
+		&:hover {
+			opacity: 1;
+		}
+	}
 	&:first-child {
 		padding-top: 0;
 	}
