@@ -9,8 +9,7 @@ import { filePhotoO } from 'react-icons-kit/fa/filePhotoO';
 import { music } from 'react-icons-kit/fa/music';
 import { videoCamera } from 'react-icons-kit/fa/videoCamera';
 
-import { Link } from "react-router-dom";
-
+import { Link } from 'react-router-dom';
 
 import {
 	ListContainer,

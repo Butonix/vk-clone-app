@@ -26,7 +26,6 @@ export class HomeFriends extends Component {
 		return (
 			<Fragment>
 				<HomeFriendsContainer>
-					
 					<BlockTitle>
 						<FriendsTitle>
 							Friends <FriendsNumber>3328</FriendsNumber>
@@ -81,9 +80,6 @@ const mapDispatchToProps = dispatch => ({
 		dispatch(fetchFriends());
 	},
 });
-
-
-
 
 export default connect(
 	mapStateToProps,

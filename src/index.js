@@ -10,7 +10,7 @@ import createSagaMiddleware from 'redux-saga';
 import { takeEvery, all } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom'
+import { BrowserRouter } from 'react-router-dom';
 
 // Reducers
 import WallAddPost from './reducers/WallAddPost';
@@ -53,6 +53,5 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 registerServiceWorker();
-
 
 export default store;

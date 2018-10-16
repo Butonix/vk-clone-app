@@ -3,9 +3,7 @@ import styled from 'styled-components';
 import { withBaseIcon } from 'react-icons-kit';
 import { barChart } from 'react-icons-kit/fa/barChart';
 import { ProfileContainer } from './../HomeStyled';
-import { Link } from "react-router-dom";
-
-
+import { Link } from 'react-router-dom';
 
 const SideIconContainer = withBaseIcon({
 	size: 17,

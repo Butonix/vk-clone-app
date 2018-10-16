@@ -6,7 +6,6 @@ export const HomeContainer = styled.div`
 	align-items: flex-start;
 	width: 83%;
 	animation: top 0.6s ease-in-out;
-
 `;
 
 export const BlockTitle = styled.div`
