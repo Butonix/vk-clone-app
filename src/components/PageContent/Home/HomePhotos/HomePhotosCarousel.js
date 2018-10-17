@@ -11,7 +11,6 @@ import { ic_navigate_before } from 'react-icons-kit/md/ic_navigate_before';
 import { ic_navigate_next } from 'react-icons-kit/md/ic_navigate_next';
 
 // React Components
-
 import RenderIcon from './.././../../RenderIcon';
 import PhotoCarouselInfo from './PhotoCarouselInfo';
 
@@ -81,8 +80,9 @@ class HomePhotosCarousel extends Component {
 	componentWillReceiveProps(nextProps) {
 		const arr = [];
 		const link = nextProps.currentImage.split('"')[1];
-		if (nextProps.photos)
+		if (nextProps.photos) {
 			nextProps.photos.forEach(item => arr.push(item.urls.regular));
+		}
 		let photoNumber = arr.indexOf(link) + 1;
 		this.setState({
 			currentImage: link,
@@ -141,23 +141,14 @@ class HomePhotosCarousel extends Component {
 			this.props.hideCarousel();
 		}
 	};
-	// outSideClick = e => {
-	// 	// FIXME:
-	// 	if (e.target.attributes[0].value === 'modal-close') {
-	// 		this.props.hideCarousel();
-	// 	}
-	// };
+
 	render() {
 		const ImageNumber = this.state.currentImageIndex;
 		if (this.props.photos) {
 			const PhotosCount = this.props.photos.length;
 
 			return (
-				<CarouselContainer
-					name="modal-close"
-					show={this.props.show}
-					// onClick={this.outSideClick.bind(this)}
-				>
+				<CarouselContainer name="modal-close" show={this.props.show}>
 					<CarouselContent>
 						<LeftPhoto>
 							<CurrentImage

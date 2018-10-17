@@ -54,15 +54,14 @@ class PhotoCarouselInfo extends Component {
 		}
 	}
 	handleClick = e => {
-		if (!this.state.commentsHidden) {
-			this.setState({
-				commentsHidden: true,
-			});
-		} else {
-			this.setState({
-				commentsHidden: false,
-			});
-		}
+		this.setState({
+			commentsHidden: true,
+		});
+	};
+	closeField = e => {
+		this.setState({
+			commentsHidden: false,
+		});
 	};
 	addComment = e => {
 		if (this.commentField.value.trim()) {
@@ -72,14 +71,12 @@ class PhotoCarouselInfo extends Component {
 				index: this.props.imageIndex,
 			});
 		}
-
 		this.commentField.value = '';
 		this.setState({
 			commentsHidden: false,
 		});
 	};
 	render() {
-		console.log(this.props);
 		return (
 			<PhotoInfo>
 				<PhotoInfoTop>
@@ -123,7 +120,7 @@ class PhotoCarouselInfo extends Component {
 						/>
 					</AddComment>
 					<PhotoCommentHidden show={this.state.commentsHidden}>
-						<LightButton onClick={this.handleClick.bind(this)}>
+						<LightButton onClick={this.closeField.bind(this)}>
 							Cancel
 						</LightButton>
 						<Button onClick={this.addComment.bind(this)}>Post</Button>

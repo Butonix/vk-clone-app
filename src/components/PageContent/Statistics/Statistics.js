@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { HeadH3, Text } from './../../UI/Typography';
 import {
 	LineChart,
 	Line,
@@ -6,9 +7,7 @@ import {
 	YAxis,
 	CartesianGrid,
 	Tooltip,
-	Legend,
 } from 'recharts';
-import axios from 'axios';
 
 // Styled Components
 import {
@@ -32,7 +31,7 @@ export default class Statistics extends Component {
 	}
 	componentDidMount() {
 		this.setState({
-			data: data,
+			data: data.reverse(),
 		});
 	}
 	render() {
@@ -42,17 +41,23 @@ export default class Statistics extends Component {
 					<PagePagination toRoutArray={toRoutArray} />
 				</PageHeaderBlock>
 				<ChartContainer>
+					<HeadH3>Audience coverage</HeadH3>
+					<Text>
+						This graph shows data for all users who have seen your posts —
+						either on your wall or in their News feeds.
+					</Text>
 					<LineChart
 						width={800}
 						height={400}
 						data={this.state.data}
 						margin={{ top: 5, right: 30, left: 20, bottom: 5 }}
 					>
-						<CartesianGrid strokeDasharray="" />
-						<XAxis dataKey="Date" stroke="#777" />
+						<CartesianGrid strokeDasharray="#4a76a8" />
+						<XAxis dataKey="Date" stroke="#999" />
 						<YAxis stroke="#5b88bd" />
 						<Tooltip />
 						<Line
+							name="full coverage"
 							type="monotone"
 							dataKey="Value"
 							stroke="#5b88bd"

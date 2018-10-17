@@ -10,7 +10,13 @@ export const StatictsContainer = styled.div`
 `;
 
 export const ChartContainer = styled.div`
-	padding: 15px 10px 20px;
+	padding: 15px 30px;
+	text-align: left;
+	.recharts-wrapper {
+		position: relative;
+		left: -60px;
+		margin: 20px 0;
+	}
 `;
 
 export default {
