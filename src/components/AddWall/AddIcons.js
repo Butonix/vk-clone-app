@@ -7,7 +7,7 @@ import { music } from 'react-icons-kit/fa/music';
 
 import { text } from 'react-icons-kit/entypo/text';
 
-import { AddIconsContainer } from './HomeWallStyled';
+import { AddIconsContainer } from './AddWallStyled';
 
 const SideIconContainer = withBaseIcon({
 	size: 16,

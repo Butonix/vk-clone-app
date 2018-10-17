@@ -10,7 +10,7 @@ import {
 	AddPanel,
 	AddTitle,
 	SendAdd,
-} from './HomeWallStyled';
+} from './AddWallStyled';
 
 // React Components
 import AddIcons from './AddIcons';
@@ -18,7 +18,7 @@ import AddSmile from './AddSmile';
 
 // UI Compoentns
 
-import { Button } from './../../../UI/Button';
+import { Button } from './../UI/Button';
 
 // Icons
 
@@ -28,7 +28,7 @@ import { ic_settings } from 'react-icons-kit/md/ic_settings';
 
 // Actions
 
-import AddWallPost from './../../../../actions/AddWallPost';
+import AddWallPost from './../../actions/AddWallPost';
 
 const SideIconContainer = withBaseIcon({
 	size: 16,
@@ -41,7 +41,7 @@ const SideIconContainer = withBaseIcon({
 	},
 });
 
-export class AddHomeWall extends PureComponent {
+export class AddWall extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -120,4 +120,4 @@ const mapDispatchToProps = (dispacth, props) => ({
 export default connect(
 	mapStateToProps,
 	mapDispatchToProps
-)(AddHomeWall);
+)(AddWall);

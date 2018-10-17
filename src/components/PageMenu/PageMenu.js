@@ -44,7 +44,7 @@ export default class PageMenu extends Component {
 						<span>
 							<SideIconContainer icon={listAlt} />
 						</span>
-						<LinkTo href="">News</LinkTo>
+						<Link to="/news">News</Link>
 					</List>
 					<List>
 						<span>

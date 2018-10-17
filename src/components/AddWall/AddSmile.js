@@ -2,7 +2,7 @@ import React from 'react';
 import { withBaseIcon } from 'react-icons-kit';
 import { smileO } from 'react-icons-kit/fa/smileO';
 
-import { AddSmileContainer } from './HomeWallStyled';
+import { AddSmileContainer } from './AddWallStyled';
 
 const SideIconContainer = withBaseIcon({
 	size: 20,

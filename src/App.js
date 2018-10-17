@@ -8,6 +8,7 @@ import PageHeader from './components/PageHeader/PageHeader';
 import PageMenu from './components/PageMenu/PageMenu';
 import Home from './components/PageContent/Home/Home';
 import Statistics from './components/PageContent/Statistics/Statistics';
+import News from './components/PageContent/News/News';
 
 // StyledComponents
 
@@ -31,6 +32,7 @@ class App extends Component {
 								<PageMenu />
 								<Route exact path="/" component={Home} />
 								<Route path="/static" component={Statistics} />
+								<Route path="/news" component={News} />
 							</div>
 						</BrowserRouter>
 					</Container>
