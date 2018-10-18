@@ -46,7 +46,7 @@ export class AddWall extends PureComponent {
 		super(props);
 		this.state = {
 			addIconsShow: true,
-			addPanelShow: true,
+			addPanelShow: false,
 			postText: '',
 		};
 	}
