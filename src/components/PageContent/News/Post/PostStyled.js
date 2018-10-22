@@ -23,6 +23,14 @@ export const PostTop = styled.div`
     padding: 0 0 15px 0;
 `;
 
+export const PostText = styled.p`
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5em;
+    text-align: left;
+    margin: 0 0 10px 0;
+`;
+
 export const PostAuthor = styled.div`
     text-align: left;
     color: #2a5885;
@@ -39,12 +47,18 @@ export const PostDate = styled.div`
 export const PostImage = styled.div`
     width: 100%;
     height: 240px;
-    background: #333;
+    background-size: cover;
+    background-position: center;
+    border-radius: 2px;
+    border-top: 1px solid rgba(0,0,0,.3);
+    border-left: 1px solid rgba(0,0,0,.3);
+    border-right: 1px solid rgba(0,0,0,.3);
 `;
 
 export const PostDescription = styled.div`
     padding: 10px 15px 11px;
     border: 1px solid rgba(0,0,0,.3);
+    border-radius: 2px;
     text-align: left;
 `;
 
@@ -81,5 +95,6 @@ export default {
     PostDescription,
     PostTitle,
     AuthorLink,
-    PostHeader
+    PostHeader,
+    PostText
 }

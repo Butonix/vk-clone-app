@@ -18,9 +18,13 @@ import Friends from './reducers/Friends';
 import Photos from './reducers/Photos';
 import rootReducer from './reducers/rootReducer';
 import PhotoComments from './reducers/PhotoComments';
+import News from './reducers/News';
 
+
+// Sagas
 import watchFetchFriends from './sagas/fetchFriends';
 import watchFetchPhotos from './sagas/fetchPhotos';
+import watchFetchNews	from './sagas/fetchNews';
 
 import { registerObserver } from 'react-perf-devtool';
 
@@ -33,12 +37,17 @@ const store = createStore(
 		Friends,
 		Photos,
 		PhotoComments,
+		News
 	}),
 	composeWithDevTools(applyMiddleware(logger, sagaMiddleWare))
 );
 
 function* rootSaga() {
-	yield all([watchFetchPhotos(), watchFetchFriends()]);
+	yield all([
+			watchFetchPhotos(), 
+			watchFetchFriends(),
+			watchFetchNews()
+		]);
 }
 
 sagaMiddleWare.run(rootSaga);

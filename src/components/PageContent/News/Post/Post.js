@@ -11,7 +11,8 @@ import {
     PostDescription,
     PostTitle,
     AuthorLink,
-    PostHeader
+    PostHeader,
+    PostText
 
 } from './PostStyled';
 
@@ -22,14 +23,19 @@ export default class Post extends Component {
         <PostTop>
             <PostAuthorImage />
             <PostHeader>
-                <PostAuthor>  Meduza   </PostAuthor>
+                <PostAuthor>{this.props.author}</PostAuthor>
                 <PostDate>Today in 14:33</PostDate>
             </PostHeader>
-        </PostTop>        
-        <PostImage />
+        </PostTop>
+        <PostText>{this.props.postText}</PostText>
+        <PostImage
+          style={{
+            backgroundImage: `url(${this.props.postImage})`
+          }}
+        />
         <PostDescription>
-            <PostTitle>Глава Крыма 22 октября распределит обязанности арестованного вице-премьера</PostTitle>
-            <AuthorLink>Meduza.io</AuthorLink>
+            <PostTitle>{this.props.title}</PostTitle>
+            {/* <AuthorLink>Meduza.io</AuthorLink> */}
         </PostDescription>
       </PostContainer>
     )
