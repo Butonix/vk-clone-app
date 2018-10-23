@@ -27,6 +27,7 @@ import {
 // React Components
 import RenderIcon from './../../../RenderIcon';
 import PhotoComment from './PhotoComment';
+import DateParse from './../../../DateParse/DateParse';
 
 // UI
 import { Button, LightButton } from './../../../UI/Button';
@@ -77,13 +78,15 @@ class PhotoCarouselInfo extends Component {
 		});
 	};
 	render() {
+		const dates = this.props.dates;
+		const imageIndex = this.props.imageIndex - 1;
 		return (
 			<PhotoInfo>
 				<PhotoInfoTop>
 					<ProfileIcon size="40" />
 					<AuthorInfo>
 						<PhotoInfoProfileName>Ivan Zvonkov</PhotoInfoProfileName>
-						<PhotoDate>27 May at 12:37 pm</PhotoDate>
+						<DateParse date={dates[imageIndex]} />
 					</AuthorInfo>
 				</PhotoInfoTop>
 				<SocialIcons>

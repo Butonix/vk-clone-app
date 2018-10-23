@@ -33,6 +33,7 @@
   },
   "devDependencies": {
     "jest-styled-components": "^6.2.1",
+    "lodash": "^4.17.11",
     "prettier": "^1.14.2",
     "redux-devtools-extension": "^2.13.5"
   }

@@ -17,5 +17,5 @@ export const NewsLinks = styled.div`
 export default {
 	NewsContainer,
 	NewsFeed,
-	NewsLinks
+	NewsLinks,
 };

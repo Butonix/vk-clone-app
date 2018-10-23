@@ -1,4 +1,4 @@
-import { REQUESTED_NEWS} from './../../constants/ActionTypes';
+import { REQUESTED_NEWS } from './../../constants/ActionTypes';
 
 export default function requestedNews() {
 	return {

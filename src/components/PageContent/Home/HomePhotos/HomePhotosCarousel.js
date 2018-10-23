@@ -63,7 +63,7 @@ const previousArrowStyles = {
 	/* 
 	TODO:
 	1. Пофиксить выделение ссылок при перелистывании фотографий
-	2. Сделать нормальный outSideClick
+	2. Сделать outSideClick
 	
 */
 }
@@ -74,19 +74,24 @@ class HomePhotosCarousel extends Component {
 			currentImage: '',
 			currentImageIndex: '',
 			currentComment: true,
+			currentDates: [],
 		};
 	}
 
 	componentWillReceiveProps(nextProps) {
 		const arr = [];
+		const dates = [];
 		const link = nextProps.currentImage.split('"')[1];
+
 		if (nextProps.photos) {
 			nextProps.photos.forEach(item => arr.push(item.urls.regular));
+			nextProps.photos.forEach(item => dates.push(item.created_at));
 		}
 		let photoNumber = arr.indexOf(link) + 1;
 		this.setState({
 			currentImage: link,
 			currentImageIndex: photoNumber,
+			currentDates: dates,
 		});
 	}
 
@@ -146,7 +151,6 @@ class HomePhotosCarousel extends Component {
 		const ImageNumber = this.state.currentImageIndex;
 		if (this.props.photos) {
 			const PhotosCount = this.props.photos.length;
-
 			return (
 				<CarouselContainer name="modal-close" show={this.props.show}>
 					<CarouselContent>
@@ -182,7 +186,10 @@ class HomePhotosCarousel extends Component {
 							/>
 						</LeftPhoto>
 						<RightContent>
-							<PhotoCarouselInfo imageIndex={this.state.currentImageIndex} />
+							<PhotoCarouselInfo
+								imageIndex={this.state.currentImageIndex}
+								dates={this.state.currentDates}
+							/>
 						</RightContent>
 					</CarouselContent>
 					<RenderIcon
