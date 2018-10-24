@@ -26,6 +26,7 @@ const SideIconContainer = withBaseIcon({
 		width: '30px',
 		height: '30px',
 		opacity: '.7',
+		paddingRight: '5px',
 	},
 });
 
@@ -35,52 +36,44 @@ export default class PageMenu extends Component {
 			<PageMenuContainer>
 				<ListContainer>
 					<List>
-						<span>
-							<SideIconContainer icon={home} />
-						</span>
-						<Link to="/">My profile</Link>
+						<Link to="/">
+							<span>My profile</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={listAlt} />
-						</span>
-						<Link to="/news">News</Link>
+						<Link to="/news">
+							<span>News</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={paperPlane} />
-						</span>
-						<LinkTo href="">Messages</LinkTo>
+						<Link to="">
+							<span>Messages</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={user} />
-						</span>
-						<LinkTo href="">Friends</LinkTo>
+						<Link to="">
+							<span>Friends</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={users} />
-						</span>
-						<LinkTo href="">Communities</LinkTo>
+						<Link to="">
+							<span>Communities</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={filePhotoO} />
-						</span>
-						<LinkTo href="">Photos</LinkTo>
+						<Link to="">
+							<span>Photos</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={music} />
-						</span>
-						<LinkTo href="">Music</LinkTo>
+						<Link to="">
+							<span>Music</span>
+						</Link>
 					</List>
 					<List>
-						<span>
-							<SideIconContainer icon={videoCamera} />
-						</span>
-						<LinkTo href="">Videos</LinkTo>
+						<Link to="">
+							<span>Videos</span>
+						</Link>
 					</List>
 				</ListContainer>
 			</PageMenuContainer>

@@ -51,7 +51,7 @@ export default class PageHeaderSearch extends React.Component {
 		return (
 			<SearchContainer>
 				<SideIconContainer icon={search} />
-				<SearchInput placeholder="Поиск" type="text" />
+				<SearchInput placeholder="Search" type="text" />
 			</SearchContainer>
 		);
 	}

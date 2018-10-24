@@ -9,6 +9,7 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 // React Components
 import HomePhoto from './HomePhoto';
 import HomePhotosCarousel from './HomePhotosCarousel';
+import ContentLoad from './../../../ContentLoad/ContentLoad';
 
 //Actions
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
@@ -38,6 +39,7 @@ class ProfilePhotos extends PureComponent {
 					<span>My Photos</span>
 					<GrayLink href="#">Show on the map</GrayLink>
 				</BlockTitle>
+				{this.props.photosLoading ? <ContentLoad /> : ''}
 				<MyPhots>
 					{this.props.photos
 						? this.props.photos.slice(0, 4).map((item, index) => {
@@ -62,6 +64,7 @@ class ProfilePhotos extends PureComponent {
 
 const mapStateToProps = state => ({
 	photos: state.Photos.data,
+	photosLoading: state.Photos.loading,
 	carouselShow: state.rootReducer.albumCarouselShow,
 });
 

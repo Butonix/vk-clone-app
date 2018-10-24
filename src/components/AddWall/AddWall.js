@@ -23,7 +23,6 @@ import { Button } from './../UI/Button';
 // Icons
 
 import { withBaseIcon } from 'react-icons-kit';
-import { ic_block } from 'react-icons-kit/md/ic_block';
 import { ic_settings } from 'react-icons-kit/md/ic_settings';
 
 // Actions

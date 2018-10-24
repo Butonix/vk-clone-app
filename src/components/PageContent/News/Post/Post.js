@@ -6,11 +6,9 @@ import {
 	PostAuthorImage,
 	PostAuthor,
 	PostTop,
-	PostDate,
 	PostImage,
 	PostDescription,
 	PostTitle,
-	AuthorLink,
 	PostHeader,
 	PostText,
 } from './PostStyled';
@@ -38,7 +36,6 @@ export default class Post extends Component {
 				/>
 				<PostDescription>
 					<PostTitle>{this.props.title}</PostTitle>
-					{/* <AuthorLink>Meduza.io</AuthorLink> */}
 				</PostDescription>
 			</PostContainer>
 		);

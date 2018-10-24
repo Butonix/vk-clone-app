@@ -10,10 +10,12 @@ import fetchNews from './../../../actions/News/FetchNews';
 
 import AddWall from './../../AddWall/AddWall';
 import Post from './Post/Post';
+import ContentLoad from './../../ContentLoad/ContentLoad';
+import NewsMenu from './NewsMenu/NewsMenu';
 
 // Styled Components
 
-import { NewsContainer, NewsFeed, NewsLinks } from './NewsStyled';
+import { NewsContainer, NewsFeed } from './NewsStyled';
 
 class News extends Component {
 	componentDidMount() {
@@ -24,6 +26,7 @@ class News extends Component {
 			<NewsContainer>
 				<NewsFeed>
 					<AddWall />
+					{this.props.newsLoaded ? <ContentLoad /> : ''}
 					{this.props.news
 						? this.props.news.articles.map((item, index) => {
 								if (item.urlToImage) {
@@ -42,7 +45,7 @@ class News extends Component {
 						  })
 						: ''}
 				</NewsFeed>
-				<NewsLinks />
+				<NewsMenu />
 			</NewsContainer>
 		);
 	}
@@ -50,6 +53,7 @@ class News extends Component {
 
 const mapStateToProps = state => ({
 	news: state.News.data,
+	newsLoaded: state.News.loading,
 	posts: state.WallAddPost.posts,
 });
 

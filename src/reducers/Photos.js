@@ -17,14 +17,14 @@ export default function Photos(state = initialState, action) {
 	if (action.type === REQUESTED_PHOTOS_SUCCEEDED) {
 		return {
 			data: action.data,
-			loading: true,
+			loading: false,
 			error: false,
 		};
 	}
 	if (action.type === REQUESTED_PHOTOS_FAILED) {
 		return {
 			data: '',
-			loading: false,
+			loading: true,
 			error: true,
 		};
 	}

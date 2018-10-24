@@ -5,7 +5,7 @@ export const PostContainer = styled.div`
 	margin: 10px 0px 10px 10px;
 	border-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
-	padding: 30px 20px;
+	padding: 20px 20px 30px 20px;
 	animation: top 0.4s ease-in-out;
 `;
 
