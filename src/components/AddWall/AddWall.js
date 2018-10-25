@@ -1,6 +1,9 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+
+import OutsideClickHandler from 'react-outside-click-handler';
+
 // Styled components
 
 import {
@@ -47,6 +50,7 @@ export class AddWall extends PureComponent {
 			addIconsShow: true,
 			addPanelShow: false,
 			postText: '',
+			textSize: false,
 		};
 	}
 	handleChange(e) {
@@ -56,12 +60,11 @@ export class AddWall extends PureComponent {
 	}
 
 	handleClick(e) {
-		if (this.state.addIconsShow && !this.state.saddPanelShow) {
-			this.setState({
-				addIconsShow: false,
-				addPanelShow: true,
-			});
-		}
+		this.setState({
+			addIconsShow: false,
+			addPanelShow: true,
+			textSize: true
+		});
 	}
 	handleAddClick(e) {
 		const text = this.state.postText;
@@ -72,36 +75,48 @@ export class AddWall extends PureComponent {
 			});
 		}
 	}
+	outSideClick(e) {
+		if (this.state.addPanelShow) {
+			this.setState({
+				addPanelShow: false,
+				addIconsShow: true,
+				textSize: false
+			});
+		}
+	}
 	render() {
 		return (
-			<HomeWallContainer>
-				<AddTitle>
-					<WallProfile back="./images/profile.jpg" />
-					<WallAddText
-						name="text"
-						autoComplete="none"
-						placeholder="Whats`s new?"
-						value={this.state.postText}
-						onClick={this.handleClick.bind(this)}
-						onChange={this.handleChange.bind(this)}
-					/>
-					{this.state.addIconsShow ? <AddIcons /> : <AddSmile />}
-				</AddTitle>
-				{this.state.addPanelShow ? (
-					<AddPanel style={{ display: `${this.state.addPanelShow}` }}>
-						<AddIcons />
-						<SendAdd>
-							<SideIconContainer icon={ic_settings} />
-							<Button onClick={this.handleAddClick.bind(this)}>
-								{' '}
-								Отправить{' '}
-							</Button>
-						</SendAdd>
-					</AddPanel>
-				) : (
-					<div />
-				)}
-			</HomeWallContainer>
+			<OutsideClickHandler onOutsideClick={this.outSideClick.bind(this)}>
+				<HomeWallContainer>
+					<AddTitle>
+						<WallProfile back="./images/profile.jpg" />
+						<WallAddText
+							textSize={this.state.textSize}
+							name="text"
+							autoComplete="none"
+							placeholder="Whats`s new?"
+							value={this.state.postText}
+							onClick={this.handleClick.bind(this)}
+							onChange={this.handleChange.bind(this)}
+						/>
+						{this.state.addIconsShow ? <AddIcons /> : <AddSmile />}
+					</AddTitle>
+					{this.state.addPanelShow ? (	
+						<AddPanel style={{ display: `${this.state.addPanelShow}` }}>
+							<AddIcons />
+							<SendAdd>
+								<SideIconContainer icon={ic_settings} />
+								<Button onClick={this.handleAddClick.bind(this)}>
+									{' '}
+									Отправить{' '}
+								</Button>
+							</SendAdd>
+						</AddPanel>
+					) : (
+						<div />
+					)}
+				</HomeWallContainer>
+			</OutsideClickHandler>
 		);
 	}
 }

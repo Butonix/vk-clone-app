@@ -8,7 +8,7 @@ export const NewsMenuContainer = styled.div`
 	width: 28%;
 	margin-top: 10px;
 	height: 400px;
-`;
+`;  
 
 export default {
 	NewsMenuContainer,
