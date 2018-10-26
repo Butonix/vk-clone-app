@@ -5,13 +5,14 @@ export const NewsContainer = styled.div`
 	display: flex;
 	position: relative;
 	justify-content: space-between;
+	align-items: flex-start;
 `;
 
-export const NewsFeed = styled.div`
+export const NewsLent = styled.div`
 	width: 70%;
 `;
 
 export default {
 	NewsContainer,
-	NewsFeed,
+	NewsLent,
 };

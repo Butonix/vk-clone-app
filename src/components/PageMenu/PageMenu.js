@@ -41,7 +41,7 @@ export default class PageMenu extends Component {
 						</Link>
 					</List>
 					<List>
-						<Link to="/news">
+						<Link to="/news/news-feed">
 							<span>News</span>
 						</Link>
 					</List>

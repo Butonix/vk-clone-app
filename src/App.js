@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
 import { connect } from 'react-redux';
 
 // React Components
@@ -28,6 +27,7 @@ class App extends Component {
 				<AppContent>
 					<Container>
 						<BrowserRouter>
+							{/* FIXME: */}
 							<div style={{ display: 'flex', width: '100%' }}>
 								<PageMenu />
 								<Route exact path="/" component={Home} />
