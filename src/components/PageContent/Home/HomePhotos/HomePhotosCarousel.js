@@ -95,6 +95,23 @@ class HomePhotosCarousel extends Component {
 		});
 	}
 
+	componentWillMount() {
+		document.addEventListener('mousedown', this.outSideClick, false);
+	}
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.outSideClick, false);
+	}
+
+	outSideClick = e => {
+		if (!this.props.photosLoading && this.props.albumCarouselShow) {
+			if (!this.modal.contains(e.target)) {
+				console.log('карусель');
+				this.props.hideCarousel();
+			}
+			return;
+		}
+	};
+
 	handleClick = e => {
 		this.setState({
 			currentComment: false,
@@ -153,7 +170,7 @@ class HomePhotosCarousel extends Component {
 			const PhotosCount = this.props.photos.length;
 			return (
 				<CarouselContainer name="modal-close" show={this.props.show}>
-					<CarouselContent>
+					<CarouselContent ref={node => (this.modal = node)}>
 						<LeftPhoto>
 							<CurrentImage
 								style={{ backgroundImage: `url(${this.state.currentImage})` }}
@@ -208,6 +225,8 @@ class HomePhotosCarousel extends Component {
 
 const mapStateToProps = state => ({
 	photos: state.Photos.data,
+	photosLoading: state.Photos.loading,
+	albumCarouselShow: state.rootReducer.albumCarouselShow,
 });
 
 const mapDispatchToProps = dispatch => ({

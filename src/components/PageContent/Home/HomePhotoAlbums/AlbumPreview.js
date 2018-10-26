@@ -24,6 +24,7 @@ export default class AlbumPreviewTemplate extends Component {
 	showDesciptionLeave() {
 		this.setState({ AlbumPreviewShow: false });
 	}
+
 	render() {
 		return (
 			<AlbumPreview

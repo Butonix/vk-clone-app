@@ -17,19 +17,23 @@ export const WallProfile = styled.div`
 	background-position: center;
 `;
 
-
-export const WallAddText =  styled.textarea`
+export const WallAddText = styled.textarea`
 	white-space: nowrap;
 	resize: none;
 	height: auto;
 	border: none;
 	outline: none;
 	margin-left: 10px;
-	font-size: ${props => props.textSize ? '24px' : '14px'};
+	font-size: ${props => (props.textSize ? '24px' : '14px')};
 	font-weight: 100;
 	color: #333;
 	width: 70%;
 	padding: 10px 0 0 0;
+	&::-webkit-input-placeholder {
+		font-weight: 100;
+		color: #777;
+		opacity: 0.7;
+	}
 `;
 
 export const AddPanel = styled.div`

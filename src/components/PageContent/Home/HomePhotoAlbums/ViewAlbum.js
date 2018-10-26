@@ -2,12 +2,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //Icons
+
 import { withBaseIcon } from 'react-icons-kit';
 import { ic_close } from 'react-icons-kit/md/ic_close';
 
 // Actions
+
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
-import HideModal from './../../../../actions/HideModal';
+import HidePhotoAlbum from './../../../../actions/PhotoAlbums/HidePhotoAlbum';
 
 // Styled Components
 
@@ -40,13 +42,31 @@ class ViewAlbum extends Component {
 		this.props.dataPhotos();
 	}
 	handleClick(e) {
-		this.props.hideModal();
+		this.props.hideAlbum();
 	}
+	showDesciptionLeave() {
+		this.setState({ AlbumPreviewShow: false });
+	}
+	componentWillMount() {
+		document.addEventListener('mousedown', this.outSideClick, false);
+	}
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.outSideClick, false);
+	}
+
+	outSideClick = e => {
+		if (!this.props.photosLoading && this.props.albumPhotosShow) {
+			if (!this.modal.contains(e.target)) {
+				this.props.hideAlbum();
+			}
+			return;
+		}
+	};
 
 	render() {
 		return (
 			<ViewAlbumContainer show={this.props.show}>
-				<ViewAlbumContent>
+				<ViewAlbumContent ref={node => (this.modal = node)}>
 					<ViewAlbumTitle>
 						<ViewAlbumAuthor href="#">Ivan Zvonkov</ViewAlbumAuthor>
 						<ViewAlbumYears>2018-2019</ViewAlbumYears>
@@ -75,14 +95,16 @@ class ViewAlbum extends Component {
 
 const mapStateToProps = state => ({
 	photos: state.Photos.data,
+	photosLoading: state.Photos.loading,
+	albumPhotosShow: state.rootReducer.photoAlbumShow,
 });
 
 const mapDispatchToProps = dispatch => ({
 	dataPhotos() {
 		dispatch(fetchPhotos());
 	},
-	hideModal() {
-		dispatch(HideModal());
+	hideAlbum() {
+		dispatch(HidePhotoAlbum());
 	},
 });
 

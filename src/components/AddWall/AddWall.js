@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-
-import OutsideClickHandler from 'react-outside-click-handler';
-
 // Styled components
 
 import {
@@ -53,6 +50,25 @@ export class AddWall extends PureComponent {
 			textSize: false,
 		};
 	}
+	componentWillMount() {
+		document.addEventListener('mousedown', this.outSideClick, false);
+	}
+	componentWillUnmount() {
+		document.removeEventListener('mousedown', this.outSideClick, false);
+	}
+
+	outSideClick = e => {
+		if (!this.modal.contains(e.target)) {
+			if (this.state.addPanelShow) {
+				this.setState({
+					addPanelShow: false,
+					addIconsShow: true,
+					textSize: false,
+				});
+			}
+			return;
+		}
+	};
 	handleChange(e) {
 		this.setState({
 			postText: e.target.value,
@@ -63,7 +79,7 @@ export class AddWall extends PureComponent {
 		this.setState({
 			addIconsShow: false,
 			addPanelShow: true,
-			textSize: true
+			textSize: true,
 		});
 	}
 	handleAddClick(e) {
@@ -75,48 +91,38 @@ export class AddWall extends PureComponent {
 			});
 		}
 	}
-	outSideClick(e) {
-		if (this.state.addPanelShow) {
-			this.setState({
-				addPanelShow: false,
-				addIconsShow: true,
-				textSize: false
-			});
-		}
-	}
+
 	render() {
 		return (
-			<OutsideClickHandler onOutsideClick={this.outSideClick.bind(this)}>
-				<HomeWallContainer>
-					<AddTitle>
-						<WallProfile back="./images/profile.jpg" />
-						<WallAddText
-							textSize={this.state.textSize}
-							name="text"
-							autoComplete="none"
-							placeholder="Whats`s new?"
-							value={this.state.postText}
-							onClick={this.handleClick.bind(this)}
-							onChange={this.handleChange.bind(this)}
-						/>
-						{this.state.addIconsShow ? <AddIcons /> : <AddSmile />}
-					</AddTitle>
-					{this.state.addPanelShow ? (	
-						<AddPanel style={{ display: `${this.state.addPanelShow}` }}>
-							<AddIcons />
-							<SendAdd>
-								<SideIconContainer icon={ic_settings} />
-								<Button onClick={this.handleAddClick.bind(this)}>
-									{' '}
-									Отправить{' '}
-								</Button>
-							</SendAdd>
-						</AddPanel>
-					) : (
-						<div />
-					)}
-				</HomeWallContainer>
-			</OutsideClickHandler>
+			<HomeWallContainer ref={node => (this.modal = node)}>
+				<AddTitle>
+					<WallProfile back="./images/profile.jpg" />
+					<WallAddText
+						textSize={this.state.textSize}
+						name="text"
+						autoComplete="none"
+						placeholder="Whats`s new?"
+						value={this.state.postText}
+						onClick={this.handleClick.bind(this)}
+						onChange={this.handleChange.bind(this)}
+					/>
+					{this.state.addIconsShow ? <AddIcons /> : <AddSmile />}
+				</AddTitle>
+				{this.state.addPanelShow ? (
+					<AddPanel style={{ display: `${this.state.addPanelShow}` }}>
+						<AddIcons />
+						<SendAdd>
+							<SideIconContainer icon={ic_settings} />
+							<Button onClick={this.handleAddClick.bind(this)}>
+								{' '}
+								Отправить{' '}
+							</Button>
+						</SendAdd>
+					</AddPanel>
+				) : (
+					<div />
+				)}
+			</HomeWallContainer>
 		);
 	}
 }
