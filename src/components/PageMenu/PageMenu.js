@@ -1,22 +1,8 @@
 import React, { Component } from 'react';
 import { withBaseIcon } from 'react-icons-kit';
-import { home } from 'react-icons-kit/fa/home';
-import { listAlt } from 'react-icons-kit/fa/listAlt';
-import { paperPlane } from 'react-icons-kit/fa/paperPlane';
-import { user } from 'react-icons-kit/fa/user';
-import { users } from 'react-icons-kit/fa/users';
-import { filePhotoO } from 'react-icons-kit/fa/filePhotoO';
-import { music } from 'react-icons-kit/fa/music';
-import { videoCamera } from 'react-icons-kit/fa/videoCamera';
-
 import { Link } from 'react-router-dom';
 
-import {
-	ListContainer,
-	PageMenuContainer,
-	LinkTo,
-	List,
-} from './PageMenuStyled';
+import { ListContainer, PageMenuContainer, List } from './PageMenuStyled';
 
 const SideIconContainer = withBaseIcon({
 	size: 16,
@@ -51,7 +37,7 @@ export default class PageMenu extends Component {
 						</Link>
 					</List>
 					<List>
-						<Link to="">
+						<Link to="/friends">
 							<span>Friends</span>
 						</Link>
 					</List>

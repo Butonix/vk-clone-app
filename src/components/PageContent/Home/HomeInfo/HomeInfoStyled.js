@@ -114,8 +114,6 @@ export const InfoTitle = styled.div`
   }
 `;
 
-// HomeInfoNumber styled
-
 export const Numbers = styled.div`
 	padding-top: 10px;
 	border-top: 1px solid #dfe6ed;
@@ -129,6 +127,9 @@ export const NumberItem = styled.a`
 	padding: 10px;
 	align-content: center;
 	text-align: center;
+	a {
+		text-decoration: none;
+	}
 `;
 
 export const Number = styled.div`

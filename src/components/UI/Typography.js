@@ -9,7 +9,8 @@ export const HeadH3 = styled.h3`
 	font-size: 14px;
 	line-height: 1.5em;
 	color: #222;
-	font-weight: bold;
+	font-weight: 500;
+	display: inline-block;
 `;
 
 export default {

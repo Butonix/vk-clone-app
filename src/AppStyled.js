@@ -7,7 +7,8 @@ export const AppContent = styled.div`
 
 export const GlobalStyle = createGlobalStyle`
   body {
-      overflow: ${props => (props.overflow ? 'auto' : 'hidden')};
+	  overflow: ${props => (props.overflow ? 'auto' : 'hidden')};
+	  box-sizing: content-box;
   }
 `;
 

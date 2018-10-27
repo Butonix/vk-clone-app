@@ -105,7 +105,6 @@ class HomePhotosCarousel extends Component {
 	outSideClick = e => {
 		if (!this.props.photosLoading && this.props.albumCarouselShow) {
 			if (!this.modal.contains(e.target)) {
-				console.log('карусель');
 				this.props.hideCarousel();
 			}
 			return;

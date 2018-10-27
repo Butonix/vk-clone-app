@@ -37,7 +37,7 @@ import { ic_close } from 'react-icons-kit/md/ic_close';
 
 // React compoents
 
-import NoResultsSearch from './NoResultsSearch';
+import SearchNotFound from './../../../SearchNotFound/SearchNotFound';
 import PostChangeTemplate from './PostChange';
 import RenderIcon from './.././../../RenderIcon';
 
@@ -129,7 +129,11 @@ export class HomeWall extends PureComponent {
 				)}
 
 				<WallContainer>
-					{!this.state.vallLength ? <NoResultsSearch /> : ''}
+					{!this.state.vallLength ? (
+						<SearchNotFound searchText={this.props.searchText} />
+					) : (
+						''
+					)}
 					{this.props.vall.map((item, index) => {
 						return (
 							<Post key={index}>
@@ -138,10 +142,7 @@ export class HomeWall extends PureComponent {
 										<WallProfile back="./images/profile.jpg" />
 										<span>Ivan Zvonkov</span>
 									</PostProfile>
-									<PostChangeTemplate
-									//  postid={this.upDatePostID(item.id)}
-									//  deletePost={this.deletPost.bind(this)}
-									/>
+									<PostChangeTemplate />
 								</PostTitle>
 								<PostContent>
 									<p>{item.text}</p>
@@ -165,6 +166,7 @@ const mapStateToProps = state => ({
 		item.text.includes(state.WallAddPost.searchText)
 	),
 	resultSearchWall: state.WallAddPost.resultSearch,
+	searchText: state.WallAddPost.searchText,
 });
 
 const mapDispatchToProps = dispatch => ({

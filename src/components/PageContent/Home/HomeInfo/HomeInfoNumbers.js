@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 
-// styled components
+// Styled components
 import { Numbers, NumberItem, Number, ItemDescription } from './HomeInfoStyled';
 
 export class HomeInfoNumbers extends Component {
@@ -8,8 +9,10 @@ export class HomeInfoNumbers extends Component {
 		return (
 			<Numbers>
 				<NumberItem href="">
-					<Number>3238</Number>
-					<ItemDescription>friends</ItemDescription>
+					<Link to="/friends">
+						<Number>3238</Number>
+						<ItemDescription>friends</ItemDescription>
+					</Link>
 				</NumberItem>
 
 				<NumberItem href="">

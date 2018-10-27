@@ -13,6 +13,7 @@ import {
 } from './AddWallStyled';
 
 // React Components
+
 import AddIcons from './AddIcons';
 import AddSmile from './AddSmile';
 
@@ -89,6 +90,7 @@ export class AddWall extends PureComponent {
 				id: Date.now().toString(),
 				text,
 			});
+			this.addText.value = '';
 		}
 	}
 
@@ -105,6 +107,7 @@ export class AddWall extends PureComponent {
 						value={this.state.postText}
 						onClick={this.handleClick.bind(this)}
 						onChange={this.handleChange.bind(this)}
+						ref={node => (this.addText = node)}
 					/>
 					{this.state.addIconsShow ? <AddIcons /> : <AddSmile />}
 				</AddTitle>

@@ -34,7 +34,7 @@ export class HomeFriends extends Component {
 					</BlockTitle>
 					<MyFriends>
 						{friends
-							? friends.map((item, index) => {
+							? friends.slice(0, 6).map((item, index) => {
 									return (
 										<Friend
 											key={index}
@@ -54,15 +54,18 @@ export class HomeFriends extends Component {
 					</BlockTitle>
 					<MyFriends>
 						{friends
-							? friends.reverse().map((item, index) => {
-									return (
-										<Friend
-											key={index}
-											name={item.name.first}
-											freindPhoto={item.picture.medium}
-										/>
-									);
-							  })
+							? friends
+									.slice(0, 6)
+									.reverse()
+									.map((item, index) => {
+										return (
+											<Friend
+												key={index}
+												name={item.name.first}
+												freindPhoto={item.picture.medium}
+											/>
+										);
+									})
 							: ''}
 					</MyFriends>
 				</HomeFriendsContainer>

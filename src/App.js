@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { BrowserRouter, Route, Link } from 'react-router-dom';
 
 // React Components
 
@@ -8,15 +9,15 @@ import PageMenu from './components/PageMenu/PageMenu';
 import Home from './components/PageContent/Home/Home';
 import Statistics from './components/PageContent/Statistics/Statistics';
 import News from './components/PageContent/News/News';
+import Friends from './components/PageContent/Friends/Friends';
+import GoUp from './components/GoUp/GoUp';
 
-// StyledComponents
+// Styled Components
 
 import { Container } from './components/StyledComponents';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { AppContent, GlobalStyle } from './AppStyled';
 
 import './App.css';
-
-import { AppContent, GlobalStyle } from './AppStyled';
 
 class App extends Component {
 	render() {
@@ -25,6 +26,7 @@ class App extends Component {
 				<GlobalStyle overflow={this.props.overflow} />
 				<PageHeader />
 				<AppContent>
+					<GoUp />
 					<Container>
 						<BrowserRouter>
 							{/* FIXME: */}
@@ -32,6 +34,7 @@ class App extends Component {
 								<PageMenu />
 								<Route exact path="/" component={Home} />
 								<Route path="/static" component={Statistics} />
+								<Route path="/friends" component={Friends} />
 								<Route path="/news" component={News} />
 							</div>
 						</BrowserRouter>

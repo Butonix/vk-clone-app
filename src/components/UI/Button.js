@@ -13,7 +13,7 @@ export const Button = styled.div`
 	color: #fff;
 	border: 0;
 	border-radius: 4px;
-	margin: 0 7px;
+	margin: 0 7px 0 0;
 `;
 
 export const LightButton = styled(Button)`
@@ -21,7 +21,17 @@ export const LightButton = styled(Button)`
 	color: #55677d;
 `;
 
+export const TransparentButton = styled(Button)`
+	background-color: transparent;
+	color: #55677d;
+	&:hover {
+		background: #d6dae0;
+		transition: all 0.3s;
+	}
+`;
+
 export default {
 	Button,
 	LightButton,
+	TransparentButton,
 };

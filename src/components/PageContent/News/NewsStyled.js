@@ -12,7 +12,22 @@ export const NewsLent = styled.div`
 	width: 70%;
 `;
 
+export const NewsPhotoContainer = styled.div``;
+
+export const NewsImage = styled.div`
+	height: 300px;
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: center;
+	margin: 10px 0px 10px 10px;
+	border-radius: 3px;
+	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
+	cursor: pointer;
+`;
+
 export default {
 	NewsContainer,
 	NewsLent,
+	NewsPhotoContainer,
+	NewsImage,
 };
