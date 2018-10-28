@@ -5,7 +5,7 @@ import styled from 'styled-components';
 export const HomeInfoContainer = styled.div`
 	background: #fff;
 	padding: 10px 20px;
-	margin: 10px 0 10px 10px;
+	margin: 10px 0 10px 0px;
 	border-radius: 3px;
 	text-align: left;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;

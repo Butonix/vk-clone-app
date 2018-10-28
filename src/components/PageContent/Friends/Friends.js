@@ -46,16 +46,24 @@ class Friends extends PureComponent {
 						''
 					)}
 					{this.props.friends
-						? this.props.friends.map((item, index) => {
-								let name = parseName(item.name.first, item.name.last);
-								return (
-									<FriendItem
-										key={index}
-										name={name}
-										friendPhoto={item.picture.large}
-									/>
-								);
-						  })
+						? this.props.friends
+								.sort((a, b) => {
+									let nameA = a.name.first.toLowerCase();
+									let nameB = b.name.first.toLowerCase();
+									if (nameA < nameB) return -1;
+									if (nameA > nameB) return 1;
+									return 0;
+								})
+								.map((item, index) => {
+									let name = parseName(item.name.first, item.name.last);
+									return (
+										<FriendItem
+											key={index}
+											name={name}
+											friendPhoto={item.picture.large}
+										/>
+									);
+								})
 						: ''}
 				</FriendsContainer>
 			</Fragment>

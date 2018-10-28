@@ -12,6 +12,7 @@ import HomeGroups from './HomeGroups/HomeGroups';
 import HomePhotoAlbums from './HomePhotoAlbums/HomePhotoAlbums';
 
 // Styled components
+
 import { HomeContainer, LeftColum, RightColumn } from './HomeStyled';
 
 export default class Home extends Component {

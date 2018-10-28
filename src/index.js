@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 
-import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
 import { takeEvery, all } from 'redux-saga/effects';
@@ -57,5 +57,3 @@ ReactDOM.render(
 	document.getElementById('root')
 );
 registerServiceWorker();
-
-export default store;

@@ -15,7 +15,6 @@ import {
 	PostTitle,
 	PostContent,
 	PostSettings,
-	PostChange,
 	PostProfile,
 	SearchWallContainer,
 	ChoiceWallLinks,
@@ -86,7 +85,12 @@ export class HomeWall extends PureComponent {
 		}
 	}
 
-	handleChangSearch(e) {
+	handleChange(e) {
+		const rusRegExp = /[а-яА-ЯёЁ]/g;
+		let inputValue = e.target.value;
+		if (inputValue.search(rusRegExp) != -1) {
+			this.searhInput.value = inputValue.replace(rusRegExp, '');
+		}
 		this.props.searchPost(e.target.value);
 	}
 	render() {
@@ -114,7 +118,7 @@ export class HomeWall extends PureComponent {
 							<WallSearchInput
 								autoFocus={true}
 								placeholder="Enter a word or phrase here..."
-								onChange={this.handleChangSearch.bind(this)}
+								onChange={this.handleChange.bind(this)}
 								ref={node => (this.searhInput = node)}
 							/>
 							<RenderIcon

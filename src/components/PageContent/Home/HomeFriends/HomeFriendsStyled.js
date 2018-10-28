@@ -23,10 +23,7 @@ export const FriendsNumber = styled.p`
 `;
 
 export const FreindItem = styled.div`
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	margin: 5px;
+	margin: 3px;
 	.avatar {
 		height: 50px;
 		border-radius: 50%;

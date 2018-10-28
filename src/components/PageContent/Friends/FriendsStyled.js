@@ -86,6 +86,8 @@ export const FriendsSearchContainer = styled.div`
 	justify-content: flex-start;
 	padding: 0 20px;
 	animation: top 0.4s ease-in-out;
+	align-items: center;
+	position: relative;
 `;
 
 export const FriendsSearchField = styled.input`
@@ -136,6 +138,89 @@ export const FriendName = styled.h3`
 	margin-bottom: 8px;
 `;
 
+export const ParametersSearchContainer = styled.div`
+	background: #ffff;
+	border: 1px solid #c5d0db;
+	padding: 20px 16px;
+	border-radius: 4px;
+	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+	position: absolute;
+	right: 0;
+	top: 40px;
+	display: ${props => (props.show ? 'block' : 'none')};
+	width: 200px;
+	text-align: left;
+`;
+
+export const SearchLabel = styled.div`
+	font-size: 12px;
+	color: #000;
+	margin: 10px 0;
+	font-weight: bold;
+`;
+
+export const ChoiceCity = styled.select`
+	width: 100%;
+	padding: 5px 0;
+	border: 1px solid #d3d9de;
+	outline: none;
+	font-size: 14px;
+`;
+
+export const ChoiceItem = styled.option`
+	background: #fff;
+	padding: 10px 0;
+	font-size: 12px;
+	color: #333;
+	&:hover {
+		background: #d3d9de;
+		transition: all 0.3s;
+	}
+`;
+
+export const ChoiceAge = styled.div`
+	display: flex;
+	justify-content: space-between;
+`;
+
+export const ChoiceAgeFrom = styled.select`
+	margin: 0 3px;
+`;
+
+export const ChoiceAgeTo = styled.select`
+	margin: 0 3px;
+`;
+
+export const ChoiceAgeOption = styled.option`
+	background: #fff;
+	padding: 10px 0;
+	font-size: 12px;
+	color: #333;
+	&:hover {
+		background: #d3d9de;
+		transition: all 0.3s;
+	}
+`;
+
+export const ChoiceSex = styled.div`
+	padding-top: 10px;
+`;
+
+export const ChoiceSexText = styled.span`
+	font-size: 12px;
+	color: #444;
+	margin-left: 5px;
+`;
+
+export const ChoiceSexRadio = styled.input``;
+
+export const ChoiceSexLabel = styled.label`
+	cursor: pointer;
+	display: block;
+	width: 100%;
+	padding: 5px 0;
+`;
+
 export default {
 	FriendsContainer,
 	FollowersContainer,
@@ -153,4 +238,16 @@ export default {
 	FriendItemPhoto,
 	FriendItemInfo,
 	FriendName,
+	ParametersSearchContainer,
+	SearchLabel,
+	ChoiceCity,
+	ChoiceItem,
+	ChoiceAge,
+	ChoiceAgeFrom,
+	ChoiceAgeTo,
+	ChoiceAgeOption,
+	ChoiceSex,
+	ChoiceSexText,
+	ChoiceSexRadio,
+	ChoiceSexLabel,
 };

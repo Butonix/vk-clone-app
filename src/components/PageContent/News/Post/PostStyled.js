@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const PostContainer = styled.div`
 	background: #fff;
-	margin: 10px 0px 10px 10px;
+	margin: 10px 0px 10px 0px;
 	border-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 	padding: 20px 20px 30px 20px;

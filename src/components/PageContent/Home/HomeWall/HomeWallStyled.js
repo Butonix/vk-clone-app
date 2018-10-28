@@ -16,7 +16,7 @@ export const WallSearch = styled.div`
 	border-top-left-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 	padding: 15px 15px 10px 15px;
-	margin: 10px 0px 0 10px;
+	margin: 10px 0px 0 0px;
 	height: 32px;
 `;
 
@@ -30,7 +30,7 @@ export const SearchWallContainer = styled.div`
 	border-top-left-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 	padding: 15px 15px 10px 15px;
-	margin: 10px 0px 0 10px;
+	margin: 10px 0px 0 0px;
 	height: 32px;
 `;
 
@@ -77,7 +77,7 @@ export const PostChange = styled.div`
 export const Post = styled.div`
 	animation: top 0.4s ease-in-out;
 	background: #fff;
-	margin: 10px 0px 10px 10px;
+	margin: 10px 0px 10px 0px;
 	border-radius: 3px;
 	box-shadow: 0 1px 0 0 #d7d8db, 0 0 0 1px #e3e4e8;
 	padding: 10px 15px 5px 15px;
