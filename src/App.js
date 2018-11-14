@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { BrowserRouter, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Route } from 'react-router-dom';
 
 // React Components
 
@@ -32,10 +32,10 @@ class App extends Component {
 							{/* FIXME: */}
 							<div style={{ display: 'flex', width: '100%' }}>
 								<PageMenu />
-								<Route exact path="/" component={Home} />
-								<Route path="/static" component={Statistics} />
-								<Route path="/friends" component={Friends} />
-								<Route path="/news" component={News} />
+								<Route exact path="/Vk-clone" component={Home} />
+								<Route path="/Vk-clone/static" component={Statistics} />
+								<Route path="/Vk-clone/friends" component={Friends} />
+								<Route path="/Vk-clone/news" component={News} />
 							</div>
 						</BrowserRouter>
 					</Container>

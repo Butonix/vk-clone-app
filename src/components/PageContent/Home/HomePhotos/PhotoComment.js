@@ -1,10 +1,12 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 // Icons
+
 import { ic_close } from 'react-icons-kit/md/ic_close';
 
-// Styled Compoenents
+// Styled Components
+
 import { ProfileIcon } from './../../../StyledComponents';
 import {
 	PhotoCommentContainer,

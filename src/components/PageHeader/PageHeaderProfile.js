@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { chevronDown } from 'react-icons-kit/fa/chevronDown';
-import { withBaseIcon } from 'react-icons-kit';
+
+// React Components
+
+import RenderIcon from './../RenderIcon';
 
 // Styled Components
 
 import { ProfileIcon } from './../StyledComponents';
 import { ProfileContainer } from './PageHeaderStyled';
-
-// React Components
-
-import RenderIcon from './../RenderIcon';
 
 const arrowStyle = {
 	marginLeft: '10px',

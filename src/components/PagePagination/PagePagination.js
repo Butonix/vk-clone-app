@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import { ic_keyboard_arrow_right } from 'react-icons-kit/md/ic_keyboard_arrow_right';
 
+// React Components
+
 import RenderIcon from './../RenderIcon';
 
 import {

@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import requestedFriends from './../actions/Friends/RequestedFriends';
 import requestedFriendsError from './../actions/Friends/RequestedFriendsError';
 import requestedFriendsSuccess from './../actions/Friends/RequestedFriendsSucces';

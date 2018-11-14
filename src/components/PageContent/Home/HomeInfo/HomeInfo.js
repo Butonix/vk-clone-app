@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+// React Components
+
 import HomeInfoNumbers from './HomeInfoNumbers';
 
 // Styled components
@@ -28,7 +30,6 @@ export default class HomeInfo extends Component {
 
 	handleClick = e => {
 		e.preventDefault();
-
 		if (this.state.display === 'none') {
 			this.setState({
 				display: 'block',

@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
-import FetchPhotos from './../actions/Photos/FetchPhotos';
 import RequstedPhotos from './../actions/Photos/RequstedPhotos';
 import RequstedPhotosError from './../actions/Photos/RequstedPhotosError';
 import RequstedPhotosSucces from './../actions/Photos/RequstedPhotosSucces';

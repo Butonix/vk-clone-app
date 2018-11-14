@@ -1,4 +1,7 @@
 import React from 'react';
+
+// Styled Components
+
 import {
 	GroupItemContainer,
 	ItemImage,

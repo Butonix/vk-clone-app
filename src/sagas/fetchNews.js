@@ -1,8 +1,7 @@
 import axios from 'axios';
 
-import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 
-import FetchNews from './../actions/News/FetchNews';
 import RequstedNews from './../actions/News/RequstedNews';
 import RequstedNewsError from './../actions/News/RequstedNewsError';
 import RequstedNewsSucces from './../actions/News/RequstedNewsSucces';

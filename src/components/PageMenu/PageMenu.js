@@ -1,20 +1,9 @@
 import React, { Component } from 'react';
-import { withBaseIcon } from 'react-icons-kit';
 import { Link } from 'react-router-dom';
 
-import { ListContainer, PageMenuContainer, List } from './PageMenuStyled';
+// Styled Components
 
-const SideIconContainer = withBaseIcon({
-	size: 16,
-	style: {
-		color: '#4a76a8',
-		cursor: 'pointer',
-		width: '30px',
-		height: '30px',
-		opacity: '.7',
-		paddingRight: '5px',
-	},
-});
+import { ListContainer, PageMenuContainer, List } from './PageMenuStyled';
 
 export default class PageMenu extends Component {
 	render() {
@@ -22,12 +11,12 @@ export default class PageMenu extends Component {
 			<PageMenuContainer>
 				<ListContainer>
 					<List>
-						<Link to="/">
+						<Link to="/Vk-clone">
 							<span>My profile</span>
 						</Link>
 					</List>
 					<List>
-						<Link to="/news/news-feed">
+						<Link to="/Vk-clone/news/news-feed">
 							<span>News</span>
 						</Link>
 					</List>
@@ -37,7 +26,7 @@ export default class PageMenu extends Component {
 						</Link>
 					</List>
 					<List>
-						<Link to="/friends">
+						<Link to="/Vk-clone/friends">
 							<span>Friends</span>
 						</Link>
 					</List>

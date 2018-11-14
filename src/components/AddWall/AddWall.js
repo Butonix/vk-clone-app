@@ -1,6 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+// React Components
+
+import AddIcons from './AddIcons';
+import AddSmile from './AddSmile';
+import { Button } from './../UI/Button';
+
 // Styled components
 
 import {
@@ -11,15 +17,6 @@ import {
 	AddTitle,
 	SendAdd,
 } from './AddWallStyled';
-
-// React Components
-
-import AddIcons from './AddIcons';
-import AddSmile from './AddSmile';
-
-// UI Compoentns
-
-import { Button } from './../UI/Button';
 
 // Icons
 

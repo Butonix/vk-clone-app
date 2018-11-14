@@ -1,16 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-//Icons
-
-import { withBaseIcon } from 'react-icons-kit';
-import { ic_close } from 'react-icons-kit/md/ic_close';
-
-// Actions
-
-import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
-import HidePhotoAlbum from './../../../../actions/PhotoAlbums/HidePhotoAlbum';
-
 // Styled Components
 
 import {
@@ -22,6 +12,16 @@ import {
 	ViewAlbumImages,
 	AlbumImage,
 } from './HomePhotoAlbumsStyled';
+
+//Icons
+
+import { withBaseIcon } from 'react-icons-kit';
+import { ic_close } from 'react-icons-kit/md/ic_close';
+
+// Actions
+
+import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import HidePhotoAlbum from './../../../../actions/PhotoAlbums/HidePhotoAlbum';
 
 const SideIconContainer = withBaseIcon({
 	size: 20,

@@ -1,6 +1,11 @@
 import React from 'react';
+
+// Icons
+
 import { withBaseIcon } from 'react-icons-kit';
 import { smileO } from 'react-icons-kit/fa/smileO';
+
+// React Components
 
 import { AddSmileContainer } from './AddWallStyled';
 

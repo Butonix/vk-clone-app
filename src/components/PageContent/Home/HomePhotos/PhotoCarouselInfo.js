@@ -2,17 +2,19 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 // Icons
+
 import { heart } from 'react-icons-kit/fa/heart';
 import { share } from 'react-icons-kit/fa/share';
 
 //Actions
+
 import addPhotoComment from './../../../../actions/AddPhotoComment';
 
 // Styled Components
+
 import { ProfileIcon } from './../../../StyledComponents';
 import {
 	PhotoInfo,
-	PhotoDate,
 	PhotoInfoTop,
 	PhotoInfoProfileName,
 	AuthorInfo,
@@ -25,11 +27,13 @@ import {
 } from './HomePhotosStyled';
 
 // React Components
+
 import RenderIcon from './../../../RenderIcon';
 import PhotoComment from './PhotoComment';
 import DateParse from './../../../DateParse/DateParse';
 
 // UI
+
 import { Button, LightButton } from './../../../UI/Button';
 
 const hurtStyle = {
@@ -46,7 +50,7 @@ class PhotoCarouselInfo extends Component {
 			commentsHidden: false,
 		};
 	}
-	componentWillReceiveProps(nextProps) {
+	componentWillReceiveProps() {
 		if (!this.props.comment) {
 			this.commentField.value = '';
 			this.setState({
@@ -107,15 +111,6 @@ class PhotoCarouselInfo extends Component {
 				</PhotoCommentsContainer>
 				<PhotoComments>
 					<AddComment onClick={this.handleClick.bind(this)}>
-						{/* 
-							TODO:
-							1. Скрывать панель при клике на перелистывание фотографий ~ 5 мин
-							2. Добавлять в массив объекты с id комментария, текстом
-							3. По возможности выводить дату создания комментария	
-							4. Делать проверку на пустоту поля				
-							5. Чистить содержимое поля при отправке и перелистывании фото
-							
-						*/}
 						<ProfileIcon size="25" />
 						<PhotoCommentField
 							placeholder="Leave a comment..."

@@ -1,6 +1,12 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+// React Components
+
+import HomePhoto from './HomePhoto';
+import HomePhotosCarousel from './HomePhotosCarousel';
+import ContentLoad from './../../../ContentLoad/ContentLoad';
+
 // Styled Components
 
 import { PhotosContainer, MyPhots } from './HomePhotosStyled';
@@ -10,12 +16,6 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
 import ShowAlbumCarousel from './../../../../actions/ShowAlbumCarousel';
-
-// React Components
-
-import HomePhoto from './HomePhoto';
-import HomePhotosCarousel from './HomePhotosCarousel';
-import ContentLoad from './../../../ContentLoad/ContentLoad';
 
 class ProfilePhotos extends PureComponent {
 	constructor(props) {

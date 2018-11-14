@@ -1,9 +1,14 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+
+// React Components
+
 import PageHeaderLogo from './PageHeaderLogo';
 import PageHeaderSearch from './PageHeaderSearch';
 import PageHeaderBell from './PageHeaderBell';
 import PageHeaderProfile from './PageHeaderProfile';
+
+// Styled Components
 
 import { Container } from './../StyledComponents';
 
@@ -21,7 +26,7 @@ export default class PageHeader extends Component {
 				<Container>
 					<PageHeaderLogo
 						alt="vk-logo"
-						src="/images/vk-logo.svg"
+						src="images/vk-logo.svg"
 						title="vk-logo"
 					/>
 					<PageHeaderSearch />

@@ -1,6 +1,11 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
+// React Components
+
+import AlbumPreviewTemplate from './AlbumPreview';
+import ViewAlbum from './ViewAlbum';
+
 // Styled Components
 
 import {
@@ -9,17 +14,12 @@ import {
 	PhotosTitle,
 } from './HomePhotoAlbumsStyled';
 
-import { GrayLink, BlockTitle } from './../HomeStyled';
+import { BlockTitle } from './../HomeStyled';
 
 //Actions
 
 import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
 import ShowPhotoAlbum from './../../../../actions/PhotoAlbums/ShowPhotoAlbum';
-
-// React Components
-
-import AlbumPreviewTemplate from './AlbumPreview';
-import ViewAlbum from './ViewAlbum';
 
 class HomePhotoAlbums extends PureComponent {
 	componentDidMount() {

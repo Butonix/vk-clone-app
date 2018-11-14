@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// React Components
+
+import AddWall from './../../AddWall/AddWall';
+import ContentLoad from './../../ContentLoad/ContentLoad';
+import HomePhotosCarousel from './../Home/HomePhotos/HomePhotosCarousel';
+
 // Styled Components
 
 import { NewsLent, NewsPhotoContainer, NewsImage } from './NewsStyled';
@@ -9,12 +15,6 @@ import { NewsLent, NewsPhotoContainer, NewsImage } from './NewsStyled';
 
 import fetchPhotos from './../../../actions/Photos/FetchPhotos';
 import ShowAlbumCarousel from './../../../actions/ShowAlbumCarousel';
-
-// React Components
-
-import AddWall from './../../AddWall/AddWall';
-import ContentLoad from './../../ContentLoad/ContentLoad';
-import HomePhotosCarousel from './../Home/HomePhotos/HomePhotosCarousel';
 
 class NewsPhoto extends Component {
 	constructor(props) {

@@ -1,5 +1,7 @@
 import React from 'react';
 
+// Styled Components
+
 import { FreindItem } from './HomeFriendsStyled';
 
 const Friend = props => {

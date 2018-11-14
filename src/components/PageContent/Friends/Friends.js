@@ -1,10 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-// Styled Components
-
-import { FriendsContainer } from './FriendsStyled';
-
 // React Components
 
 import Followers from './Followers';
@@ -13,6 +9,10 @@ import FriendsSearch from './FriendsSearch';
 import FriendItem from './FriendItem';
 import ContentLoad from './../../ContentLoad/ContentLoad';
 import SearchNotFound from './../../SearchNotFound/SearchNotFound';
+
+// Styled Components
+
+import { FriendsContainer } from './FriendsStyled';
 
 // Actions
 
@@ -46,15 +46,8 @@ class Friends extends PureComponent {
 						''
 					)}
 					{this.props.friends
-						? this.props.friends
-								.sort((a, b) => {
-									let nameA = a.name.first.toLowerCase();
-									let nameB = b.name.first.toLowerCase();
-									if (nameA < nameB) return -1;
-									if (nameA > nameB) return 1;
-									return 0;
-								})
-								.map((item, index) => {
+						? this.props.filterFriends
+							? this.props.filterFriends.map((item, index) => {
 									let name = parseName(item.name.first, item.name.last);
 									return (
 										<FriendItem
@@ -63,7 +56,17 @@ class Friends extends PureComponent {
 											friendPhoto={item.picture.large}
 										/>
 									);
-								})
+							  })
+							: this.props.friends.map((item, index) => {
+									let name = parseName(item.name.first, item.name.last);
+									return (
+										<FriendItem
+											key={index}
+											name={name}
+											friendPhoto={item.picture.large}
+										/>
+									);
+							  })
 						: ''}
 				</FriendsContainer>
 			</Fragment>
@@ -72,14 +75,29 @@ class Friends extends PureComponent {
 }
 
 const mapStateToProps = state => {
+	if (state.Friends.data) {
+		state.Friends.data.sort((a, b) => {
+			let nameA = a.name.first.toLowerCase();
+			let nameB = b.name.first.toLowerCase();
+			if (nameA < nameB) return -1;
+			if (nameA > nameB) return 1;
+			return 0;
+		});
+	}
 	if (state.Friends.data && state.Friends.searchFriends) {
+		let searchText = state.Friends.searchFriends;
 		return {
-			friends: state.Friends.data.filter(item => {
-				return item.name.first.includes(state.Friends.searchFriends);
-			}),
+			friends: state.Friends.data.filter(item =>
+				item.name.first.includes(searchText)
+			),
 			friendsSearch: state.Friends.searchFriends,
 			friendsLoad: state.Friends.loading,
 			searchText: state.Friends.searchFriends,
+			filterFriends: state.Friends.filterFriends
+				? state.Friends.filterFriends.filter(item =>
+						item.name.first.includes(searchText)
+				  )
+				: '',
 		};
 	}
 	return {
@@ -87,6 +105,7 @@ const mapStateToProps = state => {
 		friendsSearch: state.Friends.searchFriends,
 		friendsLoad: state.Friends.loading,
 		searchText: state.Friends.searchFriends,
+		filterFriends: state.Friends.filterFriends,
 	};
 };
 

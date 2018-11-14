@@ -4,14 +4,14 @@ import React, { Component } from 'react';
 
 import PostChangeContentTemplate from './PostChangeContent';
 
+// Styled Components
+
+import { PostChange } from './HomeWallStyled';
+
 // Icons
 
 import { withBaseIcon } from 'react-icons-kit';
 import { arrows_down } from 'react-icons-kit/linea/arrows_down';
-
-// Styled Components
-
-import { PostChange } from './HomeWallStyled';
 
 const SideIconContainer = withBaseIcon({
 	size: 18,

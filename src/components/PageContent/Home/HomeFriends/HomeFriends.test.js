@@ -1,6 +1,5 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import { HomeFriends } from './HomeFriends';
 import Friend from './Friend';
 
 import Enzyme from 'enzyme';

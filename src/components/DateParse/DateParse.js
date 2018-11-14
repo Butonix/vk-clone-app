@@ -17,10 +17,10 @@ export default class DateParse extends Component {
 		let DateDay = date.getDate().toString();
 		let DateMonthString = date.toLocaleString('en-us', { month: 'long' });
 
-		if (DateMinutes.length == 1) {
+		if (DateMinutes.length === 1) {
 			DateMinutes = '0' + DateMinutes;
 		}
-		if (DateHours.length == 1) {
+		if (DateHours.length === 1) {
 			DateHours = '0' + DateHours;
 		}
 

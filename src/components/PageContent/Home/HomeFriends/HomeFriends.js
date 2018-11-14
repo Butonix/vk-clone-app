@@ -3,9 +3,11 @@ import { GrayLink, BlockTitle } from './../HomeStyled';
 import { connect } from 'react-redux';
 
 // React Compoenents
+
 import Friend from './Friend';
 
 // Styled Compoenents
+
 import {
 	HomeFriendsContainer,
 	MyFriends,

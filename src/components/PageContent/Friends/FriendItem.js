@@ -1,13 +1,17 @@
 import React, { Component } from 'react';
 
+// React Components
+
+import Link from './../../UI/Link';
+
+// Styled Components
+
 import {
 	FriendItemContainer,
 	FriendItemPhoto,
 	FriendItemInfo,
 	FriendName,
 } from './FriendsStyled';
-
-import Link from './../../UI/Link';
 
 export default class FriendItem extends Component {
 	render() {

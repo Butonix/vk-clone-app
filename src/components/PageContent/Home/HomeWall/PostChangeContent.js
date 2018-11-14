@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+
 // Styled Components
 
 import { PostChangeContent, PostChangeLink } from './HomeWallStyled';

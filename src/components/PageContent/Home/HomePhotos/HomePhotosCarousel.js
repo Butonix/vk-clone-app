@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
-// Actions
-import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
-import HideAlbumCarousel from './../../../../actions/HideAlbumCarousel';
-
-//Icons
-import { ic_close } from 'react-icons-kit/md/ic_close';
-import { ic_navigate_before } from 'react-icons-kit/md/ic_navigate_before';
-import { ic_navigate_next } from 'react-icons-kit/md/ic_navigate_next';
-
 // React Components
+
 import RenderIcon from './.././../../RenderIcon';
 import PhotoCarouselInfo from './PhotoCarouselInfo';
 
 // Styled Components
+
 import {
 	CarouselContainer,
 	CarouselContent,
@@ -27,6 +20,17 @@ import {
 	BottomPanelLinks,
 	PanelLink,
 } from './HomePhotosStyled';
+
+// Actions
+
+import fetchPhotos from './../../../../actions/Photos/FetchPhotos';
+import HideAlbumCarousel from './../../../../actions/HideAlbumCarousel';
+
+// Icons
+
+import { ic_close } from 'react-icons-kit/md/ic_close';
+import { ic_navigate_before } from 'react-icons-kit/md/ic_navigate_before';
+import { ic_navigate_next } from 'react-icons-kit/md/ic_navigate_next';
 
 const closeStyles = {
 	color: '#fff',
@@ -59,14 +63,6 @@ const previousArrowStyles = {
 	height: '50px',
 };
 
-{
-	/* 
-	TODO:
-	1. Пофиксить выделение ссылок при перелистывании фотографий
-	2. Сделать outSideClick
-	
-*/
-}
 class HomePhotosCarousel extends Component {
 	constructor(props) {
 		super(props);

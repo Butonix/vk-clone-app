@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { HeadH3, Text } from './../../UI/Typography';
+
+import data from './data';
 import {
 	LineChart,
 	Line,
@@ -9,18 +10,16 @@ import {
 	Tooltip,
 } from 'recharts';
 
+// React Components
+
+import PagePagination from './../../PagePagination/PagePagination';
+import { HeadH3, Text } from './../../UI/Typography';
+
 // Styled Components
-import {
-	StatictsContainer,
-	StatictsTop,
-	ChartContainer,
-} from './StatisticsStyled';
+
+import { StatictsContainer, ChartContainer } from './StatisticsStyled';
 
 import { PageHeaderBlock } from './../../../AppStyled';
-
-// React Components
-import PagePagination from './../../PagePagination/PagePagination';
-import data from './data';
 
 const toRoutArray = ['Ivan Zvonkov', 'Statistics'];
 

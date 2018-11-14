@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
+// React Components
+
+import AddWall from './../../AddWall/AddWall';
+import Post from './Post/Post';
+import ContentLoad from './../../ContentLoad/ContentLoad';
+
 // Styled  Components
 
 import { NewsLent } from './NewsStyled';
@@ -8,12 +14,6 @@ import { NewsLent } from './NewsStyled';
 // Actions
 
 import fetchNews from './../../../actions/News/FetchNews';
-
-// React Components
-
-import AddWall from './../../AddWall/AddWall';
-import Post from './Post/Post';
-import ContentLoad from './../../ContentLoad/ContentLoad';
 
 class NewsFeed extends Component {
 	componentDidMount() {

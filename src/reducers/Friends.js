@@ -3,6 +3,9 @@ import {
 	REQUESTED_FRIENDS_FAILED,
 	REQUESTED_FRIENDS_SUCCEEDED,
 	SEARCH_FRIENDS,
+	FILTER_FRIENDS_MALE,
+	FILTER_FRIENDS_FEMALE,
+	FILTER_FRIENDS_ANY,
 } from './../constants/ActionTypes';
 
 const initialState = {
@@ -10,6 +13,24 @@ const initialState = {
 };
 
 export default function Friends(state = initialState, action) {
+	if (action.type === FILTER_FRIENDS_MALE) {
+		return {
+			...state,
+			filterFriends: action.data,
+		};
+	}
+	if (action.type === FILTER_FRIENDS_ANY) {
+		return {
+			...state,
+			filterFriends: action.data,
+		};
+	}
+	if (action.type === FILTER_FRIENDS_FEMALE) {
+		return {
+			...state,
+			filterFriends: action.data,
+		};
+	}
 	if (action.type === SEARCH_FRIENDS) {
 		return {
 			...state,

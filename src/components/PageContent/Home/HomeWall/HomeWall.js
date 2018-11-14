@@ -1,10 +1,11 @@
-import React, { Component, PureComponent, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import { connect } from 'react-redux';
 
-// Actions
+// React compoents
 
-import DeleteWallPost from './../../../../actions/DeleteWallPost';
-import SearchWallPost from './../../../../actions/SearhWall';
+import SearchNotFound from './../../../SearchNotFound/SearchNotFound';
+import PostChangeTemplate from './PostChange';
+import RenderIcon from './.././../../RenderIcon';
 
 // Styled Components
 
@@ -25,6 +26,11 @@ import {
 	PositionSearch,
 } from './HomeWallStyled';
 
+// Actions
+
+import DeleteWallPost from './../../../../actions/DeleteWallPost';
+import SearchWallPost from './../../../../actions/SearhWall';
+
 // Icons
 
 import { withBaseIcon } from 'react-icons-kit';
@@ -33,12 +39,6 @@ import { comment } from 'react-icons-kit/fa/comment';
 import { share } from 'react-icons-kit/fa/share';
 import { search } from 'react-icons-kit/fa/search';
 import { ic_close } from 'react-icons-kit/md/ic_close';
-
-// React compoents
-
-import SearchNotFound from './../../../SearchNotFound/SearchNotFound';
-import PostChangeTemplate from './PostChange';
-import RenderIcon from './.././../../RenderIcon';
 
 const SideIconContainer = withBaseIcon({
 	size: 18,
@@ -88,7 +88,7 @@ export class HomeWall extends PureComponent {
 	handleChange(e) {
 		const rusRegExp = /[а-яА-ЯёЁ]/g;
 		let inputValue = e.target.value;
-		if (inputValue.search(rusRegExp) != -1) {
+		if (inputValue.search(rusRegExp) !== -1) {
 			this.searhInput.value = inputValue.replace(rusRegExp, '');
 		}
 		this.props.searchPost(e.target.value);

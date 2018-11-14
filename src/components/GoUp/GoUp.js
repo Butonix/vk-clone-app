@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 
-// Styled Components
-
-import { GoUpText, GoUpContainer } from './GoUpStyled';
-
 // React Components
 
 import RenderIcon from './../RenderIcon';
+
+// Styled Components
+
+import { GoUpText, GoUpContainer } from './GoUpStyled';
 
 //  Icons
 

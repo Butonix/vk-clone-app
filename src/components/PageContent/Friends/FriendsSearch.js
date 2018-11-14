@@ -1,10 +1,9 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
-// Icons
+// React Components
 
-import { search } from 'react-icons-kit/fa/search';
-import { ic_keyboard_arrow_down } from 'react-icons-kit/md/ic_keyboard_arrow_down';
+import RenderIcon from './../../RenderIcon';
 
 // Styled Components
 
@@ -26,14 +25,23 @@ import {
 } from './FriendsStyled';
 import Link from './../../UI/Link';
 
+// Icons
+
+import { search } from 'react-icons-kit/fa/search';
+import { ic_keyboard_arrow_down } from 'react-icons-kit/md/ic_keyboard_arrow_down';
+
 //  Actions
 
 import searchFriends from './../../../actions/Friends/SearchFriends';
 import fetchFriends from './../../../actions/Friends/FetchFriends';
+import filterFriendsFemale from './../../../actions/Friends/FilterFemale';
+import filterFriendsMale from './../../../actions/Friends/FilterMale';
+import filterFriendsAny from './../../../actions/Friends/FilterAny';
 
-// React Components
+// Functions
 
-import RenderIcon from './../../RenderIcon';
+import filterSexFemale from './filterSexFemale';
+import filterSexMale from './filterSexMale';
 
 const searchStyles = {
 	color: '#466a94',
@@ -70,28 +78,44 @@ class FriendsSearch extends PureComponent {
 		}
 	}
 	handleChange(e) {
-		if (e.target.name === 'search-friends') {
-			const rusRegExp = /[а-яА-ЯёЁ]/g;
-			let inputValue = e.target.value;
-			if (inputValue.search(rusRegExp) != -1) {
-				this.searchField.value = inputValue.replace(rusRegExp, '');
-			}
+		const rusRegExp = /[а-яА-ЯёЁ]/g;
+		let inputValue = e.target.value;
+		if (inputValue.search(rusRegExp) !== -1) {
+			this.searchField.value = inputValue.replace(rusRegExp, '');
+		} else {
 			this.props.searchFriends(e.target.value.toLowerCase().trim());
 		}
-		if (e.target.name === 'age-from') {
-			console.log(e.target.value);
+	}
+	filteredFriends(e) {
+		this.setState({
+			[e.target.name]: e.target.checked,
+		});
+		if (e.target.name === 'male') {
+			const friendsMale = filterSexMale(this.props.friends);
+			this.props.filterMale(friendsMale);
+			this.setState({
+				female: false,
+				male: true,
+				any: false,
+			});
 		}
-		if (e.target.name === 'age-to') {
-			console.log(e.target.value);
+		if (e.target.name === 'any') {
+			const friendsAny = this.props.friends;
+			this.props.filterAny(friendsAny);
+			this.setState({
+				female: false,
+				male: false,
+				any: true,
+			});
 		}
-		if (e.target.name === 'choice-female') {
-			console.log(e.target.checked);
-		}
-		if (e.target.name === 'choice-male') {
-			console.log(e.target.checked);
-		}
-		if (e.target.name === 'choice-any') {
-			console.log(e.target.checked);
+		if (e.target.name === 'female') {
+			const friendsFemale = filterSexFemale(this.props.friends);
+			this.props.filterFemale(friendsFemale);
+			this.setState({
+				female: true,
+				male: false,
+				any: false,
+			});
 		}
 	}
 	componentWillMount() {
@@ -170,29 +194,31 @@ class FriendsSearch extends PureComponent {
 							})}
 						</ChoiceAgeTo>
 					</ChoiceAge>
-					<ChoiceSex>
+					<ChoiceSex ref={node => (this.choiceSex = node)}>
 						<ChoiceSexLabel>
 							<ChoiceSexRadio
-								name="choice-female"
+								name="female"
 								type="checkbox"
-								onChange={this.handleChange.bind(this)}
+								onChange={this.filteredFriends.bind(this)}
+								checked={this.state.female}
 							/>
 							<ChoiceSexText>Female</ChoiceSexText>
 						</ChoiceSexLabel>
 						<ChoiceSexLabel>
 							<ChoiceSexRadio
-								name="choice-male"
+								name="male"
 								type="checkbox"
-								onChange={this.handleChange.bind(this)}
+								onChange={this.filteredFriends.bind(this)}
+								checked={this.state.male}
 							/>
 							<ChoiceSexText>Male</ChoiceSexText>
 						</ChoiceSexLabel>
 						<ChoiceSexLabel>
 							<ChoiceSexRadio
-								name="choice-any"
+								name="any"
 								type="checkbox"
-								onChange={this.handleChange.bind(this)}
-								checked
+								onClick={this.filteredFriends.bind(this)}
+								checked={this.state.any}
 							/>
 							<ChoiceSexText>Any</ChoiceSexText>
 						</ChoiceSexLabel>
@@ -213,6 +239,15 @@ const mapDispatchToProps = dispatch => ({
 	},
 	dataFriends: () => {
 		dispatch(fetchFriends());
+	},
+	filterMale: friends => {
+		dispatch(filterFriendsMale(friends));
+	},
+	filterFemale: friends => {
+		dispatch(filterFriendsFemale(friends));
+	},
+	filterAny: friends => {
+		dispatch(filterFriendsAny(friends));
 	},
 });
 

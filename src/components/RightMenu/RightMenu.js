@@ -16,11 +16,11 @@ export default class RightMenu extends Component {
 		return (
 			<RightMenuContainer>
 				<RightMenuList>
-					<Link to="/news/news-feed">
+					<Link to="/Vk-clone/news/news-feed">
 						<RightMenuListItem active={true}>News</RightMenuListItem>
 					</Link>
 					<RightMenuNestedList show={true}>
-						<Link to="/news/news-photo">
+						<Link to="/Vk-clone/news/news-photo">
 							<RightMenuListItem>Photos</RightMenuListItem>
 						</Link>
 						<RightMenuListItem>Videos</RightMenuListItem>

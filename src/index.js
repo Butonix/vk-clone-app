@@ -7,7 +7,7 @@ import registerServiceWorker from './registerServiceWorker';
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension';
 import createSagaMiddleware from 'redux-saga';
-import { takeEvery, all } from 'redux-saga/effects';
+import { all } from 'redux-saga/effects';
 import logger from 'redux-logger';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
@@ -26,6 +26,8 @@ import watchFetchPhotos from './sagas/fetchPhotos';
 import watchFetchNews from './sagas/fetchNews';
 
 import { registerObserver } from 'react-perf-devtool';
+
+import '@babel/polyfill';
 
 const sagaMiddleWare = createSagaMiddleware();
 

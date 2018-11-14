@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 
+// React Compoenents
+
+import GroupItem from './GroupItem';
+
 // Styled Compoenents
 
-import { GrayLink, BlockTitle } from './../HomeStyled';
+import { BlockTitle } from './../HomeStyled';
 import {
 	HomeGroupsContainer,
 	GroupsTitle,
 	GroupsNumber,
 } from './HomeGroupsStyled';
-
-// React Compoenents
-
-import GroupItem from './GroupItem';
 
 export default class HomeGroups extends Component {
 	render() {
@@ -22,10 +22,10 @@ export default class HomeGroups extends Component {
 						Noteworthy pages <GroupsNumber>31</GroupsNumber>
 					</GroupsTitle>
 				</BlockTitle>
-				<GroupItem name="Лентач" description="Пропaганда здравого смысла" />
-				<GroupItem name="Стартапы и бизнес" description="Делай дело." />
-				<GroupItem name="Медуза" description="Mass media" />
-				<GroupItem name="Лентач" description="Пропaганда здравого смысла" />
+				<GroupItem name="Group Name" description="description" />
+				<GroupItem name="Group Name" description="description" />
+				<GroupItem name="Group Name" description="description" />
+				<GroupItem name="Group Name" description="description" />
 			</HomeGroupsContainer>
 		);
 	}
