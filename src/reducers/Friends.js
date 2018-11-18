@@ -6,6 +6,8 @@ import {
 	FILTER_FRIENDS_MALE,
 	FILTER_FRIENDS_FEMALE,
 	FILTER_FRIENDS_ANY,
+	FILTER_FRIENDS_AGE_FROM,
+	FILTER_FRIENDS_AGE_TO
 } from './../constants/ActionTypes';
 
 const initialState = {
@@ -13,6 +15,13 @@ const initialState = {
 };
 
 export default function Friends(state = initialState, action) {
+	if (action.type === FILTER_FRIENDS_AGE_FROM) {
+		return {
+			...state,
+			filterFriends: action.data
+			
+		}
+	}
 	if (action.type === FILTER_FRIENDS_MALE) {
 		return {
 			...state,

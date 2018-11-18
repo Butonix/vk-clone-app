@@ -37,11 +37,15 @@ import fetchFriends from './../../../actions/Friends/FetchFriends';
 import filterFriendsFemale from './../../../actions/Friends/FilterFemale';
 import filterFriendsMale from './../../../actions/Friends/FilterMale';
 import filterFriendsAny from './../../../actions/Friends/FilterAny';
+import filterFriendsAgeFrom from './../../../actions/Friends/FilterAgeFrom';
+import filterFriendsAgeTo from './../../../actions/Friends/filterAgeTo';
 
 // Functions
 
 import filterSexFemale from './filterSexFemale';
 import filterSexMale from './filterSexMale';
+import filterAgeFrom from './filterAgeFrom';
+import filterAgeTo from './filterAgeTo';
 
 const searchStyles = {
 	color: '#466a94',
@@ -87,35 +91,47 @@ class FriendsSearch extends PureComponent {
 		}
 	}
 	filteredFriends(e) {
-		this.setState({
-			[e.target.name]: e.target.checked,
-		});
+		const friendsAny = this.props.friends;
 		if (e.target.name === 'male') {
-			const friendsMale = filterSexMale(this.props.friends);
-			this.props.filterMale(friendsMale);
+			if (e.target.checked) {
+				const friendsMale = filterSexMale(this.props.friends);
+				this.props.filterMale(friendsMale);
+			} else {
+				this.props.filterAny(friendsAny);
+			}
 			this.setState({
 				female: false,
-				male: true,
+				male: e.target.checked ? true : false,
 				any: false,
 			});
 		}
 		if (e.target.name === 'any') {
-			const friendsAny = this.props.friends;
 			this.props.filterAny(friendsAny);
 			this.setState({
 				female: false,
 				male: false,
-				any: true,
+				any: e.target.checked ? true : false,
 			});
 		}
 		if (e.target.name === 'female') {
-			const friendsFemale = filterSexFemale(this.props.friends);
-			this.props.filterFemale(friendsFemale);
+			if (e.target.checked) {
+				const friendsFemale = filterSexFemale(this.props.friends);
+				this.props.filterFemale(friendsFemale);
+			} else {
+				this.props.filterAny(friendsAny);
+			}
 			this.setState({
-				female: true,
+				female: e.target.checked ? true : false,
 				male: false,
 				any: false,
 			});
+		}
+		if (e.target.name === 'age-from') {
+			let filterAgesFrom = filterAgeFrom(this.props.friends, e.target.value);
+			this.props.filterFrom(filterAgesFrom);
+		}
+		if (e.target.name === 'ange-to') {
+			let filterAgesTo = filterAgeTo(this.props.friends, e.target.value)
 		}
 	}
 	componentWillMount() {
@@ -174,7 +190,7 @@ class FriendsSearch extends PureComponent {
 					<ChoiceAge>
 						<ChoiceAgeFrom
 							name="age-from"
-							onChange={this.handleChange.bind(this)}
+							onChange={this.filteredFriends.bind(this)}
 						>
 							{ageNumbers.map((item, index) => {
 								return (
@@ -184,7 +200,7 @@ class FriendsSearch extends PureComponent {
 								);
 							})}
 						</ChoiceAgeFrom>
-						<ChoiceAgeTo name="age-to" onChange={this.handleChange.bind(this)}>
+						<ChoiceAgeTo name="age-to" onChange={this.filteredFriends.bind(this)}>
 							{ageNumbers.map((item, index) => {
 								return (
 									<ChoiceAgeOption key={index} value={item}>
@@ -217,7 +233,7 @@ class FriendsSearch extends PureComponent {
 							<ChoiceSexRadio
 								name="any"
 								type="checkbox"
-								onClick={this.filteredFriends.bind(this)}
+								onChange={this.filteredFriends.bind(this)}
 								checked={this.state.any}
 							/>
 							<ChoiceSexText>Any</ChoiceSexText>
@@ -231,6 +247,7 @@ class FriendsSearch extends PureComponent {
 
 const mapStateToProps = state => ({
 	friends: state.Friends.data,
+	flterFrinds: state.Friends
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -249,6 +266,12 @@ const mapDispatchToProps = dispatch => ({
 	filterAny: friends => {
 		dispatch(filterFriendsAny(friends));
 	},
+	filterFrom: friends => {
+		dispatch(filterFriendsAgeFrom(friends));
+	},
+	filterTo: friends => {
+		dispatch(filterFriendsAgeTo(friends))
+	}
 });
 
 export default connect(
