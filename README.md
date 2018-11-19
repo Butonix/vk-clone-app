@@ -31,7 +31,7 @@
 * [React-Perf-Devtool [3.1.8]](https://github.com/nitin42/react-perf-devtool)
 * [React-Icons-Kit [1.1.7]](https://github.com/wmira/react-icons-kit)
 * [Redux [4.0.1]](https://github.com/reduxjs/redux) ❤️
-* [Redux-logger [3.0.6]](https://github.com/LogRocket/redux-logger)
+* [Redux-Logger [3.0.6]](https://github.com/LogRocket/redux-logger)
 * [React-Redux [5.1.0]](https://github.com/reduxjs/react-redux)
 * [Redux-Devtools-Extension [2.13.5]](https://github.com/zalmoxisus/redux-devtools-extension)
 * [Redux-Saga [0.16.0]](https://github.com/redux-saga/redux-saga)
