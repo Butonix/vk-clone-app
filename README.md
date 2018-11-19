@@ -1,7 +1,7 @@
 ## Клон социальной сети Вконтакте на React.js
 
 ![](https://github.com/Wremeker/vk-clone-app/blob/master/images/image.png)
-![](https://github.com/Wremeker/vk-clone-app/blob/master/images/redux-logger.png)
+
 
 
 [Демо](http://Wremeker.github.io/Vk-clone)
@@ -51,3 +51,5 @@
 * [Api Друзья](https://randomuser.me/)
 * [Api Новости](https://api.unsplash.com)
 * [Api Фотографии](https://newsapi.org)
+
+![](https://github.com/Wremeker/vk-clone-app/blob/master/images/redux-logger.png)
