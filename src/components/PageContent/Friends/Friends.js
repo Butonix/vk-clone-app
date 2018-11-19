@@ -36,15 +36,12 @@ class Friends extends PureComponent {
 					<Followers />
 					<SwitchFriends />
 					<FriendsSearch />
-					{this.props.friends ? (
+					{this.props.friends  ? (
 						!this.props.friends.length ? (
 							<SearchNotFound searchText={this.props.searchText} />
-						) : (
-							''
-						)
-					) : (
-						''
-					)}
+						) : ('') ) : ('')
+					}
+					
 					{this.props.friends
 						? this.props.filterFriends
 							? this.props.filterFriends.map((item, index) => {

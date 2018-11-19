@@ -247,7 +247,7 @@ class FriendsSearch extends PureComponent {
 
 const mapStateToProps = state => ({
 	friends: state.Friends.data,
-	flterFrinds: state.Friends
+	flterFrinds: state.Friends.filterFriends
 });
 
 const mapDispatchToProps = dispatch => ({

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const FriendsContainer = styled.div`
 	width: 65%;
+	min-height: 750px;
 `;
 
 export const FollowersContainer = styled.div`
@@ -150,6 +151,7 @@ export const ParametersSearchContainer = styled.div`
 	display: ${props => (props.show ? 'block' : 'none')};
 	width: 200px;
 	text-align: left;
+	z-index: 2;
 `;
 
 export const SearchLabel = styled.div`
