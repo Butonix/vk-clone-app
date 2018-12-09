@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 // Styled Components
 
-import { ListContainer, PageMenuContainer, List } from './PageMenuStyled';
+import { ListContainer, PageMenuContainer, List, PageMenuIcon } from './PageMenuStyled';
 
 export default class PageMenu extends Component {
 	render() {

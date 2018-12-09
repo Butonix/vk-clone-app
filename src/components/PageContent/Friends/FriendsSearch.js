@@ -39,6 +39,7 @@ import filterFriendsMale from './../../../actions/Friends/FilterMale';
 import filterFriendsAny from './../../../actions/Friends/FilterAny';
 import filterFriendsAgeFrom from './../../../actions/Friends/FilterAgeFrom';
 import filterFriendsAgeTo from './../../../actions/Friends/filterAgeTo';
+import filterAgeNumbes from './../../../actions/Friends/filterAgeNumbers';
 
 // Functions
 
@@ -46,6 +47,8 @@ import filterSexFemale from './filterSexFemale';
 import filterSexMale from './filterSexMale';
 import filterAgeFrom from './filterAgeFrom';
 import filterAgeTo from './filterAgeTo';
+import generateFilterAgeNumbers from './generateFilterAgeNumbers';
+
 
 const searchStyles = {
 	color: '#466a94',
@@ -64,12 +67,22 @@ class FriendsSearch extends PureComponent {
 		super(props);
 		this.state = {
 			parametersShow: false,
+			filterAgeFrom: 14,
+			filterAgeTo: 80,
+			female: false,
+			male: false,
+			any: false
 		};
 	}
 	componentDidMount() {
 		this.props.dataFriends();
+		this.props.filterAgeNumbers(
+			generateFilterAgeNumbers(
+				this.state.filterAgeFrom,
+				this.state.filterAgeTo
+			)
+		)
 	}
-
 	handleCLick(e) {
 		if (!this.state.parametersShow) {
 			this.setState({
@@ -90,49 +103,89 @@ class FriendsSearch extends PureComponent {
 			this.props.searchFriends(e.target.value.toLowerCase().trim());
 		}
 	}
-	filteredFriends(e) {
-		const friendsAny = this.props.friends;
-		if (e.target.name === 'male') {
-			if (e.target.checked) {
-				const friendsMale = filterSexMale(this.props.friends);
+	filterAgeFriendsAll = (friends) => {
+		const friendsAgeTo = filterAgeTo(friends, this.state.filterAgeTo);
+		const friendsAgeFrom = filterAgeFrom(friends, this.state.filterAgeFrom);
+		this.props.filterTo(friendsAgeTo);
+		this.props.filterFrom(friendsAgeFrom);
+	}
+	filterAgeFriends = (friends, isAgeToCheck, isAgeFromCheck, value) => {
+		let filterAge = isAgeToCheck ? filterAgeTo(friends, value) : filterAgeFrom(friends, value);
+		if (isAgeToCheck) {
+			this.props.filterTo(filterAge);
+		} else if (isAgeFromCheck) {
+			this.props.filterFrom(filterAge);
+		}
+		this.setState(() => {
+			if (isAgeToCheck) {
+				return {
+					filterAgeTo: value
+				}
+			} else if (isAgeFromCheck) {
+				return {
+					filterAgeFrom: value
+				}
+			}
+		}, () => {
+			this.props.filterAgeNumbers(
+				generateFilterAgeNumbers(
+					this.state.filterAgeFrom,
+					this.state.filterAgeTo
+				)
+			);
+		});
+	}
+
+	filterAgeFriendsSex = (targetName, targetChecked, friends) => {
+		if (targetName === 'male') {
+			if (targetChecked) {
+				const friendsMale = filterSexMale(friends);
 				this.props.filterMale(friendsMale);
 			} else {
-				this.props.filterAny(friendsAny);
+				this.props.filterAny(friends);
 			}
 			this.setState({
 				female: false,
-				male: e.target.checked ? true : false,
+				male: targetChecked ? true : false,
 				any: false,
 			});
 		}
-		if (e.target.name === 'any') {
-			this.props.filterAny(friendsAny);
-			this.setState({
-				female: false,
-				male: false,
-				any: e.target.checked ? true : false,
-			});
-		}
-		if (e.target.name === 'female') {
-			if (e.target.checked) {
-				const friendsFemale = filterSexFemale(this.props.friends);
+		if (targetName === 'female') {
+			if (targetChecked) {
+				const friendsFemale = filterSexFemale(friends);
 				this.props.filterFemale(friendsFemale);
 			} else {
-				this.props.filterAny(friendsAny);
+				this.props.filterAny(friends);
 			}
 			this.setState({
-				female: e.target.checked ? true : false,
+				female: targetChecked ? true : false,
 				male: false,
 				any: false,
 			});
 		}
+		if (targetName === 'any') {
+			if (targetChecked) {
+				this.props.filterAny(friends);
+				this.filterAgeFriendsAll(friends);
+				this.setState({
+					female: false,
+					male: false,
+					any: targetChecked ? true : false,
+				});
+			}
+		}
+		return;
+	}
+	filteredFriends(e) {
+		const { name, checked, value } = e.target;
+		const friends = this.props.filterFriends || this.props.friends;
 		if (e.target.name === 'age-from') {
-			let filterAgesFrom = filterAgeFrom(this.props.friends, e.target.value);
-			this.props.filterFrom(filterAgesFrom);
+			this.filterAgeFriends(friends, false, true, value);
 		}
-		if (e.target.name === 'ange-to') {
-			let filterAgesTo = filterAgeTo(this.props.friends, e.target.value)
+		if (e.target.name === 'age-to') {
+			this.filterAgeFriends(friends, true, false, value);
 		}
+		this.filterAgeFriendsSex(name, checked, this.props.friends);
 	}
 	componentWillMount() {
 		document.addEventListener('mousedown', this.outSideClick, false);
@@ -141,7 +194,7 @@ class FriendsSearch extends PureComponent {
 		document.removeEventListener('mousedown', this.outSideClick, false);
 	}
 
-	outSideClick = e => {
+	outSideClick = (e) => {
 		if (!this.tooltip.contains(e.target)) {
 			if (this.state.parametersShow) {
 				this.setState({
@@ -153,8 +206,7 @@ class FriendsSearch extends PureComponent {
 	};
 
 	render() {
-		let ageNumbers = [];
-		for (let i = 14; i <= 80; i++) ageNumbers.push(i);
+		const filterAgeNumbers = this.props.filterAgesNumbers || [];
 		return (
 			<FriendsSearchContainer>
 				<RenderIcon icon={search} size={18} style={searchStyles} />
@@ -179,11 +231,11 @@ class FriendsSearch extends PureComponent {
 					<ChoiceCity placeholder="Choose City">
 						{this.props.friends
 							? this.props.friends.map((item, index) => {
-									const city =
-										item.location.city.charAt(0).toUpperCase() +
-										item.location.city.slice(1);
-									return <ChoiceItem key={index}>{city}</ChoiceItem>;
-							  })
+								const city =
+									item.location.city.charAt(0).toUpperCase() +
+									item.location.city.slice(1);
+								return <ChoiceItem key={index}>{city}</ChoiceItem>;
+							})
 							: ''}
 					</ChoiceCity>
 					<SearchLabel>Age</SearchLabel>
@@ -191,8 +243,9 @@ class FriendsSearch extends PureComponent {
 						<ChoiceAgeFrom
 							name="age-from"
 							onChange={this.filteredFriends.bind(this)}
+							value={this.state.filterAgeFrom}
 						>
-							{ageNumbers.map((item, index) => {
+							{filterAgeNumbers.map((item, index) => {
 								return (
 									<ChoiceAgeOption key={index} value={item}>
 										from {item}
@@ -200,8 +253,12 @@ class FriendsSearch extends PureComponent {
 								);
 							})}
 						</ChoiceAgeFrom>
-						<ChoiceAgeTo name="age-to" onChange={this.filteredFriends.bind(this)}>
-							{ageNumbers.map((item, index) => {
+						<ChoiceAgeTo
+							name="age-to"
+							onChange={this.filteredFriends.bind(this)}
+							value={this.state.filterAgeTo}
+						>
+							{filterAgeNumbers.map((item, index) => {
 								return (
 									<ChoiceAgeOption key={index} value={item}>
 										to {item}
@@ -247,7 +304,8 @@ class FriendsSearch extends PureComponent {
 
 const mapStateToProps = state => ({
 	friends: state.Friends.data,
-	flterFrinds: state.Friends.filterFriends
+	filterFriends: state.Friends.filterFriends,
+	filterAgesNumbers: state.Friends.filterAgesNumbers
 });
 
 const mapDispatchToProps = dispatch => ({
@@ -256,6 +314,9 @@ const mapDispatchToProps = dispatch => ({
 	},
 	dataFriends: () => {
 		dispatch(fetchFriends());
+	},
+	filterAgeNumbers: numbers => {
+		dispatch(filterAgeNumbes(numbers))
 	},
 	filterMale: friends => {
 		dispatch(filterFriendsMale(friends));

@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Followers from './Followers';
 import SwitchFriends from './SwitchFriends';
 import FriendsSearch from './FriendsSearch';
-import FriendItem from './FriendItem';
+import Friend from './Friend';
 import ContentLoad from './../../ContentLoad/ContentLoad';
 import SearchNotFound from './../../SearchNotFound/SearchNotFound';
 
@@ -47,20 +47,22 @@ class Friends extends PureComponent {
 							? this.props.filterFriends.map((item, index) => {
 									let name = parseName(item.name.first, item.name.last);
 									return (
-										<FriendItem
+										<Friend
 											key={index}
 											name={name}
 											friendPhoto={item.picture.large}
+											age={item.dob.age}
 										/>
 									);
 							  })
 							: this.props.friends.map((item, index) => {
 									let name = parseName(item.name.first, item.name.last);
 									return (
-										<FriendItem
+										<Friend
 											key={index}
 											name={name}
 											friendPhoto={item.picture.large}
+											age={item.dob.age}
 										/>
 									);
 							  })

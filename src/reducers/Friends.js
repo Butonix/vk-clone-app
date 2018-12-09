@@ -7,7 +7,8 @@ import {
 	FILTER_FRIENDS_FEMALE,
 	FILTER_FRIENDS_ANY,
 	FILTER_FRIENDS_AGE_FROM,
-	FILTER_FRIENDS_AGE_TO
+	FILTER_FRIENDS_AGE_TO,
+	FILTER_FRIENDS_AGE_NUMBERS
 } from './../constants/ActionTypes';
 
 const initialState = {
@@ -19,7 +20,18 @@ export default function Friends(state = initialState, action) {
 		return {
 			...state,
 			filterFriends: action.data
-			
+		}
+	}
+	if (action.type === FILTER_FRIENDS_AGE_TO) {
+		return {
+			...state,
+			filterFriends: action.data
+		}
+	}
+	if (action.type === FILTER_FRIENDS_AGE_NUMBERS) {
+		return {
+			...state,
+			filterAgesNumbers: action.data,
 		}
 	}
 	if (action.type === FILTER_FRIENDS_MALE) {
@@ -48,6 +60,7 @@ export default function Friends(state = initialState, action) {
 	}
 	if (action.type === FETCH_FRIENDS) {
 		return {
+			...state,
 			data: '',
 			loading: true,
 			error: false,
@@ -55,6 +68,7 @@ export default function Friends(state = initialState, action) {
 	}
 	if (action.type === REQUESTED_FRIENDS_SUCCEEDED) {
 		return {
+			...state,
 			data: action.data,
 			loading: false,
 			error: false,
@@ -62,6 +76,7 @@ export default function Friends(state = initialState, action) {
 	}
 	if (action.type === REQUESTED_FRIENDS_FAILED) {
 		return {
+			...state,
 			data: '',
 			loading: false,
 			error: true,

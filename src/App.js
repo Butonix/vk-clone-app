@@ -29,7 +29,6 @@ class App extends Component {
 					<GoUp />
 					<Container>
 						<BrowserRouter>
-							{/* FIXME: */}
 							<div style={{ display: 'flex', width: '100%' }}>
 								<PageMenu />
 								<Route exact path="/Vk-clone" component={Home} />

@@ -28,7 +28,7 @@ export const List = styled.li`
 	a {
 		color: #285473;
 		text-decoration: none;
-		font-size: 14px;
+		font-size: 13px;
 		opacity: 0.8;
 		width: 100%;
 		line-height: 1.5;

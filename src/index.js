@@ -48,7 +48,7 @@ function* rootSaga() {
 }
 
 sagaMiddleWare.run(rootSaga);
-registerObserver();
+
 
 ReactDOM.render(
 	<BrowserRouter>
@@ -58,4 +58,5 @@ ReactDOM.render(
 	</BrowserRouter>,
 	document.getElementById('root')
 );
+registerObserver();
 registerServiceWorker();
